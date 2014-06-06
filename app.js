@@ -46,6 +46,9 @@ window.fbAsyncInit = function () {
 		xfbml: true,
 		version: 'v2.0'
 	});
+	$("#my-login-button").click(function(){
+                FB.login();
+            });
 
 	FB.getLoginStatus(function (response) {
 		if (response.status === 'connected') {
