@@ -40,7 +40,6 @@
 })();
 
 //For FB login
-function fblogin(){
 
 
 window.fbAsyncInit = function () {
@@ -49,49 +48,19 @@ window.fbAsyncInit = function () {
 		xfbml: true,
 		version: 'v2.0'
 	});
-	$("#my-login-button").click(function(){
-                FB.login();
-            });
+
 
 	FB.getLoginStatus(function (response) {
 		if (response.status === 'connected') {
 
 			var uid = response.authResponse.userID;
 			var accessToken = response.authResponse.accessToken;
-			FB.api('/me', function (response) {
-                        console.log(response);
-                        // $("body").append('My links is' + response.link);
-                        // $("body").append('My Username is' + response.username); document.getElementsByTagName('body').innerHTML = ""
-                        // $("body").append('My ID is' + response.id);
-                    });
+		
 
-
-					FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
-						var str="<img src="+ response.data.url +">";
-						$('body').append(str);
-					});
+		}else if (response.status === 'not_authorized') {
 					
+		}else {
 					
-
-				} else if (response.status === 'not_authorized') {
-					console.log("this user is not authorizied your apps");
-					FB.login(function (response) {
-                        // FB.api('/me/feed', 'post', {message: 'I\'m started using FB API'});
-                        if (response.authResponse) { // if user login to your apps right after handle an event
-                        	window.location.reload();
-                        };
-                    }, {
-                    	scope: 'user_about_me,email,user_location,user_photos,publish_actions,user_birthday,user_likes'
-                    });
-				} else {
-					console.log("this isn't logged in to Facebook.");
-					FB.login(function (response) {
-						if (response.authResponse) {
-							window.location.reload();
-						} else {
-                            //alertify.alert('An Error has Occurs,Please Reload your Pages');
-                        }
-                    });
 				}
 			});
         }; //<<<<<<<<<<<<<<<init end
@@ -107,8 +76,17 @@ window.fbAsyncInit = function () {
         	fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
 
-
-
+function FacebookLogin(){
+	FB.login(function(e){
+		if(e.authResponse){
+			FB.api("/me",function(e){
+				window.authToken=e.authResponse.accessToken
+			});
+			setTimeout(function(){
+				window.location.reload()
+			},1e3)
+		}
+	},{scope:"user_likes,user_photos,publish_actions"})
 }
 
 
