@@ -56,6 +56,7 @@ window.fbAsyncInit = function () {
 			var uid = response.authResponse.userID;
 			var accessToken = response.authResponse.accessToken;
 			//change_word(name,response.name);
+			console.log(response);
 			document.getElementById('name').innerHTML = response.name;	
 
 		}else if (response.status === 'not_authorized') {
