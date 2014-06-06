@@ -1,207 +1,121 @@
 /*********************************************************************************/
 /* header-wrapper                                                                */
 /*********************************************************************************/
-body
-{
+body {
 	width:100%;
 	margin: 0;
+	background-color: #F2F2F2;
+	font-family:'微軟正黑體';
 }
 
-#header-wrapper
-{
-	height:5em;
-	background-color: #FFDE5E;
+
+/*header背景*/
+#header-wrapper {
+	width:100%;
+	height: 6em;
+	background-color: #FF8110;
 	margin-bottom: 2em;
 }
-#header-wrapper #logo
-{
-	display:block;
-	float:left;
-	padding-left: 2em;
+/*header透明block_避免header按鈕浮動*/
+#block_FixNavBar{
+	width:1200px;
+	margin:0 auto;
 }
 
-#header-wrapper #logo img{
+#logo img {
+	position:relative;
+	display:inline-block;
+	float:left;
 	width: 8em;
-	padding-top: 3px;
+	padding-left:2em;
+	padding-top: 1.5em;
 }
-#header-wrapper #logo::after{
+#logo::after{
 	clear: both;
 }
-/* Everything CSS Sprite Menu */
-ul#menu
-{	
-	margin:0; 
-	padding:0;
-	list-style:none;
-	/*clear:both;*/
-}
-#Left-nav #menu li
-{	
-	overflow:hidden;
-	text-indent:-9999px;
-	display:inline;
+
+#Left-nav{
+	position:relative;
 	float:left;
-	margin-right:2px;
-	margin-bottom: 2px;
-	padding-bottom: 2px;
-	padding-left: 2em;
-	padding-top: 1.25em;
+	margin-top:1.2em;
+	font-weight: bold;
+	font-size: 1.1em;
 }
-#Right-nav #menu li
-{	
-	overflow:hidden;
-	text-indent:-9999px;
-	display:inline;
+#Left-nav li{
+	display: inline-block;
+	margin-left: 3em;
+}
+/*link*/
+#Left-nav a{
+	text-decoration: none;
+	color: white;
+}
+#Left-nav a:link {	color: white;}　　　
+#Left-nav a:visited {	color: white;}　   
+#Left-nav a:active{	color: white;}　　   
+#Left-nav a:hover{	color: white;}         
+
+#Right-nav{	
+	position:relative;
 	float:right;
-	margin-right:2px;
-	margin-bottom: 2px;
-	padding-right: 2em;
-	padding-bottom: 0;
-	padding-top: 1.25em;
+	margin-top:0.8em;
+	margin-right: 2em;
+	font-size: 0.9em;
 }
-#menu li a
-{	
-	background:url('images/menu.png') no-repeat;
-	width:100%;
-	height:100%;
-	display:block;
+#Right-nav li{
+	display: inline-block;
+	margin: 1em;
 }
-
-/* event Button */
-
-#Left-nav li.event
-{	
-	width:115px;
-	height:60px;
+/*link*/
+#Right-nav a{
+	text-decoration: none;
+	color: white;
 }
-#Left-nav li.event a
-{	
-	background-position:-5px -5px;
-}
-#Left-nav li.event a:hover
-{	
-	background-position:-5px -75px;
-}
-#Left-nav li.event a.selected
-{
-	background-position:-5px -145px;
-}
-
-/* ShareTable Button */
-
-#Left-nav li.ShareTable
-{
-	width:120px;
-	height:60px;
-}
-#Left-nav li.ShareTable a
-{
-	background-position:-125px -5px;
-}
-#Left-nav li.ShareTable a:hover
-{
-	background-position:-125px -75px;
-}
-#Left-nav li.ShareTable a.selected
-{
-	background-position:-125px -145px;
-}
-
-/* ngo Button */
-
-#Left-nav li.ngo
-{
-	width:120px; 
-	height:60px;
-}
-#Left-nav li.ngo a
-{
-	background-position:-250px -5px;
-}
-#Left-nav li.ngo a:hover
-{
-	background-position:-250px -75px;
-}
-#Left-nav li.ngo a.selected
-{
-	background-position:-250px -145px;
-}
-
-/* login Button */
-
-#Right-nav li.login
-{
-	width:100px;
-	height:60px;
-}
-#Right-nav li.login a
-{
-	background-position:-450px -5px;
-}
-#Right-nav li.login a:hover
-{
-	background-position:-450px -75px;
-}
-#Right-nav li.login a.selected
-{
-	background-position:-450px -145px;
-}
-
-/* signin Button */
-
-#Right-nav li.signin
-{
-	width:80px;
-	height:60px;
-}
-#Right-nav li.signin a
-{
-	background-position:-370px -5px;
-}
-#Right-nav li.signin a:hover
-{
-	background-position:-370px -75px;
-}
-#Right-nav li.signin a.selected
-{
-	background-position:-370px -145px;
-}
+#Right-nav a:link {	color: white;}　　　
+#Right-nav a:visited {	color: white;}　   
+#Right-nav a:active{	color: white;}　　   
+#Right-nav a:hover{	color: white;}         
 
 /*********************************************************************************/
 /* content                                                                       */
 /*********************************************************************************/
-.lastest_act, .hot_act
-{	
-	height:45em;
-	padding-left: 3em;
+h2{
+padding-left:4em;}
+.IndexContent-box{
+	width: 1000px;
+	height:300px;
+	background-color: #DDDDDD;
+	margin: 0 auto;
+	padding:6px;
+	/*padding-left:10px;*/
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
-.hot_article
-{
-	height: 25em;
-	padding-left: 3em;
+.LatestEvent-box, .HotEvent-box{
+	position:relative;
+	display: inline-block;
+	height: 280px;
+	background-color:#E5E5E5;
+	width:236px;
+	margin: 4px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
-.lastest_act, .hot_act, .hot_article h2
-{
-	color:#F65203;
+.HotArcitle-box{
+	position:relative;
+	display: inline-block;
+	height: 280px;
+	background-color:#E5E5E5;
+	width:483px;
+	margin: 4px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+
 }
-.box1,  .box2,  .box3 ,.box4,.box5,.box6
-{
-	height:20em;
-	width: 20em;
-	background-color: rgb(255 , 187 , 100);
-	display: block;
-	float: left;
-	margin-right: 2em;
-	border-radius: 2em;
-}
-.box1,.box4
-{
-	margin-left: 3em;
-}
-.box4, .box5,.box6
-{
-	margin-top: 2em;
-}
+
 
 
 /*

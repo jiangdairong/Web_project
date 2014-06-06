@@ -1,35 +1,32 @@
 <!DOCTYPE html>
-<html>
-
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" href="themes/default/default.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="themes/light/light.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="themes/dark/dark.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="themes/bar/bar.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="nivo-slider.css" type="text/css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="index.css" />
 	<title>小人物</title>
 </head>
-
-<body>
-	<!--nav bar-->
+	
+	<body>
+	<!--nav bar-->		
 	<div id="header-wrapper">
-		<div id="logo">
-			<a href="index.html"><img src="images/logo/logo3_red.png" alt="logo"></a>
-		</div>
-		<div id="Left-nav">
-			<ul id="menu">
-				<li class="event"><a href="#event">尋找志活</a></li>
-				<li class="ShareTable"><a href="#sharetable">分享感動</a></li>
-				<li class="ngo"><a href="#ngo">公益組織</a></li>
-			</ul>
-		</div>
-		<div id="Right-nav">
-			<ul id="menu">
-				<li class="login">登入</a></li>
-				<li class="signin"><a href="#">註冊</a></li>
-			</ul>
+		<div id="block_FixNavBar">
+				<div id="logo">
+					<a href="index.html"><img src="images/logo/logo.png" alt="logo"></a>
+				</div>
+				
+				<div id="Left-nav">
+					<ul>
+						<li class="event"><a href="#event">尋找志活</a></li>
+						<li class="ShareTable"><a href="#sharetable">分享感動</a></li>
+						<li class="ngo"><a href="#ngo">公益組織</a></li>
+					</ul>
+				</div>
+		
+				<div id="Right-nav">
+					<ul>
+						<li class="login"><a href="#">登入</a></li>
+						<li class="signin"><a href="#">註冊</a></li>
+					</ul>
+				</div>
 		</div>
 	</div>
 	<!--end of nav bar-->
@@ -38,66 +35,47 @@
 	<div class="container" id ="content"></div>
 	<!--indexView -->
 	 <script id="indexView" type="text/x-dot-template">
-		<div id="wrapper">
-			<div class="slider-wrapper theme-default">
-				<div id="slider" class="nivoSlider">
-					<img src="images/up.jpg" data-thumb="images/up.jpg" alt=""  />
-					<img src="images/walle.jpg" data-thumb="images/walle.jpg" alt=""/>
-
+		<!--end of nav bar-->
+		
+		<!--content-->
+		<div id="content-wrapper">
+		
+			<h2>最新志活</h2>
+			<div class="IndexContent-box">
+				<div class="LatestEvent-box">
+				</div>
+				<div class="LatestEvent-box">
+				</div>
+				<div class="LatestEvent-box">
+				</div>
+				<div class="LatestEvent-box">
 				</div>
 			</div>
-		</div>		
-		<div class="lastest_act">
-			<h2>最新志活</h2>
-			<div class="box1">
+			
+			<h2>熱門志活</h2>
+			<div class="IndexContent-box">
+				<div class="HotEvent-box">
+				</div>
+				<div class="HotEvent-box">
+				</div>
+				<div class="HotEvent-box">
+				</div>
+				<div class="HotEvent-box">
+				</div>
+			</div>
+					
+			<h2>熱門文章</h2>
+			<div class="IndexContent-box">
+				<div class="HotArcitle-box">
+				</div>
+				<div class="HotArcitle-box">
+				</div>
 			</div>
 			
-			<div class="box2">
-			</div>
-		
-			<div class="box3">
-			</div>
-		
-			<div class="box4">
-			</div>
-		
-			<div class="box5">
-			</div>
-
-			<div class="box6">
-			</div>
 		</div>
+		</script>
+		<!--end of content-->
 
-		<div class="hot_act">
-			<h2>熱門志活</h2>
-			<div class="box1">
-			</div>
-		
-			<div class="box2">
-			</div>
-		
-			<div class="box3">
-			</div>
-		
-			<div class="box4">
-			</div>
-		
-			<div class="box5">
-			</div>
-
-			<div class="box6">
-			</div>
-		</div>
-
-		<div class="hot_article">
-			<h2>熱門文章</h2>
-			<div class="box1">
-			</div>
-
-			<div class="box2">
-			</div>
-		</div>
-	</script>
 	<!--end of indexView-->
 	<!--event-->
 	<script id="eventView" type="text/x-dot-template">
