@@ -58,7 +58,8 @@ window.fbAsyncInit = function () {
 			//change_word(name,response.name);
 			console.log(response);
 			FB.api("/me",function(e){
-			document.getElementById('name').innerHTML =e.name ;	
+				console.log(e);
+			document.getElementById('name').innerHTML = e.name ;	
 		}
 
 		}else if (response.status === 'not_authorized') {
