@@ -40,6 +40,9 @@
 })();
 
 //For FB login
+function onClick(){
+
+	
 window.fbAsyncInit = function () {
 	FB.init({
 		appId: '299735220203958', 
@@ -104,6 +107,9 @@ window.fbAsyncInit = function () {
         	fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
 
+
+
+}
 
 
 
