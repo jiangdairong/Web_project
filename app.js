@@ -60,7 +60,7 @@ window.fbAsyncInit = function () {
 			FB.api("/me",function(e){
 				console.log(e);
 			document.getElementById('name').innerHTML = e.name ;	
-		}
+		});
 
 		}else if (response.status === 'not_authorized') {
 					
