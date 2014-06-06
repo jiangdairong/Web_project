@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="event.css" />
+	<script type='text/javascript' src="scripts/jquery-1.9.1.min.js"></script>
+	<script type='text/javascript'>
+	$(function(){
+		var w = $("#mwt_slider_content").width();
+		$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
+ 
+		$("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
+			if ($("#mwt_mwt_slider_scroll").css('right') == '-'+w+'px')
+			{
+				$("#mwt_mwt_slider_scroll").animate({ right:'0px' }, 600 ,'swing');
+			}
+		});
+ 
+ 
+		$("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
+			$("#mwt_mwt_slider_scroll").animate( { right:'-'+w+'px' }, 600 ,'swing');	
+		});	
+	});
+ 
+</script>
+	<title>小人物</title>
+</head>
+
+<body>
+<!--nav bar-->
+	<div id="header-wrapper">
+		<div id="logo">
+			<a href="index.html"><img src="images/logo/logo3_red.png" alt="logo"></a>
+		</div>
+		<div id="Left-nav">
+			<ul id="menu">
+				<li class="event"><a class="selected" href="event.html">尋找志活</a></li>
+				<li class="ShareTable"><a href="ShareTable.html">分享感動</a></li>
+				<li class="ngo"><a href="ngo.html">公益組織</a></li>
+			</ul>
+		</div>
+		<div id="Right-nav">
+			<ul id="menu">
+				<li class="login"><a href="#">登入</a></li>
+				<li class="signin"><a href="#">註冊</a></li>
+			</ul>
+		</div>
+	</div>
+<!--end of nav bar-->
+
+<!--content-->
+	<div id="mwt_mwt_slider_scroll">
+		 <div id="mwt_fb_tab">
+			<span>S</span>
+			<span>e</span>
+			<span>a</span>
+			<span>r</span>
+			<span>c</span>
+			<span>h</span>
+		</div>
+		<div id="mwt_slider_content">
+			<form class="search" action="" method="post">
+ 				<label for="search-box">Search:</label>
+  				<input id="search-box" type="text" name="search">
+			</form>
+			<h3>最新志工活動</h3>
+			<div class="event_time button">
+				<h3>志工活動舉辦時間</h3>
+				<ul>
+					<li>過去活動</li>
+					<li>未來2個月以上</li>
+					<li>未來1個月</li>
+					<li>未來2星期</li>
+					<li>未來1星期</li>		
+				</ul>
+			</div>	
+			<div "event_region">
+				<h3>地區</h3>
+				<ul>
+					<li><a href="map.html">地圖</a></li>
+				</ul>
+			</div>
+			<div "event_category">
+				<h3>活動類別</h3>
+				<ul>
+					<li>行政</li>
+					<li>藝文</li>
+					<li>環保</li>
+					<li>教育</li>
+					<li>照護</li>
+					<li>活動舉辦</li>
+					<li>營隊</li>
+					<li>其他</li>			
+				</ul>
+			</div>
+		</div>
+	</div>	
+
+	<section>
+		<div class="event_add">
+			<a href="#">辦志工活動</a>
+		</div>
+		
+		<div class="event_block">
+			<a href="EventDetail_1.html">
+			<div  class="event_pic">	
+				<img src="images/event/event_1.jpg">
+			</div>
+			<div class="event_info">	
+				<ul>
+					<li>敦安基金會看見太陽成長團體心衛志工</li>
+					<li>活動時間：2014/06/20</li>
+					<li>報名截止時間：2014/05/20</li>
+					<li>需要 /招募人數：缺3人/共5人</li>		
+				</ul>
+			</div>
+		</div>		
+		<div class="event_block">
+			<a href="EventDetail_2.html">
+			<div  class="event_pic">
+				<img src="images/event/event_2.jpg">
+			</div>
+			<div class="event_info">	
+				<ul>
+					<li>華山基金會綜合行政義工</li>
+					<li>活動時間：2014/04/03~2014/12/31</li>
+					<li>報名截止時間：2014/04/01</li>
+					<li>需要 /招募人數：缺5人/共10人</li>		
+				</ul>
+			</div>
+		</div>
+		
+		<div class="event_block">
+			<a href="EventDetail_3.html">
+			<div  class="event_pic">
+				<img src="images/event/event_3.jpg">
+			</div>
+			<div class="event_info">	
+				<ul>
+					<li>台灣青少年北京教育交流參訪團</li>
+					<li>活動時間：2014/07/15~2014/7/25</li>
+					<li>報名截止時間：2014/5/11</li>
+					<li>需要 /招募人數：缺10人/共10人</li>		
+				</ul>
+			</div>
+		</div>
+		
+		<div class="event_block">
+			<div  class="event_pic">
+				<img src="images/sister.jpg">
+			</div>
+			<div class="event_info">	
+				<ul>
+					<li>活動名稱</li>
+					<li>活動時間</li>
+					<li>報名截止時間</li>
+					<li>需要 /招募人數</li>		
+				</ul>
+			</div>
+		</div>
+		
+		<div class="event_block">
+			<div  class="event_pic">
+				<img src="images/sister.jpg">
+			</div>
+			<div class="event_info">	
+				<ul>
+					<li>活動名稱</li>
+					<li>活動時間</li>
+					<li>報名截止時間</li>
+					<li>需要 /招募人數</li>		
+				</ul>
+			</div>
+		</div>
+	</section>
+<!--end of content-->
+
+<!--footer-->
+
+	<footer>
+		<img src="images/logo/logo8_red_footer.png" alt="footer_logo">
+		<ul>
+			<li><a href="footer.html" title="">關於我們</a></li>
+			<li><a href="footer.html#QA" title="">常見問答</a></li>
+			<li><a href="footer.html#contact" title="">聯絡我們</a></li>
+		</ul>
+		<h6>Copyright &copy; 2014 Somebody - All Rights Reserved.</h6>
+	</footer>
+<!--end of footer-->
+</body>
+
+</html>
