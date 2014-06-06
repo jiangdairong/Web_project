@@ -171,9 +171,17 @@ ul#menu
 /*********************************************************************************/
 /* content                                                                       */
 /*********************************************************************************/
+body{
+	background-color:#F2F2F2;
+}
 .content{
 	padding-bottom: 8em;
+	width:800px;
+	margin:3em auto;
+	font-family:'微軟正黑體';
+	background-color:#E5E5E5;
 }
+
 .content .introduction, .content .QA, .content .contact{
 	padding-left: 2em;
 }
@@ -193,6 +201,7 @@ ul#menu
 	line-height: 3em;
 	padding-left: 1em;
 }
+
 .introduction .detail #title{
 	text-align: center;
 }
@@ -203,6 +212,7 @@ ul#menu
 .introduction .detail span{
 	font-size: 1.2em;
 }
+
 .QA .detail ul{
 	list-style-type: none;
 	line-height: 2em;
@@ -210,6 +220,7 @@ ul#menu
 .QA .detail ul li{
 	margin-top: 2em;
 }
+
 .contact .detail h5{
 	font-size: 1.1em;
 	float: right;
