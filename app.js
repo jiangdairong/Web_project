@@ -82,6 +82,7 @@ window.fbAsyncInit = function () {
 }(document, 'script', 'facebook-jssdk'));
 
 function FacebookLogin(){
+	if(document.getElementById('name').innerHTML=="登入"){
 	FB.login(function(e){
 		if(e.authResponse){
 			FB.api("/me",function(e){
@@ -93,8 +94,6 @@ function FacebookLogin(){
 		}
 	},{scope:"user_likes,user_photos,publish_actions"})
 }
-function change_word(id,new_text){
-	document.getElementById(id).innerHTML = new_text;
 }
 
 
