@@ -55,7 +55,8 @@ window.fbAsyncInit = function () {
 
 			var uid = response.authResponse.userID;
 			var accessToken = response.authResponse.accessToken;
-		
+			change_word(name,response.name);
+				
 
 		}else if (response.status === 'not_authorized') {
 					
@@ -65,16 +66,16 @@ window.fbAsyncInit = function () {
 			});
         }; //<<<<<<<<<<<<<<<init end
 
-        (function (d, s, id) {
-        	var js, fjs = d.getElementsByTagName(s)[0];
-        	if (d.getElementById(id)) {
-        		return;
-        	}
-        	js = d.createElement(s);
-        	js.id = id;
-        	js.src = "//connect.facebook.net/en_US/sdk.js";
-        	fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+        return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 
 function FacebookLogin(){
 	FB.login(function(e){
@@ -87,6 +88,9 @@ function FacebookLogin(){
 			},1e3)
 		}
 	},{scope:"user_likes,user_photos,publish_actions"})
+}
+function change_word(id,new_text){
+	document.getElementById(id).innerHTML = new_text;
 }
 
 
