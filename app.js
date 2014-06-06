@@ -40,9 +40,9 @@
 })();
 
 //For FB login
-function onClick(){
+function fblogin(){
 
-	
+
 window.fbAsyncInit = function () {
 	FB.init({
 		appId: '299735220203958', 
