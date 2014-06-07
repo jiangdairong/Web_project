@@ -1,108 +1,305 @@
 <!DOCTYPE html>
-<html>
-
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" href="themes/default/default.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="themes/light/light.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="themes/dark/dark.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="themes/bar/bar.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="nivo-slider.css" type="text/css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="index.css" />
 	<title>小人物</title>
 </head>
-
-<body>
-	<!--nav bar-->
+	
+	<body>
+	<!--nav bar-->		
 	<div id="header-wrapper">
-		<div id="logo">
-			<a href="index.html"><img src="images/logo/logo3_red.png" alt="logo"></a>
-		</div>
-		<div id="Left-nav">
-			<ul id="menu">
-				<li class="event"><a href="event.html">尋找志活</a></li>
-				<li class="ShareTable"><a href="ShareTable.html">分享感動</a></li>
-				<li class="ngo"><a href="ngo.html">公益組織</a></li>
-			</ul>
-		</div>
-		<div id="Right-nav">
-			<ul id="menu">
-				<li class="login"><a href="#">登入</a></li>
-				<li class="signin"><a href="#">註冊</a></li>
-			</ul>
+		<div id="block_FixNavBar">
+				<div id="logo">
+					<a href="index.html"><img src="images/logo/logo.png" alt="logo"></a>
+				</div>
+				
+				<div id="Left-nav">
+					<ul>
+						<li class="event"><a href="#event">尋找志活</a></li>
+						<li class="ShareTable"><a href="#sharetable">分享感動</a></li>
+						<li class="ngo"><a href="#ngo">公益組織</a></li>
+					</ul>
+				</div>
+		
+				<div id="Right-nav">
+					<ul>
+						<li class="login" onclick="FacebookLogin()"><p id="name">登入</p></li>
+					</ul>
+				</div>
 		</div>
 	</div>
 	<!--end of nav bar-->
 
-	<!--content-->
-	<div id="wrapper">
-		<div class="slider-wrapper theme-default">
-			<div id="slider" class="nivoSlider">
-				<img src="images/up.jpg" data-thumb="images/up.jpg" alt=""  />
-				<img src="images/walle.jpg" data-thumb="images/walle.jpg" alt=""/>
+	<!--content of index-->
+	<div class="container" id ="content"></div>
+	<!--indexView -->
+	 <script id="indexView" type="text/x-dot-template">
+		<!--end of nav bar-->
+		
+		<!--content-->
+		<div id="content-wrapper">
+		
+			<h2>最新志活</h2>
+			<div class="IndexContent-box">
+				<div class="LatestEvent-box">
+				</div>
+				<div class="LatestEvent-box">
+				</div>
+				<div class="LatestEvent-box">
+				</div>
+				<div class="LatestEvent-box">
+				</div>
+			</div>
+			
+			<h2>熱門志活</h2>
+			<div class="IndexContent-box">
+				<div class="HotEvent-box">
+				</div>
+				<div class="HotEvent-box">
+				</div>
+				<div class="HotEvent-box">
+				</div>
+				<div class="HotEvent-box">
+				</div>
+			</div>
+					
+			<h2>熱門文章</h2>
+			<div class="IndexContent-box">
+				<div class="HotArcitle-box">
+				</div>
+				<div class="HotArcitle-box">
+				</div>
+			</div>
+			
+		</div>
+		</script>
+		<!--end of content-->
 
+	<!--end of indexView-->
+	<!--event-->
+	<script id="eventView" type="text/x-dot-template">
+	<div id="mwt_mwt_slider_scroll">
+		 <div id="mwt_fb_tab">
+			<span>S</span>
+			<span>e</span>
+			<span>a</span>
+			<span>r</span>
+			<span>c</span>
+			<span>h</span>
+		</div>
+		<div id="mwt_slider_content">
+			<form class="search" action="" method="post">
+ 				<label for="search-box">Search:</label>
+  				<input id="search-box" type="text" name="search">
+			</form>
+			<h3>最新志工活動</h3>
+			<div class="event_time button">
+				<h3>志工活動舉辦時間</h3>
+				<ul>
+					<li>過去活動</li>
+					<li>未來2個月以上</li>
+					<li>未來1個月</li>
+					<li>未來2星期</li>
+					<li>未來1星期</li>		
+				</ul>
+			</div>	
+			<div "event_region">
+				<h3>地區</h3>
+				<ul>
+					<li><a href="map.html">地圖</a></li>
+				</ul>
+			</div>
+			<div "event_category">
+				<h3>活動類別</h3>
+				<ul>
+					<li>行政</li>
+					<li>藝文</li>
+					<li>環保</li>
+					<li>教育</li>
+					<li>照護</li>
+					<li>活動舉辦</li>
+					<li>營隊</li>
+					<li>其他</li>			
+				</ul>
 			</div>
 		</div>
-	</div>
-	<script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript" src="jquery.nivo.slider.js"></script>
-	<script type="text/javascript">
-	$(window).load(function() {
-		$('#slider').nivoSlider();
-	});
+	</div>	
+
+	<section>
+		<div class="event_add">
+			<a href="#">辦志工活動</a>
+		</div>
+		
+		<div class="event_block">
+			<a href="EventDetail_1.html">
+			<div  class="event_pic">	
+				<img src="images/event/event_1.jpg">
+			</div>
+			<div class="event_info">	
+				<ul>
+					<li>敦安基金會看見太陽成長團體心衛志工</li>
+					<li>活動時間：2014/06/20</li>
+					<li>報名截止時間：2014/05/20</li>
+					<li>需要 /招募人數：缺3人/共5人</li>		
+				</ul>
+			</div>
+		</div>		
+		<div class="event_block">
+			<a href="EventDetail_2.html">
+			<div  class="event_pic">
+				<img src="images/event/event_2.jpg">
+			</div>
+			<div class="event_info">	
+				<ul>
+					<li>華山基金會綜合行政義工</li>
+					<li>活動時間：2014/04/03~2014/12/31</li>
+					<li>報名截止時間：2014/04/01</li>
+					<li>需要 /招募人數：缺5人/共10人</li>		
+				</ul>
+			</div>
+		</div>
+		
+		<div class="event_block">
+			<a href="#">
+			<div  class="event_pic">
+				<img src="images/event/event_3.jpg">
+			</div>
+			<div class="event_info">	
+				<ul>
+					<li>台灣青少年北京教育交流參訪團</li>
+					<li>活動時間：2014/07/15~2014/7/25</li>
+					<li>報名截止時間：2014/5/11</li>
+					<li>需要 /招募人數：缺10人/共10人</li>		
+				</ul>
+			</div>
+		</div>
+		
+		<div class="event_block">
+			<div  class="event_pic">
+				<img src="images/sister.jpg">
+			</div>
+			<div class="event_info">	
+				<ul>
+					<li>活動名稱</li>
+					<li>活動時間</li>
+					<li>報名截止時間</li>
+					<li>需要 /招募人數</li>		
+				</ul>
+			</div>
+		</div>
+		
+		<div class="event_block">
+			<div  class="event_pic">
+				<img src="images/sister.jpg">
+			</div>
+			<div class="event_info">	
+				<ul>
+					<li>活動名稱</li>
+					<li>活動時間</li>
+					<li>報名截止時間</li>
+					<li>需要 /招募人數</li>		
+				</ul>
+			</div>
+		</div>
+	</section>
 	</script>
-	<div class="lastest_act">
-		<h2>最新志活</h2>
-		<div class="box1">
-		</div>
-		
-		<div class="box2">
-		</div>
-		
-		<div class="box3">
-		</div>
-		
-		<div class="box4">
-		</div>
-		
-		<div class="box5">
-		</div>
+	<!--end of content of event-->
 
-		<div class="box6">
-		</div>
+	<!--sharetable-->
+	<script id="shareTable" type="text/x-dot-template">
+	<div class="thoughts_title">
+		<h2>心得列表</h2>
+		<h3><a href="ShareForm.html">我要徵文</a></h3>
 	</div>
-
-	<div class="hot_act">
-		<h2>熱門志活</h2>
-		<div class="box1">
+	<div class="thoughts_table">
+		<div class="feedback">
+			<div class="photo1">
+				<a href="ShareDetail.html"><img class="pic1" src="https://github.com/shihsan/web/blob/gh-pages/images/thoughts_pic/pic1.JPG?raw=true" alt="志工活動照片"></a>	
+			</div>
+			<div class="article1">
+				心得文字1
+			</div>
 		</div>
-		
-		<div class="box2">
-		</div>
-		
-		<div class="box3">
-		</div>
-		
-		<div class="box4">
-		</div>
-		
-		<div class="box5">
-		</div>
-
-		<div class="box6">
-		</div>
+		<div class="feedback">
+			<div class="photo1">
+				
+			</div>
+			<div class="article1">
+				心得文字2
+			</div>	
+		</div>	
 	</div>
-
-	<div class="hot_article">
-		<h2>熱門文章</h2>
-		<div class="box1">
+	</script>
+	<!--end of content of sharetable-->
+	<!--NGO-->
+	<script id="ngoView" type="text/x-dot-template">
+	<section>
+		<div class="thoughts_title">
+			<h2>NGO列表</h2>
+			<form class="search" action="" method="post">
+				<label for="search-box">Search:</label>
+				<input id="search-box" type="text" name="search">
+			</form>
 		</div>
-
-		<div class="box2">
+		<div class="ngo_block">
+			<a href="NGODetail.html">
+				<div  class="ngo_pic">	
+					<img src="images/NGO/NGO_1.jpg">
+				</div>
+				<div class="ngo_info">	
+					<ul>
+						<li>敦安基金會</li>	
+					</ul>
+				</div>
+			</a>
+		</div>		
+		
+		<div class="ngo_block">
+			<div  class="ngo_pic">
+				<img src="images/NGO/NGO_2.jpg">
+			</div>
+			<div class="ngo_info">	
+				<ul>
+					<li>華山基金會</li>
+				</ul>
+			</div>
 		</div>
-	</div>
-	<!--end of content-->
-
+		
+		<div class="ngo_block">
+			<div  class="ngo_pic">
+				<img src="images/NGO/NGO_3.png">
+			</div>
+			<div class="ngo_info">	
+				<ul>
+					<li>中華基金會</li>		
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ngo_block">
+			<div  class="ngo_pic">
+				<img src="images/sister.jpg">
+			</div>
+			<div class="ngo_info">	
+				<ul>
+					<li>NGO名稱</li>		
+				</ul>
+			</div>
+		</div>
+		
+		<div class="ngo_block">
+			<div  class="ngo_pic">
+				<img src="images/sister.jpg">
+			</div>
+			<div class="ngo_info">	
+				<ul>
+					<li>NGO名稱</li>		
+				</ul>
+			</div>
+		</div>
+	</section>
+	</script>
+	<!---end of cintent of NGO-->
 	<!--footer-->
 	<footer>
 		<img src="images/logo/logo8_red_footer.png" alt="footer_logo">
@@ -114,6 +311,37 @@
 		<h6>Copyright &copy; 2014 Somebody - All Rights Reserved.</h6>
 	</footer>
 	<!--end of footer-->
-</body>
+	<script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="jquery.nivo.slider.js"></script>
+	<script src="https://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+	<script src="vendors/doT.min.js"></script>
+	<script src="app.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(window).load(function() {
+			$('#slider').nivoSlider();
+		});
+	</script>
+	<!--script of event-->
+	<script type='text/javascript'>
+	$(function(){
+		var w = $("#mwt_slider_content").width();
+		$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
+ 
+		$("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
+			if ($("#mwt_mwt_slider_scroll").css('right') == '-'+w+'px')
+			{
+				$("#mwt_mwt_slider_scroll").animate({ right:'0px' }, 600 ,'swing');
+			}
+		});
+ 
+ 
+		$("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
+			$("#mwt_mwt_slider_scroll").animate( { right:'-'+w+'px' }, 600 ,'swing');	
+		});	
+	}); 	
+	</script>
+	<!--enf of script of shareTable-->
 
+</body>
+<div id="fb-root"></div>
 </html>
