@@ -204,12 +204,12 @@ a:hover
 	color: rgb(195 , 55 , 30);
 	background-color: #ffe187;
 	width:700px;
-	margin-left: 2em;
+	margin:0 auto;
 	border-radius: 0.5em;
 	padding:1em;
 
 }
-.event_block
+.event_mainPic
 {
 	color: rgb(195 , 55 , 30);
 	border-radius: 0.5em;
@@ -223,7 +223,7 @@ a:hover
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
- .event_block img
+ .event_mainPic img
 {
 	border-radius: 0.5em;
 	height:18em;
@@ -241,18 +241,21 @@ a:hover
 	 width:400px;
 	height: 200px;
 	float:left;
-	margin-left: 2em;
-	margin-top: 2em;
-	margin-bottom: 2em;
+
 	background-color:rgb(255,220,95);
 	border-radius: 2em;
 	line-height:1.2em;
+
+	margin-left: auto;
+	margin-top: 2em;
+	margin-bottom: 2em;
 }
 
 .eventDetail_info li
 {	
 	list-style-type:none;
 }
+
 
 
 .eventDetail_shareBtn
@@ -266,7 +269,7 @@ a:hover
 	color: rgb(195 , 55 , 30);
 	background-color: #ffe187;
 	width:700px;
-	margin-left: 2em;
+	margin:0 auto;
 	margin-bottom: 2em;
 	border-radius: 0.5em;
 	padding:1em;
@@ -278,12 +281,17 @@ a:hover
 	color: rgb(195 , 55 , 30);
 	background-color: #ffe187;
 	width:700px;
-	margin-left: 2em;
+	margin:0 auto;
 	margin-top: 2em;
 	margin-bottom: 2em;
 	border-radius: 0.5em;
 	padding:1em;
 	font:1em/3em '微軟正黑體',sans-serif;
+
+}
+
+section{
+	margin: 0 auto;
 
 }
 
