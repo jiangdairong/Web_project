@@ -170,27 +170,100 @@ ul#menu
 /*********************************************************************************/
 /* content                                                                       */
 /*********************************************************************************/
-.thoughts img
+
+
+
+section{
+	width: 800px;
+	margin: 0 auto;
+}
+/*.thoughts
 {
-	margin-left: 5em;
-	margin-bottom: 2em;
-	width:500px;
-	height:500px;
-	float:left;
-	border-radius: 2em;
+	width: 800px;
+}
+*/
+
+section{
+	width: 800px;
+	margin: 0 auto;
+}
+
+a{
+	text-decoration: none;
+	color: rgb(234 , 97 , 48);
+}
+a:link 
+{
+	color: rgb(234 , 97 , 48);
+}　　　　/*//宣告連結顏色*/
+a:visited 
+{
+	color: rgb(234 , 97 , 48);
+}　   　 /*//訪問過連結顏色*/
+a:active
+{
+	color: rgb(234 , 97 , 48);
+}　　     /*//執行中連結顏色*/
+a:hover
+{
+	color: rgb(234 , 97 , 48);
+}             /*//當滑鼠移到連結時連結顏色*/
+
+
+
+.title
+{
+	text-align:center;
+	font:36px/0.3 '微軟正黑體',sans-serif;	
+	
+	/*版塊樣式*/
+	color: #FFFFFF;
+	background-color: #333333;
+	width:800px;
+	/*height:150px;*/
+	margin:1em auto;
+	padding:.8em 0;
 
 }
-.thoughts .self-introduction 
+
+.photo
 {
-	width:500px;
-	height: 500px;
-	float:left;
-	margin-left: 5em;
+	height:25em;
+	width: 20em;
+	display: block;
+	float: right;
+/*	margin-left: 5em;
 	margin-bottom: 2em;
-	background-color:rgb(255,220,95);
-	border-radius: 2em;
+	width:300px;
+	height:300px;
+	float:right;
+	border-radius: 2em;*/
+
 }
-.thoughts .self-introduction h3
+
+.photo img
+{
+	border-radius: 0.5em;
+	height:18em;
+	width: 18em;
+	padding-right: 1em;
+/*	padding-top: 1em;*/
+	margin:0 auto;
+}
+
+.info 
+{
+	color: #333333;
+	font:1em/3em '微軟正黑體',sans-serif;
+	float:left;
+
+	border-radius: 2em;
+	line-height:2.2em;
+	letter-spacing:0em;
+
+		margin-left: 1em;
+}
+/*.info h3
 {
 	color: white;
 	background-color:rgb(255,175,60);
@@ -200,12 +273,36 @@ ul#menu
 	height: 1em;
 	padding: 1em;
 	margin-top:0; 
-}
-.thoughts .self-introduction ul
+}*/
+.info ul
 {
 	list-style-type: none;
-	line-height: 5em;
 }
+
+.main_up
+{
+	width:800px;
+	height: 450px;
+	color: #333333;
+	background-color: #e5e4e4;
+}
+
+.shareBtn
+{
+	clear:both; 
+	text-align:center;
+	background-color:rgb(255,220,95);
+	border-radius: 2em;
+	
+	/*版塊樣式*/
+	color: #FFF;
+	background-color:  #333333;
+	width:700px;
+	margin:0 auto;
+	border-radius: 0.5em;
+	padding:1em;
+}
+
 .thoughts .detail 
 {
 	clear:both;
@@ -227,7 +324,7 @@ ul#menu
 	display: block;
 }
 */
-.thoughts .detail .tag ul{
+.detail .tag ul{
 	width: 50%;
 	margin: 0;
 	padding:0;
@@ -235,33 +332,34 @@ ul#menu
 	list-style-type: none;
 	text-align: center;
 }
-.thoughts .detail .tag li
+.detail .tag li
 {
 	display: table-cell;
 }
-.thoughts .detail .tag li a{
+.detail .tag li a{
 	text-decoration: none;
 	color: white;
 }
-.thoughts .detail .tag li a:link 
+.detail .tag li a:link 
 {
 	color: white;
 }　　　　/*//宣告連結顏色*/
-.thoughts .detail .tag li a:visited 
+.detail .tag li a:visited 
 {
 	color: white;
 }　   　 /*//訪問過連結顏色*/
-.thoughts .detail .tag li a:active
+.detail .tag li a:active
 {
 	color: white;
 }　　     /*//執行中連結顏色*/
-.thoughts .detail .tag li a:hover
+.detail .tag li a:hover
 {
 	color: white;
 }             /*//當滑鼠移到連結時連結顏色*/
-.thoughts .detail .tag li a.joined{
+.detail .tag li a.joined{
 	color: rgb(250 , 80 , 5);
 }
+
 
 
 .event_block
@@ -272,10 +370,10 @@ ul#menu
 	background-color: #ffe187;
 	display: block;
 	float: left;
-	margin-right: 2em;
-	margin-left: 3em;
-	margin-top: 2em;
-	margin-bottom: 2em;
+	margin-right: 1em;
+	/*margin-left: 1em;*/
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
  .event_block img
 {
@@ -295,6 +393,18 @@ ul#menu
 	text-align: center;
  }
 
+.event_group
+{
+	color: #333333;
+
+	background-color: #e5e4e4;
+	width:700px;
+	height:1000px;
+	margin:1em auto;
+	border-radius: 0.5em;
+	padding:.6em 2em;
+	font:1em/3em '微軟正黑體',sans-serif;
+}
 
 /*********************************************************************************/
 /* footer                                                                        */
