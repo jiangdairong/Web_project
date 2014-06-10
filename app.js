@@ -16,7 +16,7 @@
 			var limit = 12; 
 			var skip = (page-1) * limit; 
 
-			var Event = Parse.Object.extend("Event"); 
+			var Event = Parse.Object.extend("event"); 
 			var query = new Parse.Query(Event); 
 			query.limit(limit); 
 			query.skip(skip);
