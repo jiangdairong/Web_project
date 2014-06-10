@@ -78,44 +78,44 @@
 //For FB login
 
 
-// window.fbAsyncInit = function () {
-// 	FB.init({
-// 		appId: '299735220203958', 
-// 		xfbml: true,
-// 		version: 'v2.0'
-// 	});
+window.fbAsyncInit = function () {
+	FB.init({
+		appId: '299735220203958', 
+		xfbml: true,
+		version: 'v2.0'
+	});
 
 
-// 	FB.getLoginStatus(function (response) {
-// 		if (response.status === 'connected') {
+	FB.getLoginStatus(function (response) {
+		if (response.status === 'connected') {
 
-// 			var uid = response.authResponse.userID;
-// 			var accessToken = response.authResponse.accessToken;
-// 			//change_word(name,response.name);
-// 			console.log(response);
-// 			FB.api("/me",function(e){
-// 				console.log(e);
-// 			document.getElementById('name').innerHTML = e.name ;	
-// 		});
+			var uid = response.authResponse.userID;
+			var accessToken = response.authResponse.accessToken;
+			//change_word(name,response.name);
+			console.log(response);
+			FB.api("/me",function(e){
+				console.log(e);
+			document.getElementById('name').innerHTML = e.name ;	
+		});
 
-// 		}else if (response.status === 'not_authorized') {
+		}else if (response.status === 'not_authorized') {
 					
-// 		}else {
+		}else {
 					
-// 				}
-// 			});
-//         }; //<<<<<<<<<<<<<<<init end
+				}
+			});
+        }; //<<<<<<<<<<<<<<<init end
 
-// (function (d, s, id) {
-//     var js, fjs = d.getElementsByTagName(s)[0];
-//     if (d.getElementById(id)) {
-//         return;
-//     }
-//     js = d.createElement(s);
-//     js.id = id;
-//     js.src = "//connect.facebook.net/en_US/sdk.js";
-//     fjs.parentNode.insertBefore(js, fjs);
-// }(document, 'script', 'facebook-jssdk'));
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+        return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 
 function FacebookLogin(){
 	if(document.getElementById('name').innerHTML=="登入"){
