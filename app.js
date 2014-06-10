@@ -50,7 +50,8 @@
 
 		},
 		EventDetailView:function(eventdetail_id){
-			document.getElementById("content").innerHTML=templates.EventDetailView();//volunteer;
+			console.log("detail");
+			//document.getElementById("content").innerHTML=templates.EventDetailView();//volunteer;
 			if(eventdetail_id){
 				var Event = Parse.Object.extend("event"); 
 				var query = new Parse.Query(Event); 
