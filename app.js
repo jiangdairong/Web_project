@@ -10,16 +10,16 @@
 		indexView:function(){
 			document.getElementById("content").innerHTML=templates.indexView();//volunteer;
 			},
-		eventView:function(page){
+		eventView:function(){
 			//document.getElementById("content").innerHTML=templates.eventView();//volunteer;
 			window.scrollTo(0,0); 
 			var limit = 12; 
-			var skip = (page-1) * limit; 
+			//var skip = (page-1) * limit; 
 
 			var Event = Parse.Object.extend("event"); 
 			var query = new Parse.Query(Event); 
 			query.limit(limit); 
-			query.skip(skip);
+			//query.skip(skip);
 			query.descending("time"); 
 
 			query.find({success: function(results){
@@ -27,8 +27,8 @@
 				var objList = results.map(function(e){ return e.toJSON() }); 
 				document.getElementById('content').innerHTML = templates.eventView();
 				query.limit(0);
-				query.skip(0); 
-				var option = {};
+				//query.skip(0); 
+				//var option = {};
 				/*
 				query.count({success: function(count){
 					var totalPage = Math.ceil(count / limit);  
@@ -59,7 +59,7 @@
 	var r=Parse.Router.extend({
 		routes:{
 			"": 			"indexView",
-			"event/:page/": "eventView",
+			"event": "eventView",
 			"sharetable": 	"shareTable",
 			"ngo": 			"ngoView"
 		},
