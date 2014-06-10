@@ -49,8 +49,21 @@
 			}});
 
 		},
-		EventDetailView:function(){
+		EventDetailView:function(eventdetail_id){
 			document.getElementById("content").innerHTML=templates.EventDetailView();//volunteer;
+			if(eventdetail_id){
+				var Event = Parse.Object.extend("event"); 
+				var query = new Parse.Query(Event); 
+				query.get(eventdetail_id, { 
+					success: function(eventdetail){
+						document.getElementById('content').innerHTML = templates.EventDetailView(eventdetail.toJSON());
+
+					}, error: function(object, error){
+					}
+				});
+			} else {
+				window.location.hash = '';
+			}
 		},
 		shareTable:function(){
 			document.getElementById("content").innerHTML=templates.shareTable();//volunteer;
@@ -66,7 +79,7 @@
 			"event": 		"eventView",
 			"sharetable": 	"shareTable",
 			"ngo": 			"ngoView",
-			"eventdetail": 	"EventDetailView"
+			"eventdetail/:eventdetail_id/": 	"EventDetailView"
 		},
 		indexView: 		volunteer.indexView,
 		eventView: 		volunteer.eventView,

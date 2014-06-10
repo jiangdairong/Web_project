@@ -250,18 +250,18 @@
 	<section>
 
 		<div class="main_up">
-			<h1 class="title">敦安基金會 「看見太陽成長團體」心衛志工</h1>
+			<h1 class="title">{{=it.name}}</h1>
 			<div class="event_photo">
-				<img class="pic1" src="images/event/event_1.jpg" alt="志工活動照片">
+				<img class="pic1" src='{{=it.imageURL}}' alt="志工活動照片"> 
 			</div>
 			<div class="eventDetail_info">
 				<ul>
-					<li><i class="fa fa-clock-o"></i>&nbsp活動時間：2014/06/20</li>
-					<li><i class="fa fa-location-arrow"></i>&nbsp活動地點：台北市中正區羅斯福路一段28號10樓</li>
-					<li><i class="fa fa-child"></i>&nbsp需求/招募人數：缺3人/共5人</li>
-					<li><i class="fa fa-home"></i>&nbsp主辦單位：<a href="http://www.ido.org.tw/">財團法人敦安社會福利基金會</a></li>
-					<li><i class="fa fa-user"></i>&nbsp聯絡人：郭亭君社工員 / 王柏雄執行企劃</li>
-					<li><i class="fa fa-phone"></i> &nbsp聯絡方式：(02)3393-2225＃14、10</li>
+					<li><i class="fa fa-clock-o"></i>&nbsp活動時間：{{=it.time.iso[0]}}{{=it.time.iso[1]}}{{=it.time.iso[2]}}{{=it.time.iso[3]}}{{=it.time.iso[4]}}{{=it.time.iso[5]}}{{=it.time.iso[6]}}{{=it.time.iso[7]}}{{=it.time.iso[8]}}{{=it.time.iso[9]}}</li>
+					<li><i class="fa fa-location-arrow"></i>&nbsp活動地點：{{=it.location}}</li>
+					<li><i class="fa fa-child"></i>&nbsp招募人數：共需{{=it.amount}}人</li>
+					<li><i class="fa fa-home"></i>&nbsp主辦單位：<a href="{{=it.ngoURL}}">{{=it.ngo}}</a></li>
+					<li><i class="fa fa-user"></i>&nbsp聯絡人：{{=it.contact}}</li>
+					<li><i class="fa fa-phone"></i> &nbsp聯絡方式：{{=it.phone}}</li>
 					<a href="event_form.html"><span class="eventDetail_signUpBtn">我要報名</span>
 					</ul>
 				</div>
@@ -276,7 +276,8 @@
 
 
 			<div class="eventDetail_detail">
-				<p class="need"><i class="fa fa-check-square-o"></i>&nbsp志工技能需求</p>
+				{{=it.detail}}
+				/*<p class="need"><i class="fa fa-check-square-o"></i>&nbsp志工技能需求</p>
 				<p class="need"><i class="fa fa-info"></i>&nbsp志工須知</p>
 
 				<h3>詳細活動訊息</h3>
@@ -285,7 +286,7 @@
 					<span class="context2">(二)關懷志工：關懷陪伴憂鬱少年、協助團體帶領(對青少年服務工作有興趣、相關科系者佳)</br></span>
 					<span class="context3">(三)方案志工：協助青少年服務學習營隊規劃、服務體驗與帶領(寒、暑假皆會辦理服務學習營隊，帶領高中生學員服務弱勢族群)</br></span></p>
 					<p>二、其他訊息及文宣海報請參考敦安網站 http://www.ido.org.tw或上敦安粉絲團https://www.facebook.com/ido.org.tw</p>
-				</div>	
+				</div>*/	
 			</div>
 
 		</section>
