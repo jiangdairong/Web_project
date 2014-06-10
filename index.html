@@ -130,21 +130,6 @@
 			<button id="arise_event">辦志工活動</button>
 		</div>
 
-
-		<div id="dialog-form" title="Create new user">
- 			<p class="validateTips">All form fields are required.</p>
- 
-			<form>
-  				<fieldset>
-    				<label for="name">Name</label>
-    				<input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
-    				<label for="email">Email</label>
-    				<input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all">
-    				<label for="password">Password</label>
-    				<input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all">
-  				</fieldset>
-  			</form>
-		</div>
 		
 		<div class="event_block">
 			<a href="EventDetail_1.html">
@@ -218,7 +203,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	$(function(){
 		var w = $("#mwt_slider_content").width();
 		$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
@@ -351,25 +336,7 @@
 	<script src="https://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
 	<script src="vendors/doT.min.js"></script>
 	<script src="app.js" type="text/javascript"></script>
-	<!--script of event-->
-	<script type='text/javascript'>
-	$(function(){
-		var w = $("#mwt_slider_content").width();
-		$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
- 
-		$("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
-			if ($("#mwt_mwt_slider_scroll").css('right') == '-'+w+'px')
-			{
-				$("#mwt_mwt_slider_scroll").animate({ right:'0px' }, 600 ,'swing');
-			}
-		});
- 
- 
-		$("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
-			$("#mwt_mwt_slider_scroll").animate( { right:'-'+w+'px' }, 600 ,'swing');	
-		});	
-	}); 	
-	</script>
+
 	<!--enf of script of shareTable-->
 
 </body>
