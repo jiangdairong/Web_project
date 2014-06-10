@@ -83,17 +83,20 @@ window.fbAsyncInit = function () {
 
 function FacebookLogin(){
 	if(document.getElementById('name').innerHTML=="登入"){
-	FB.login(function(e){
-		if(e.authResponse){
-			FB.api("/me",function(e){
-				window.authToken=e.authResponse.accessToken
-			});
-			setTimeout(function(){
+		FB.login(function(e){
+			if(e.authResponse){
+				FB.api("/me",function(e){
+					window.authToken=e.authResponse.accessToken
+				});
+				setTimeout(function(){
 				window.location.reload()
-			},1e3)
-		}
-	},{scope:"user_likes,user_photos,publish_actions"})
+				},1e3)
+			}
+		},{scope:"user_likes,user_photos,publish_actions"})
+	}
 }
+function arise(){
+	console.log("arise");
 }
 
 
