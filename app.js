@@ -26,7 +26,7 @@
 
 				var objList = results.map(function(e){ return e.toJSON() }); 
 				document.getElementById('content').innerHTML = templates.eventView(objList);
-				console.log(results);
+				console.log(objList);
 				query.limit(0);
 				//query.skip(0); 
 				//var option = {};
