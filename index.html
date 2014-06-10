@@ -4,24 +4,6 @@
 	<link rel="stylesheet" type="text/css" href="index.css" />	
 	<link rel="stylesheet" type="text/css" href="css/960.css" />
 	<title>小人物</title>
-	<script type="text/javascript">
-	$(function(){
-		var w = $("#mwt_slider_content").width();
-		$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
-
-		$("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
-			if ($("#mwt_mwt_slider_scroll").css('right') == '-'+w+'px')
-			{
-				$("#mwt_mwt_slider_scroll").animate({ right:'0px' }, 600 ,'swing');
-			}
-		});
-
-
-		$("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
-			$("#mwt_mwt_slider_scroll").animate( { right:'-'+w+'px' }, 600 ,'swing');	
-		});	
-	});
-	</script>
 </head>
 	
 	<body>
@@ -42,7 +24,7 @@
 		
 				<div id="Right-nav">
 					<ul>
-						<li class="login" onclick="FacebookLogin()"><p id="name">登入</p></li>
+						<li class="login" onclick="FacebookLogin()"><img id="profile"></img><p id="name">登入</p></li>
 					</ul>
 				</div>
 		</div>
@@ -51,6 +33,7 @@
 
 	<!--content of index-->
 	<div class="container container_12" id ="content"></div>
+
 	<!--indexView -->
 	 <script id="indexView" type="text/x-dot-template">
 		<!--end of nav bar-->
@@ -95,8 +78,26 @@
 		<!--end of content-->
 
 	<!--end of indexView-->
-	<!--event-->
 
+	<!--event-->
+	<script type="text/javascript">
+	$(function(){
+		var w = $("#mwt_slider_content").width();
+		$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
+
+		$("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
+			if ($("#mwt_mwt_slider_scroll").css('right') == '-'+w+'px')
+			{
+				$("#mwt_mwt_slider_scroll").animate({ right:'0px' }, 600 ,'swing');
+			}
+		});
+
+
+		$("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
+			$("#mwt_mwt_slider_scroll").animate( { right:'-'+w+'px' }, 600 ,'swing');	
+		});	
+	});
+	</script>
 	<script id="eventView" type="text/x-dot-template">
 	
 	<div id="mwt_mwt_slider_scroll">
@@ -164,6 +165,7 @@
  				<button id="send">Send E-mail</button>
  			</form>
  		</div>
+
  		<!--fun of popup-->
  		function validateEmail(email) { 
  		var reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -216,15 +218,8 @@
  			}
  		});
  	});
- 	<!--end of script-->
+ 	<!--end of popup-->
  
- 
- 
- 
-
-
-
-		
 		<div class="event_block">
 			<div class='grid_12'>
         		{{~it :p:index}} 
@@ -244,76 +239,7 @@
           			</a>
         		{{~}}
       		</div>
-			/*<a href="EventDetail_1.html">
-			<div  class="event_pic">	
-				<img src="images/event/event_1.jpg">
-			</div>
-			<div class="event_info">	
-				<ul>
-					<li>敦安基金會看見太陽成長團體心衛志工</li>
-					<li>活動時間：2014/06/20</li>
-					<li>報名截止時間：2014/05/20</li>
-					<li>需要 /招募人數：缺3人/共5人</li>		
-				</ul>
-			</div>*/
-		</div>		
-		/*<div class="event_block">
-			<a href="EventDetail_2.html">
-			<div  class="event_pic">
-				<img src="images/event/event_2.jpg">
-			</div>
-			<div class="event_info">	
-				<ul>
-					<li>華山基金會綜合行政義工</li>
-					<li>活動時間：2014/04/03~2014/12/31</li>
-					<li>報名截止時間：2014/04/01</li>
-					<li>需要 /招募人數：缺5人/共10人</li>		
-				</ul>
-			</div>
-		</div>
-		
-		<div class="event_block">
-			<a href="#">
-			<div  class="event_pic">
-				<img src="images/event/event_3.jpg">
-			</div>
-			<div class="event_info">	
-				<ul>
-					<li>台灣青少年北京教育交流參訪團</li>
-					<li>活動時間：2014/07/15~2014/7/25</li>
-					<li>報名截止時間：2014/5/11</li>
-					<li>需要 /招募人數：缺10人/共10人</li>		
-				</ul>
-			</div>
-		</div>
-		
-		<div class="event_block">
-			<div  class="event_pic">
-				<img src="images/sister.jpg">
-			</div>
-			<div class="event_info">	
-				<ul>
-					<li>活動名稱</li>
-					<li>活動時間</li>
-					<li>報名截止時間</li>
-					<li>需要 /招募人數</li>		
-				</ul>
-			</div>
-		</div>
-		
-		<div class="event_block">
-			<div  class="event_pic">
-				<img src="images/sister.jpg">
-			</div>
-			<div class="event_info">	
-				<ul>
-					<li>活動名稱</li>
-					<li>活動時間</li>
-					<li>報名截止時間</li>
-					<li>需要 /招募人數</li>		
-				</ul>
-			</div>
-		</div>*/
+		</div>	
 	</section>
 	</script>
 
@@ -345,6 +271,7 @@
 	</div>
 	</script>
 	<!--end of content of sharetable-->
+
 	<!--NGO-->
 	<script id="ngoView" type="text/x-dot-template">
 	<section>
@@ -355,6 +282,7 @@
 				<input id="search-box" type="text" name="search">
 			</form>
 		</div>
+
 		<div class="ngo_block">
 			<a href="NGODetail.html">
 				<div  class="ngo_pic">	
@@ -366,54 +294,11 @@
 					</ul>
 				</div>
 			</a>
-		</div>		
-		
-		<div class="ngo_block">
-			<div  class="ngo_pic">
-				<img src="images/NGO/NGO_2.jpg">
-			</div>
-			<div class="ngo_info">	
-				<ul>
-					<li>華山基金會</li>
-				</ul>
-			</div>
-		</div>
-		
-		<div class="ngo_block">
-			<div  class="ngo_pic">
-				<img src="images/NGO/NGO_3.png">
-			</div>
-			<div class="ngo_info">	
-				<ul>
-					<li>中華基金會</li>		
-				</ul>
-			</div>
-		</div>
-		
-		<div class="ngo_block">
-			<div  class="ngo_pic">
-				<img src="images/sister.jpg">
-			</div>
-			<div class="ngo_info">	
-				<ul>
-					<li>NGO名稱</li>		
-				</ul>
-			</div>
-		</div>
-		
-		<div class="ngo_block">
-			<div  class="ngo_pic">
-				<img src="images/sister.jpg">
-			</div>
-			<div class="ngo_info">	
-				<ul>
-					<li>NGO名稱</li>		
-				</ul>
-			</div>
-		</div>
+		</div>	
 	</section>
 	</script>
 	<!---end of cintent of NGO-->
+
 	<!--footer-->
 	<footer>
 		<img src="images/logo/logo8_red_footer.png" alt="footer_logo">
@@ -425,6 +310,7 @@
 		<h6>Copyright &copy; 2014 Somebody - All Rights Reserved.</h6>
 	</footer>
 	<!--end of footer-->
+
 	<script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
 	<script src="https://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
 	<script src="vendors/doT.min.js"></script>
