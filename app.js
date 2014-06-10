@@ -2,7 +2,7 @@
 	Parse.initialize("RmleLSMnkCyiCdVpqfWJ562fmhf8vEl4h4NeQKuL","09pdjU4X0sosunvxliKBYV8JLGhEni7F8QLHWBMP");
 
 	var templates = {};
-	["indexView","eventView","shareTable","ngoView"].forEach(function(t){
+	["indexView","eventView","EventDetailView","shareTable","ngoView"].forEach(function(t){
 		var dom = document.getElementById(t);
 		templates[t] = doT.template(dom.text);
 	});
@@ -49,6 +49,9 @@
 			}});
 
 		},
+		EventDetailView:function(){
+			document.getElementById("content").innerHTML=templates.EventDetailView();//volunteer;
+		},
 		shareTable:function(){
 			document.getElementById("content").innerHTML=templates.shareTable();//volunteer;
 			},
@@ -62,12 +65,14 @@
 			"": 			"indexView",
 			"event": 		"eventView",
 			"sharetable": 	"shareTable",
-			"ngo": 			"ngoView"
+			"ngo": 			"ngoView",
+			"eventdetail": 	"EventDetailView"
 		},
 		indexView: 		volunteer.indexView,
 		eventView: 		volunteer.eventView,
 		shareTable: 	volunteer.shareTable,
-		ngoView: 		volunteer.ngoView
+		ngoView: 		volunteer.ngoView,
+		EventDetailView:volunteer.EventDetailView
 	});
 
 	// Initialize the App

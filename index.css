@@ -165,6 +165,127 @@ padding-left:4em;}
 }
 
 /*********************************************************************************/
+/* content of eventdetail                                                        */
+/*********************************************************************************/
+
+section{
+	width: 800px;
+	margin: 0 auto;
+}
+
+a{
+	text-decoration: none;
+	color: rgb(234 , 97 , 48);
+}
+a:link 
+{
+	color: rgb(234 , 97 , 48);
+}　　　　/*//宣告連結顏色*/
+a:visited 
+{
+	color: rgb(234 , 97 , 48);
+}　   　 /*//訪問過連結顏色*/
+a:active
+{
+	color: rgb(234 , 97 , 48);
+}　　     /*//執行中連結顏色*/
+a:hover
+{
+	color: rgb(234 , 97 , 48);
+}             /*//當滑鼠移到連結時連結顏色*/
+
+
+.title
+{
+	text-align:center;
+	font:36px/0.3 '微軟正黑體',sans-serif;	
+	
+	/*版塊樣式*/
+	color: #FFFFFF;
+	background-color: #333333;
+	width:800px;
+	/*height:150px;*/
+	margin:1em auto;
+	padding:.8em 0;
+
+}
+
+.event_photo
+{
+	height:25em;
+	width: 20em;
+	display: block;
+	float: right;
+}
+ .event_photo img
+{
+	border-radius: 0.5em;
+	height:18em;
+	width: 18em;
+	padding-right: 1em;
+/*	padding-top: 1em;*/
+	margin:0 auto;
+}
+
+.eventDetail_info
+{
+
+	color: #333333;
+	font:1em/3em '微軟正黑體',sans-serif;
+	float:left;
+
+	border-radius: 2em;
+	line-height:2.2em;
+	letter-spacing:0em;
+
+		margin-left: 1em;
+/*	margin-top: 2em;*/
+/*	margin-bottom: 2em;*/
+}
+
+.eventDetail_info li
+{	
+	list-style-type:none;
+}
+
+.main_up
+{
+	width:800px;
+	height: 450px;
+	color: #333333;
+	background-color: #e5e4e4;
+}
+
+.shareBtn
+{
+	clear:both; 
+	text-align:center;
+	background-color:rgb(255,220,95);
+	border-radius: 2em;
+	
+	/*版塊樣式*/
+	color: #FFF;
+	background-color:  #333333;
+	width:700px;
+	margin:0 auto;
+	border-radius: 0.5em;
+	padding:1em;
+}
+
+.eventDetail_detail
+{
+	/*版塊樣式*/
+	color: #333333;
+	background-color: #e5e4e4;
+	width:700px;
+	margin:1em auto;
+	border-radius: 0.5em;
+	padding:.6em 2em;
+	font:1em/3em '微軟正黑體',sans-serif;
+
+}
+
+/*********************************************************************************/
 /* search-bar                                                                    */
 /*********************************************************************************/
 
