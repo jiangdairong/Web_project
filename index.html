@@ -4,6 +4,24 @@
 	<link rel="stylesheet" type="text/css" href="index.css" />	
 	<link rel="stylesheet" type="text/css" href="css/960.css" />
 	<title>小人物</title>
+	<script type="text/javascript">
+	$(function(){
+		var w = $("#mwt_slider_content").width();
+		$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
+
+		$("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
+			if ($("#mwt_mwt_slider_scroll").css('right') == '-'+w+'px')
+			{
+				$("#mwt_mwt_slider_scroll").animate({ right:'0px' }, 600 ,'swing');
+			}
+		});
+
+
+		$("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
+			$("#mwt_mwt_slider_scroll").animate( { right:'-'+w+'px' }, 600 ,'swing');	
+		});	
+	});
+	</script>
 </head>
 	
 	<body>
@@ -78,26 +96,9 @@
 
 	<!--end of indexView-->
 	<!--event-->
-	<!--script type="text/javascript">
-	
-	</script-->
+
 	<script id="eventView" type="text/x-dot-template">
-	$(function(){
-		var w = $("#mwt_slider_content").width();
-		$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
-
-		$("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
-			if ($("#mwt_mwt_slider_scroll").css('right') == '-'+w+'px')
-			{
-				$("#mwt_mwt_slider_scroll").animate({ right:'0px' }, 600 ,'swing');
-			}
-		});
-
-
-		$("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
-			$("#mwt_mwt_slider_scroll").animate( { right:'-'+w+'px' }, 600 ,'swing');	
-		});	
-	});
+	
 	<div id="mwt_mwt_slider_scroll">
 		 <div id="mwt_fb_tab">
 			<span>S</span>
