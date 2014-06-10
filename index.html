@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" type="text/css" href="index.css" />
+	<link rel="stylesheet" type="text/css" href="index.css" />	
+	<link rel="stylesheet" type="text/css" href="css/960.css" />
 	<title>小人物</title>
 </head>
 	
@@ -205,7 +206,25 @@
 
 		
 		<div class="event_block">
-			<a href="EventDetail_1.html">
+			<div class='grid_12'>
+        		{{~it :p:index}} 
+          			<a href='#/{{=p.objectId}}/'>
+            		<div class='event_item'>
+              			<img src='{{=p.imageURL}}'>
+              			<div>活動名稱：{{=p.name}}
+              			</div>
+              			<div>活動時間：{{=p.time}}
+              			</div>
+              			<div>活動地點：{{=p.location}}
+              			</div>
+              			<div>招募人數：共需{{=p.amount}}人
+              			</div>
+
+            		</div>
+          			</a>
+        		{{~}}
+      		</div>
+			/*<a href="EventDetail_1.html">
 			<div  class="event_pic">	
 				<img src="images/event/event_1.jpg">
 			</div>
@@ -216,9 +235,9 @@
 					<li>報名截止時間：2014/05/20</li>
 					<li>需要 /招募人數：缺3人/共5人</li>		
 				</ul>
-			</div>
+			</div>*/
 		</div>		
-		<div class="event_block">
+		/*<div class="event_block">
 			<a href="EventDetail_2.html">
 			<div  class="event_pic">
 				<img src="images/event/event_2.jpg">
@@ -274,7 +293,7 @@
 					<li>需要 /招募人數</li>		
 				</ul>
 			</div>
-		</div>
+		</div>*/
 	</section>
 
 
