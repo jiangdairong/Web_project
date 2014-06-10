@@ -14,12 +14,12 @@
 			//document.getElementById("content").innerHTML=templates.eventView();//volunteer;
 			window.scrollTo(0,0); 
 			var limit = 12; 
-			//var skip = (page-1) * limit; 
+			var skip = 0; 
 
 			var Event = Parse.Object.extend("event"); 
 			var query = new Parse.Query(Event); 
 			query.limit(limit); 
-			//query.skip(skip);
+			query.skip(skip);
 			query.descending("time"); 
 
 			query.find({success: function(results){
@@ -59,7 +59,7 @@
 	var r=Parse.Router.extend({
 		routes:{
 			"": 			"indexView",
-			"event": "eventView",
+			"event": 		"eventView",
 			"sharetable": 	"shareTable",
 			"ngo": 			"ngoView"
 		},
