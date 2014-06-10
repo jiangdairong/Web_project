@@ -10,9 +10,44 @@
 		indexView:function(){
 			document.getElementById("content").innerHTML=templates.indexView();//volunteer;
 			},
-		eventView:function(){
-			document.getElementById("content").innerHTML=templates.eventView();//volunteer;
-			},
+		eventView:function(page){
+			//document.getElementById("content").innerHTML=templates.eventView();//volunteer;
+			window.scrollTo(0,0); 
+			var limit = 12; 
+			var skip = (page-1) * limit; 
+
+			var Event = Parse.Object.extend("Event"); 
+			var query = new Parse.Query(Event); 
+			query.limit(limit); 
+			query.skip(skip);
+			query.descending("time"); 
+
+			query.find({success: function(results){
+
+				var objList = results.map(function(e){ return e.toJSON() }); 
+				document.getElementById('content').innerHTML = templates.eventView();
+				query.limit(0);
+				query.skip(0); 
+				var option = {};
+				/*
+				query.count({success: function(count){
+					var totalPage = Math.ceil(count / limit);  
+					var currentPage = parseInt(page); 
+					option = {
+
+						'previous': (currentPage === 1) ? 1 : currentPage-1,
+						'next': (currentPage === totalPage) ? currentPage : currentPage+1, 
+						'current': currentPage,
+						'last': totalPage,
+					};
+					document.getElementById('pagination').innerHTML = templates.catalogPaginationTemplate(option);  
+				}, error: function(err){}  
+			});*/
+
+
+			}});
+
+		},
 		shareTable:function(){
 			document.getElementById("content").innerHTML=templates.shareTable();//volunteer;
 			},
@@ -23,15 +58,15 @@
 
 	var r=Parse.Router.extend({
 		routes:{
-			"":"indexView",
-			"event":"eventView",
-			"sharetable":"shareTable",
-			"ngo":"ngoView"
+			"": 			"indexView",
+			"event/:page/": "eventView",
+			"sharetable": 	"shareTable",
+			"ngo": 			"ngoView"
 		},
-		indexView:volunteer.indexView,
-		eventView:volunteer.eventView,
-		shareTable:volunteer.shareTable,
-		ngoView:volunteer.ngoView
+		indexView: 		volunteer.indexView,
+		eventView: 		volunteer.eventView,
+		shareTable: 	volunteer.shareTable,
+		ngoView: 		volunteer.ngoView
 	});
 
 	// Initialize the App
@@ -139,6 +174,23 @@ function arise(){
         $( "#dialog-form" ).dialog( "open" );
       });
 }
+
+$(function(){
+	var w = $("#mwt_slider_content").width();
+	$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
+
+	$("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
+		if ($("#mwt_mwt_slider_scroll").css('right') == '-'+w+'px')
+		{
+			$("#mwt_mwt_slider_scroll").animate({ right:'0px' }, 600 ,'swing');
+		}
+	});
+
+
+	$("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
+		$("#mwt_mwt_slider_scroll").animate( { right:'-'+w+'px' }, 600 ,'swing');	
+	});	
+});
 
 
 
