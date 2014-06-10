@@ -1,5 +1,5 @@
 (function(){
-	Parse.initialize("HVZ68Vw5dKVbUCVQ7Sajw0zLsNC5PXQomFEB6Pik","IhuKmbx9FQe2k8U8rye3P6H7ZVlpj5yWxrnKU3Cu");
+	Parse.initialize("RmleLSMnkCyiCdVpqfWJ562fmhf8vEl4h4NeQKuL","09pdjU4X0sosunvxliKBYV8JLGhEni7F8QLHWBMP");
 
 	var templates = {};
 	["indexView","eventView","shareTable","ngoView"].forEach(function(t){
@@ -18,14 +18,14 @@
 
 			var Event = Parse.Object.extend("event"); 
 			var query = new Parse.Query(Event); 
-			query.limit(limit); 
-			query.skip(skip);
-			query.descending("time"); 
+			// query.limit(limit); 
+			// query.skip(skip);
+			// query.descending("time"); 
 
 			query.find({success: function(results){
 
 				var objList = results.map(function(e){ return e.toJSON() }); 
-				document.getElementById('content').innerHTML = templates.eventView();
+				document.getElementById('content').innerHTML = templates.eventView(objList);
 				console.log(results);
 				query.limit(0);
 				//query.skip(0); 
@@ -78,44 +78,44 @@
 //For FB login
 
 
-window.fbAsyncInit = function () {
-	FB.init({
-		appId: '299735220203958', 
-		xfbml: true,
-		version: 'v2.0'
-	});
+// window.fbAsyncInit = function () {
+// 	FB.init({
+// 		appId: '299735220203958', 
+// 		xfbml: true,
+// 		version: 'v2.0'
+// 	});
 
 
-	FB.getLoginStatus(function (response) {
-		if (response.status === 'connected') {
+// 	FB.getLoginStatus(function (response) {
+// 		if (response.status === 'connected') {
 
-			var uid = response.authResponse.userID;
-			var accessToken = response.authResponse.accessToken;
-			//change_word(name,response.name);
-			console.log(response);
-			FB.api("/me",function(e){
-				console.log(e);
-			document.getElementById('name').innerHTML = e.name ;	
-		});
+// 			var uid = response.authResponse.userID;
+// 			var accessToken = response.authResponse.accessToken;
+// 			//change_word(name,response.name);
+// 			console.log(response);
+// 			FB.api("/me",function(e){
+// 				console.log(e);
+// 			document.getElementById('name').innerHTML = e.name ;	
+// 		});
 
-		}else if (response.status === 'not_authorized') {
+// 		}else if (response.status === 'not_authorized') {
 					
-		}else {
+// 		}else {
 					
-				}
-			});
-        }; //<<<<<<<<<<<<<<<init end
+// 				}
+// 			});
+//         }; //<<<<<<<<<<<<<<<init end
 
-(function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {
-        return;
-    }
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+// (function (d, s, id) {
+//     var js, fjs = d.getElementsByTagName(s)[0];
+//     if (d.getElementById(id)) {
+//         return;
+//     }
+//     js = d.createElement(s);
+//     js.id = id;
+//     js.src = "//connect.facebook.net/en_US/sdk.js";
+//     fjs.parentNode.insertBefore(js, fjs);
+// }(document, 'script', 'facebook-jssdk'));
 
 function FacebookLogin(){
 	if(document.getElementById('name').innerHTML=="登入"){
