@@ -145,7 +145,7 @@
               			<img src='{{=p.imageURL}}'>
               			<div>活動名稱：{{=p.name}}
               			</div>
-              			<div>活動時間：{{=p.time.iso[0]}}{{=p.time.iso[1]}}{{=p.time.iso[2]}}{{=p.time.iso[3]}}{{=p.time.iso[4]}}{{=p.time.iso[5]}}{{=p.time.iso[6]}}{{=p.time.iso[7]}}{{=p.time.iso[8]}}{{=p.time.iso[9]}}
+              			<div>活動時間：{{~p.time.iso :value:index}}{{?index<=9}}{{=value}}{{?}}{{~}}
               			</div>
               			<div>活動地點：{{=p.location}}
               			</div>
