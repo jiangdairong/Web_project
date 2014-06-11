@@ -173,9 +173,7 @@
 			</div>
 			<div class="eventDetail_info">
 				<ul>
-					<li><i class="fa fa-clock-o"></i>&nbsp活動時間：{{~it.time.iso :value:9}} 
-						<div>{{=value}}</div> 
-							{{~}} kkkkkkk</li>
+					<li><i class="fa fa-clock-o"></i>&nbsp活動時間：{{~it.time.iso :value:index}} {{?index<=9}} {{=value}} {{?}} {{~}} </li>
 
 					<li><i class="fa fa-location-arrow"></i>&nbsp活動地點：{{=it.location}}</li>
 					<li><i class="fa fa-child"></i>&nbsp招募人數：共需{{=it.amount}}人</li>
