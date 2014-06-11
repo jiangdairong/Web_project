@@ -8,6 +8,9 @@ body
 {
 	width:100%;
 	margin: 0;
+	background-color: #F2F2F2;
+	font-family:"微軟正黑體";
+
 }
 #header-wrapper
 {
@@ -208,13 +211,14 @@ a:hover
 	
 	/*版塊樣式*/
 	color: #333333;
-	background-color: #FFFFFF;
+	/*background-color: #FFFFFF;*/
 	width:800px;
 	/*height:150px;*/
 	margin:2em auto 1em auto;
 	padding:.8em 0;
 
 }
+
 
 .event_photo
 {
@@ -233,13 +237,32 @@ a:hover
 	margin:0 auto;
 }
 
+
+.main_up
+{
+	width:800px;
+	height: 350px;
+	color: #333333;
+	background-color: #FFF;
+
+	padding: 1em 0 1em 0;
+
+}
+
+/*.main_info
+{
+	width:800px;
+	height: 300px
+	background-color: #FFF;
+}*/
+
 .eventDetail_info
 {
 
 	color: #333333;
 	font:1em/3em '微軟正黑體',sans-serif;
 	float:left;
-
+	/*background-color: #FFF;*/
 	border-radius: 2em;
 	line-height:2.2em;
 	letter-spacing:0em;
@@ -254,13 +277,8 @@ a:hover
 	list-style-type:none;
 }
 
-.main_up
-{
-	width:800px;
-	height: 450px;
-	color: #333333;
-	background-color: #e5e4e4;
-}
+
+
 
 .shareBtn
 {
@@ -270,8 +288,8 @@ a:hover
 	border-radius: 2em;
 	
 	/*版塊樣式*/
-	color: #FFF;
-	/*background-color:  #333333;*/
+	color: #333;
+	background-color:  #FFF;
 	border-style:dotted;
 	width:700px;
 	margin:0 auto;
