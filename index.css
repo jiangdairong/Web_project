@@ -1,207 +1,121 @@
 /*********************************************************************************/
 /* header-wrapper                                                                */
 /*********************************************************************************/
-body
-{
+body {
 	width:100%;
 	margin: 0;
+	background-color: #F2F2F2;
+	font-family:'微軟正黑體';
 }
 
-#header-wrapper
-{
-	height:5em;
-	background-color: #FFDE5E;
+
+/*header背景*/
+#header-wrapper {
+	width:100%;
+	height: 6em;
+	background-color: #FF8110;
 	margin-bottom: 2em;
 }
-#header-wrapper #logo
-{
-	display:block;
-	float:left;
-	padding-left: 2em;
+/*header透明block_避免header按鈕浮動*/
+#block_FixNavBar{
+	width:1200px;
+	margin:0 auto;
 }
 
-#header-wrapper #logo img{
+#logo img {
+	position:relative;
+	display:inline-block;
+	float:left;
 	width: 8em;
-	padding-top: 3px;
+	padding-left:2em;
+	padding-top: 1.5em;
 }
-#header-wrapper #logo::after{
+#logo::after{
 	clear: both;
 }
-/* Everything CSS Sprite Menu */
-ul#menu
-{	
-	margin:0; 
-	padding:0;
-	list-style:none;
-	/*clear:both;*/
-}
-#Left-nav #menu li
-{	
-	overflow:hidden;
-	text-indent:-9999px;
-	display:inline;
+
+#Left-nav{
+	position:relative;
 	float:left;
-	margin-right:2px;
-	margin-bottom: 2px;
-	padding-bottom: 2px;
-	padding-left: 2em;
-	padding-top: 1.25em;
+	margin-top:1.2em;
+	font-weight: bold;
+	font-size: 1.1em;
 }
-#Right-nav #menu li
-{	
-	overflow:hidden;
-	text-indent:-9999px;
-	display:inline;
+#Left-nav li{
+	display: inline-block;
+	margin-left: 3em;
+}
+/*link*/
+#Left-nav a{
+	text-decoration: none;
+	color: white;
+}
+#Left-nav a:link {	color: white;}　　　
+#Left-nav a:visited {	color: white;}　   
+#Left-nav a:active{	color: white;}　　   
+#Left-nav a:hover{	color: white;}         
+
+#Right-nav{	
+	position:relative;
 	float:right;
-	margin-right:2px;
-	margin-bottom: 2px;
-	padding-right: 2em;
-	padding-bottom: 0;
-	padding-top: 1.25em;
+	margin-top:0.8em;
+	margin-right: 2em;
+	font-size: 0.9em;
 }
-#menu li a
-{	
-	background:url('images/menu.png') no-repeat;
-	width:100%;
-	height:100%;
-	display:block;
+#Right-nav li{
+	display: inline-block;
+	margin: 1em;
 }
-
-/* event Button */
-
-#Left-nav li.event
-{	
-	width:115px;
-	height:60px;
+/*link*/
+#Right-nav a{
+	text-decoration: none;
+	color: white;
 }
-#Left-nav li.event a
-{	
-	background-position:-5px -5px;
-}
-#Left-nav li.event a:hover
-{	
-	background-position:-5px -75px;
-}
-#Left-nav li.event a.selected
-{
-	background-position:-5px -145px;
-}
-
-/* ShareTable Button */
-
-#Left-nav li.ShareTable
-{
-	width:120px;
-	height:60px;
-}
-#Left-nav li.ShareTable a
-{
-	background-position:-125px -5px;
-}
-#Left-nav li.ShareTable a:hover
-{
-	background-position:-125px -75px;
-}
-#Left-nav li.ShareTable a.selected
-{
-	background-position:-125px -145px;
-}
-
-/* ngo Button */
-
-#Left-nav li.ngo
-{
-	width:120px; 
-	height:60px;
-}
-#Left-nav li.ngo a
-{
-	background-position:-250px -5px;
-}
-#Left-nav li.ngo a:hover
-{
-	background-position:-250px -75px;
-}
-#Left-nav li.ngo a.selected
-{
-	background-position:-250px -145px;
-}
-
-/* login Button */
-
-#Right-nav li.login
-{
-	width:100px;
-	height:60px;
-}
-#Right-nav li.login a
-{
-	background-position:-450px -5px;
-}
-#Right-nav li.login a:hover
-{
-	background-position:-450px -75px;
-}
-#Right-nav li.login a.selected
-{
-	background-position:-450px -145px;
-}
-
-/* signin Button */
-
-#Right-nav li.signin
-{
-	width:80px;
-	height:60px;
-}
-#Right-nav li.signin a
-{
-	background-position:-370px -5px;
-}
-#Right-nav li.signin a:hover
-{
-	background-position:-370px -75px;
-}
-#Right-nav li.signin a.selected
-{
-	background-position:-370px -145px;
-}
+#Right-nav a:link {	color: white;}　　　
+#Right-nav a:visited {	color: white;}　   
+#Right-nav a:active{	color: white;}　　   
+#Right-nav a:hover{	color: white;}         
 
 /*********************************************************************************/
 /* content                                                                       */
 /*********************************************************************************/
-.lastest_act, .hot_act
-{	
-	height:45em;
-	padding-left: 3em;
+h2{
+padding-left:4em;}
+.IndexContent-box{
+	width: 1000px;
+	height:300px;
+	background-color: #DDDDDD;
+	margin: 0 auto;
+	padding:6px;
+	/*padding-left:10px;*/
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
-.hot_article
-{
-	height: 25em;
-	padding-left: 3em;
+.LatestEvent-box, .HotEvent-box{
+	position:relative;
+	display: inline-block;
+	height: 280px;
+	background-color:#E5E5E5;
+	width:236px;
+	margin: 4px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
-.lastest_act, .hot_act, .hot_article h2
-{
-	color:#F65203;
+.HotArcitle-box{
+	position:relative;
+	display: inline-block;
+	height: 280px;
+	background-color:#E5E5E5;
+	width:483px;
+	margin: 4px;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+
 }
-.box1,  .box2,  .box3 ,.box4,.box5,.box6
-{
-	height:20em;
-	width: 20em;
-	background-color: rgb(255 , 187 , 100);
-	display: block;
-	float: left;
-	margin-right: 2em;
-	border-radius: 2em;
-}
-.box1,.box4
-{
-	margin-left: 3em;
-}
-.box4, .box5,.box6
-{
-	margin-top: 2em;
-}
+
 
 
 /*
@@ -213,6 +127,398 @@ ul#menu
 	margin-top: 0px;
 }
 */
+/*********************************************************************************/
+/* content of event                                                              */
+/*********************************************************************************/
+
+.event_add
+{
+	height:2em;
+	padding-left: 70em;
+}
+.event_block
+{
+	border-radius: 0.5em;
+	height:30em;
+	width: 20em;
+	background-color: #ffe187;
+	display: block;
+	float: left;
+	margin-right: 2em;
+	margin-left: 3em;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+ .event_block img
+{
+	border-radius: 0.5em;
+	height:18em;
+	width: 18em;
+	padding-left: 1em;
+	padding-top: 1em;
+	margin:0 auto;
+}
+.event_info ul
+{
+	list-style-type: none;
+	line-height: 1.5em;
+}
+
+/*********************************************************************************/
+/* content of eventdetail                                                        */
+/*********************************************************************************/
+
+section{
+	width: 800px;
+	margin: 0 auto;
+}
+
+a{
+	text-decoration: none;
+	color: rgb(234 , 97 , 48);
+}
+a:link 
+{
+	color: rgb(234 , 97 , 48);
+}　　　　/*//宣告連結顏色*/
+a:visited 
+{
+	color: rgb(234 , 97 , 48);
+}　   　 /*//訪問過連結顏色*/
+a:active
+{
+	color: rgb(234 , 97 , 48);
+}　　     /*//執行中連結顏色*/
+a:hover
+{
+	color: rgb(234 , 97 , 48);
+}             /*//當滑鼠移到連結時連結顏色*/
+
+
+.title
+{
+	text-align:center;
+	font:36px/0.3 '微軟正黑體',sans-serif;	
+	
+	/*版塊樣式*/
+	color: #FFFFFF;
+	background-color: #333333;
+	width:800px;
+	/*height:150px;*/
+	margin:1em auto;
+	padding:.8em 0;
+
+}
+
+.event_photo
+{
+	height:25em;
+	width: 20em;
+	display: block;
+	float: right;
+}
+ .event_photo img
+{
+	border-radius: 0.5em;
+	height:18em;
+	width: 18em;
+	padding-right: 1em;
+/*	padding-top: 1em;*/
+	margin:0 auto;
+}
+
+.eventDetail_info
+{
+
+	color: #333333;
+	font:1em/3em '微軟正黑體',sans-serif;
+	float:left;
+
+	border-radius: 2em;
+	line-height:2.2em;
+	letter-spacing:0em;
+
+		margin-left: 1em;
+/*	margin-top: 2em;*/
+/*	margin-bottom: 2em;*/
+}
+
+.eventDetail_info li
+{	
+	list-style-type:none;
+}
+
+.main_up
+{
+	width:800px;
+	height: 450px;
+	color: #333333;
+	background-color: #e5e4e4;
+}
+
+.shareBtn
+{
+	clear:both; 
+	text-align:center;
+	background-color:rgb(255,220,95);
+	border-radius: 2em;
+	
+	/*版塊樣式*/
+	color: #FFF;
+	background-color:  #333333;
+	width:700px;
+	margin:0 auto;
+	border-radius: 0.5em;
+	padding:1em;
+}
+
+.eventDetail_detail
+{
+	/*版塊樣式*/
+	color: #333333;
+	background-color: #e5e4e4;
+	width:700px;
+	margin:1em auto;
+	border-radius: 0.5em;
+	padding:.6em 2em;
+	font:1em/3em '微軟正黑體',sans-serif;
+
+}
+
+/*********************************************************************************/
+/* search-bar                                                                    */
+/*********************************************************************************/
+
+#mwt_mwt_slider_scroll
+{
+	top: 0;
+	right:-200px;
+	width:200px;	
+	position:fixed;
+	z-index:9999;
+}
+
+
+#mwt_slider_content{
+	background:#ffb964;
+	text-align:left;
+	padding-top:20px;
+	padding-left: 1.2em;
+}
+#mwt_slider_content h3
+{
+	color:rgb(195,55,30);
+}
+#mwt_slider_content ul
+{
+	color:black;
+	list-style-type: none;
+}
+#mwt_slider_content li
+{
+	line-height: 1.5em;
+}
+ 
+#mwt_fb_tab {
+	position:absolute;
+	top:170px;
+	left:-24px;
+	width:24px;
+	background:#ffb964;
+	color:#ffffff;
+	font-family:Arial, Helvetica, sans-serif;	
+	text-align:center;
+	padding:9px 0;
+ 
+	-moz-border-radius-topright:10px;
+	-moz-border-radius-bottomleft:10px;
+	-webkit-border-top-left-radius:10px;
+	-webkit-border-bottom-left-radius:10px;	
+}
+#mwt_fb_tab span {
+	display:block;
+	height:12px;
+	padding:1px 0;
+	line-height:12px;
+	text-transform:uppercase;
+	font-size:12px;
+}
+
+.search label{
+    font-size:0.75em;
+    font-weight:bold;
+    color:#333;
+    text-indent:-9999em;
+    display:block;
+    float:left;
+}
+.search input[type="text"]{
+    text-indent:1px;
+    padding:0 0 0 22px;
+    width:0;
+    height:22px;
+    background:url(http://www.ian-thomas.net/examples/search-icon.png)2px 2px no-repeat, -webkit-linear-gradient(top, rgba(100,100,100,1) 0%,rgba(80,80,80,1) 10%,rgba(22,22,22,1)100%);
+    color:#999;
+    line-height:20px;
+    font-weight:bold;
+    -webkit-text-shadow:1px 1px 1pxrgba(0,0,0,0.05);
+    text-shadow:1px 1px 1pxrgba(0,0,0,0.05);
+    -webkit-border-radius:6px;
+    -webkit-box-shadow:1px 1px 0rgba(0,0,0,0.125);
+    cursor:pointer;
+     width:150px;
+}
+.search input[type="text"]:focus{
+    width:150px;
+    outline:none;
+    background:url(http://www.ian-thomas.net/examples/search-icon.png)2px 2px no-repeat, -webkit-linear-gradient(bottom,rgba(100,100,100,1) 0%, rgba(40,40,40,1) 2%, rgba(22,22,22,1)100%);
+    -webkit-box-shadow:1px 1px 0 rgba(255,255,255,0.125);
+    cursor:text;
+}
+
+/*********************************************************************************/
+/* content of shareTable                                                         */
+/*********************************************************************************/
+a{
+	text-decoration: none;
+	color: rgb(234 , 97 , 48);
+}
+a:link 
+{
+	color: rgb(234 , 97 , 48);
+}　　　　/*//宣告連結顏色*/
+ a:visited 
+{
+	color: rgb(234 , 97 , 48);
+}　   　 /*//訪問過連結顏色*/
+a:active
+{
+	color: rgb(234 , 97 , 48);
+}　　     /*//執行中連結顏色*/
+a:hover
+{
+	color: rgb(234 , 97 , 48);
+}             /*//當滑鼠移到連結時連結顏色*/
+
+
+.thoughts_title
+{
+	height:5em;
+}
+
+.thoughts_title h2
+{
+	color: rgb(250 , 80 , 5);
+	display:inline;
+	float:left;
+	padding-left: 2em;
+}
+.thoughts_title h3
+{
+	color: rgb(255 , 185 , 100);
+	display:inline;
+	float:right;
+	padding-right: 2em;
+}
+.thoughts_table
+{
+	margin-left: 4.5em;
+}
+.thoughts_table .feedback
+{
+	height:15em;
+	width:50em;
+	margin-bottom: 2em;
+
+}
+.thoughts_table .photo1, .thoughts_table .photo1 img
+{
+	height:15em;
+	width:15em;
+	float: left;
+	margin-right: 2em;
+}
+.thoughts_table .article1
+{
+	padding-left: 1em;
+}
+/*********************************************************************************/
+/* content of ngo                                                                */
+/*********************************************************************************/
+.thoughts_title
+{
+	height:5em;
+}
+
+.thoughts_title h2
+{
+	color: rgb(250 , 80 , 5);
+	display:inline;
+	float:left;
+	padding-left: 2em;
+}
+.thoughts_title form
+{
+	display:inline;
+	float:right;
+	padding-right: 2em;
+}
+.thoughts_table
+{
+	margin-left: 3em;
+}
+.thoughts_table .feedback
+{
+	height:10em;
+	width:100em;
+	margin-bottom: 2em;
+
+}
+.thoughts_table .photo1, .thoughts_table .photo1 img
+{
+	height:10em;
+	width:10em;
+	float: left;
+	margin-right: 2em;
+}
+.thoughts_table .article1
+{
+	padding-left: 1em;
+}
+
+.ngo_block
+{
+	color: rgb(195 , 55 , 30);
+	border-radius: 0.5em;
+	height:25em;
+	width: 20em;
+	background-color: #ffe187;
+	display: block;
+	float: left;
+	margin-right: 2em;
+	margin-left: 3em;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+ .ngo_block img
+{
+	border-radius: 0.5em;
+	height:18em;
+	width: 18em;
+	padding-left: 1em;
+	padding-top: 1em;
+	margin:0 auto;
+}
+.ngo_info ul
+{
+	font-size: 1.5em;
+	list-style-type: none;
+	line-height: 1.5em;
+}
+.ngo_block a{
+	text-decoration: none;
+	color: rgb(195 , 55 , 30);
+}
 
 /*********************************************************************************/
 /* footer                                                                        */
