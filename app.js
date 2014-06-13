@@ -2,12 +2,13 @@
 	Parse.initialize("RmleLSMnkCyiCdVpqfWJ562fmhf8vEl4h4NeQKuL","09pdjU4X0sosunvxliKBYV8JLGhEni7F8QLHWBMP");
 
 	var templates = {};
-	["indexView","eventView","EventDetailView","shareTable","ngoView"].forEach(function(t){
+	["indexView","eventView","EventDetailView","shareTable","shareTabledetail","ngoView","aboutView"].forEach(function(t){
 		var dom = document.getElementById(t);
 		templates[t] = doT.template(dom.text);
 	});
 	var volunteer={
 		indexView:function(){
+			window.scrollTo(0,0); 
 			document.getElementById("content").innerHTML=templates.indexView();//volunteer;
 			},
 		eventView:function(){
@@ -144,7 +145,7 @@
 		},
 		EventDetailView:function(eventdetail_id){
 			console.log("detail");
-			//document.getElementById("content").innerHTML=templates.EventDetailView();//volunteer;
+			window.scrollTo(0,0); 
 			if(eventdetail_id){
 				var Event = Parse.Object.extend("event"); 
 				var query = new Parse.Query(Event); 
@@ -160,11 +161,52 @@
 			}
 		},
 		shareTable:function(){
-			document.getElementById("content").innerHTML=templates.shareTable();//volunteer;
-			},
-		ngoView:function(){
-			document.getElementById("content").innerHTML=templates.ngoView();//volunteer;
+			//document.getElementById("content").innerHTML=templates.shareTable();//volunteer;
+			window.scrollTo(0,0); 
+			var limit = 12; 
+			var skip = 0; 
+
+			var Share = Parse.Object.extend("event"); 
+			var query = new Parse.Query(Share); 
+			// query.limit(limit); 
+			// query.skip(skip);
+			// query.descending("time"); 
+
+			query.find({success: function(results){
+
+				var objList = results.map(function(e){ return e.toJSON() });
+				console.log(objList); 
+				document.getElementById('content').innerHTML = templates.shareTable(objList);
+				query.limit(0);
+			}});
+
+		},
+		shareTabledetail:function(shareTabledetail_id){
+			window.scrollTo(0,0); 
+			if(shareTabledetail_id){
+				var Event = Parse.Object.extend("event"); 
+				var query = new Parse.Query(Event); 
+				query.get(shareTabledetail_id, { 
+					success: function(shareTabledetail){
+						document.getElementById('content').innerHTML = templates.shareTabledetail(shareTabledetail.toJSON());
+
+					}, error: function(object, error){
+					}
+				});
+			} else {
+				window.location.hash = '';
 			}
+
+		},
+		ngoView:function(){
+			window.scrollTo(0,0); 
+			document.getElementById("content").innerHTML=templates.ngoView();//volunteer;
+		},
+		aboutView:function(){
+			window.scrollTo(0,0); 
+			document.getElementById("content").innerHTML=templates.aboutView();//volunteer;
+
+		}
 	};
 
 	var r=Parse.Router.extend({
@@ -173,13 +215,17 @@
 			"event": 		"eventView",
 			"sharetable": 	"shareTable",
 			"ngo": 			"ngoView",
-			"eventdetail/:eventdetail_id/": 	"EventDetailView"
+			"eventdetail/:eventdetail_id/": 			"EventDetailView",
+			"shareTabledetail/:shareTabledetail_id/": 	"shareTabledetail",
+			"about": 		"aboutView"
 		},
 		indexView: 		volunteer.indexView,
 		eventView: 		volunteer.eventView,
 		shareTable: 	volunteer.shareTable,
 		ngoView: 		volunteer.ngoView,
-		EventDetailView:volunteer.EventDetailView
+		EventDetailView:volunteer.EventDetailView,
+		shareTabledetail:volunteer.shareTabledetail,
+		aboutView: 		volunteer.aboutView
 	});
 
 	// Initialize the App
