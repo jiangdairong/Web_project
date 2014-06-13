@@ -1,0 +1,467 @@
+/*********************************************************************************/
+/* header-wrapper                                                                */
+/*********************************************************************************/
+
+body
+{
+	width:100%;
+	margin: 0;
+	background-color: #F2F2F2;
+	font-family:"微軟正黑體";
+}
+
+
+#header-wrapper
+{
+	height:5em;
+	background-color: #FFDE5E;
+	margin-bottom: 2em;
+}
+#header-wrapper #logo
+{
+	display:block;
+	float:left;
+	padding-left: 2em;
+}
+
+#header-wrapper #logo img{
+	width: 8em;
+	padding-top: 3px;
+}
+#header-wrapper #logo::after{
+	clear: both;
+}
+/* Everything CSS Sprite Menu */
+ul#menu
+{	
+	margin:0; 
+	padding:0;
+	list-style:none;
+	/*clear:both;*/
+}
+#Left-nav #menu li
+{	
+	overflow:hidden;
+	text-indent:-9999px;
+	display:inline;
+	float:left;
+	margin-right:2px;
+	margin-bottom: 2px;
+	padding-bottom: 2px;
+	padding-left: 2em;
+	padding-top: 1.25em;
+}
+#Right-nav #menu li
+{	
+	overflow:hidden;
+	text-indent:-9999px;
+	display:inline;
+	float:right;
+	margin-right:2px;
+	margin-bottom: 2px;
+	padding-right: 2em;
+	padding-bottom: 0;
+	padding-top: 1.25em;
+}
+#menu li a
+{	
+	background:url('images/menu.png') no-repeat;
+	width:100%;
+	height:100%;
+	display:block;
+}
+
+/* event Button */
+
+#Left-nav li.event
+{	
+	width:115px;
+	height:60px;
+}
+#Left-nav li.event a
+{	
+	background-position:-5px -5px;
+}
+#Left-nav li.event a:hover
+{	
+	background-position:-5px -75px;
+}
+#Left-nav li.event a.selected
+{
+	background-position:-5px -145px;
+}
+
+/* ShareTable Button */
+
+#Left-nav li.ShareTable
+{
+	width:120px;
+	height:60px;
+}
+#Left-nav li.ShareTable a
+{
+	background-position:-125px -5px;
+}
+#Left-nav li.ShareTable a:hover
+{
+	background-position:-125px -75px;
+}
+#Left-nav li.ShareTable a.selected
+{
+	background-position:-125px -145px;
+}
+
+/* ngo Button */
+
+#Left-nav li.ngo
+{
+	width:120px; 
+	height:60px;
+}
+#Left-nav li.ngo a
+{
+	background-position:-250px -5px;
+}
+#Left-nav li.ngo a:hover
+{
+	background-position:-250px -75px;
+}
+#Left-nav li.ngo a.selected
+{
+	background-position:-250px -145px;
+}
+
+/* login Button */
+
+#Right-nav li.login
+{
+	width:100px;
+	height:60px;
+}
+#Right-nav li.login a
+{
+	background-position:-450px -5px;
+}
+#Right-nav li.login a:hover
+{
+	background-position:-450px -75px;
+}
+#Right-nav li.login a.selected
+{
+	background-position:-450px -145px;
+}
+
+/* signin Button */
+
+#Right-nav li.signin
+{
+	width:80px;
+	height:60px;
+}
+#Right-nav li.signin a
+{
+	background-position:-370px -5px;
+}
+#Right-nav li.signin a:hover
+{
+	background-position:-370px -75px;
+}
+#Right-nav li.signin a.selected
+{
+	background-position:-370px -145px;
+}
+
+/*********************************************************************************/
+/* content                                                                       */
+/*********************************************************************************/
+
+
+
+section{
+	width: 800px;
+	margin: 0 auto;
+}
+/*.thoughts
+{
+	width: 800px;
+}
+*/
+
+section{
+	width: 800px;
+	margin: 0 auto;
+}
+
+a{
+	text-decoration: none;
+	color: rgb(234 , 97 , 48);
+}
+a:link 
+{
+	color: rgb(234 , 97 , 48);
+}　　　　/*//宣告連結顏色*/
+a:visited 
+{
+	color: rgb(234 , 97 , 48);
+}　   　 /*//訪問過連結顏色*/
+a:active
+{
+	color: rgb(234 , 97 , 48);
+}　　     /*//執行中連結顏色*/
+a:hover
+{
+	color: rgb(234 , 97 , 48);
+}             /*//當滑鼠移到連結時連結顏色*/
+
+
+
+.title
+{
+	text-align:left;
+	font:36px/0.3 '微軟正黑體',sans-serif;	
+	
+	/*版塊樣式*/
+	color: #333333;
+	/*background-color: #FFFFFF;*/
+	width:800px;
+	/*height:150px;*/
+	margin:2em auto 0em auto;
+	padding:.8em 0;
+
+}
+
+.photo
+{
+	height:25em;
+	width: 20em;
+	display: block;
+	float: right;
+/*	margin-left: 5em;
+	margin-bottom: 2em;
+	width:300px;
+	height:300px;
+	float:right;
+	border-radius: 2em;*/
+
+}
+
+.photo img
+{
+	border-radius: 0.5em;
+	height:18em;
+	width: 18em;
+	padding-right: 1em;
+/*	padding-top: 1em;*/
+	margin:0 auto;
+}
+
+.info 
+{
+	color: #333333;
+	font:1em/3em '微軟正黑體',sans-serif;
+	float:left;
+
+	border-radius: 2em;
+	line-height:2.2em;
+	letter-spacing:0em;
+
+		margin-left: 1em;
+}
+/*.info h3
+{
+	color: white;
+	background-color:rgb(255,175,60);
+	border-top-left-radius:2em;
+	border-top-right-radius:2em;
+	text-align: center;
+	height: 1em;
+	padding: 1em;
+	margin-top:0; 
+}*/
+.info ul
+{
+	list-style-type: none;
+}
+
+.main_up
+{
+	width:800px;
+	height: 330px;
+	color: #333333;
+	background-color: #FFF;
+
+	padding: 1em 0 1em 0;
+}
+
+.shareBtn
+{
+	/*排版*/
+	clear:both; 
+	text-align:center;
+	
+	
+	/*版塊樣式*/
+	color: #333;
+	width:700px;
+	margin:0 auto;
+	padding:1em;
+	/*background-color:rgb(255,220,95);*/
+	/*background-color:  #FFF;*/
+
+	/*邊框*/
+	border-style:dotted;
+	border-radius: 2em;	
+	border-radius: 0.5em;
+
+}
+
+.event
+{
+	margin: 5em;
+}
+
+/*.thoughts .detail .tag::before{
+	clear: both;
+	display: inline;
+}
+.thoughts .detail .tag::after{
+	display: block;
+}
+*/
+.detail .tag ul{
+	width: 50%;
+	margin: 0;
+	padding:0;
+	display: table;
+	list-style-type: none;
+	text-align: center;
+}
+.detail .tag li
+{
+	display: table-cell;
+}
+.detail .tag li a{
+	text-decoration: none;
+	color: white;
+}
+.detail .tag li a:link 
+{
+	color: white;
+}　　　　/*//宣告連結顏色*/
+.detail .tag li a:visited 
+{
+	color: white;
+}　   　 /*//訪問過連結顏色*/
+.detail .tag li a:active
+{
+	color: white;
+}　　     /*//執行中連結顏色*/
+.detail .tag li a:hover
+{
+	color: white;
+}             /*//當滑鼠移到連結時連結顏色*/
+.detail .tag li a.joined{
+	color: rgb(250 , 80 , 5);
+}
+
+
+
+.event_block
+{
+	border-radius: 0.5em;
+	height:20em;
+	width: 15em;
+	background-color: #ffe187;
+	display: block;
+	float: left;
+	margin-right: 1em;
+	/*margin-left: 1em;*/
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+ .event_block img
+{
+	border-radius: 0.5em;
+	height:13em;
+	width: 13em;
+	padding-left: 1em;
+	padding-top: 1em;
+	margin:0 auto;
+}
+ .event_block .event_info p{
+ 	color: rgb(195 , 55 , 30);
+ 	font-size: 1.2em;
+	padding-left: 1em;
+	padding-right: 1em;
+	line-height: 2em;
+	text-align: center;
+ }
+
+.event_group
+{
+	color: #333333;
+
+	background-color: #e5e4e4;
+	width:700px;
+	height:1000px;
+	margin:1em auto;
+	border-radius: 0.5em;
+	padding:.6em 2em;
+	font:1em/3em '微軟正黑體',sans-serif;
+}
+
+/*********************************************************************************/
+/* footer                                                                        */
+/*********************************************************************************/
+footer{
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+	font-size: 1em;
+	color: rgb(234 , 97 , 48);
+	clear:both;
+	background-color: rgb(255 , 222 , 94);
+	height: 18em;
+	text-align: center;
+	margin: 0;
+}
+footer a{
+	text-decoration: none;
+	color: rgb(234 , 97 , 48);
+}
+footer a:link 
+{
+	color: rgb(234 , 97 , 48);
+}　　　　/*//宣告連結顏色*/
+footer a:visited 
+{
+	color: rgb(234 , 97 , 48);
+}　   　 /*//訪問過連結顏色*/
+footer a:active
+{
+	color: rgb(234 , 97 , 48);
+}　　     /*//執行中連結顏色*/
+footer a:hover
+{
+	color: rgb(234 , 97 , 48);
+}             /*//當滑鼠移到連結時連結顏色*/
+
+footer ul{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	display: table;
+	list-style-type: none;
+	line-height: 5em;
+}
+footer li
+{
+	display: table-cell;
+}
+footer img
+{
+	width: 100%
+}
+footer img
+{
+	width: 100%;
+}

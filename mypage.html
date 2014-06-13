@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+ 
+ <link rel="stylesheet" type="text/css" href="mypage_2.css" />
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<meta charset=utf-8 />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="mypage.css" />
 	<!-- Add jQuery library -->
@@ -19,9 +22,10 @@
 	});
 	</script>
 	<title>小人物</title>
-</head>
 
+</head>
 <body>
+
 	<!--nav bar-->
 	<div id="header-wrapper">
 		<div id="logo">
@@ -42,14 +46,16 @@
 		</div>
 	</div>
 	<!--end of nav bar-->
-
 	<!--content-->
-	<div class="thoughts">
-		<div class="pic">
+  <section>
+	<h1 class="title">姓名 / Nickname</h1>
+<div class="main_up">
+		<div class="photo">
 			<a id="pic" href="images/sister.jpg"><img  src="images/sister.jpg" alt="個人照片"></a>		
 		</div>
-		<div class="self-introduction">
-			<h3>姓名 / Nickname</h3>
+
+		<div class="info">
+			
 			<ul>
 				<li>個人資料：______________</li>
 				<li>個人資料：______________</li>
@@ -58,105 +64,58 @@
 				<li>個人資料：______________</li>
 			</ul>
 		</div>
-		
+</div><!--class: main_up-->
 
-		<div class="detail">
-			<div class="tag">
-				<ul>
-					<li><a class="joined" href="#" title=""><h3>參加過的志活</h3></a></li>
-					<li><a href="#" title=""><h3>收藏的志活</h3></a></li>
-					<li><a href="#" title=""><h3>個人心得</h3></a></li>
-				</ul>
-			</div>
+	<div class="shareBtn">
+		<span id="fb_btn">facebook</span>
+		<span id="google_btn">google</span>
+		<span id="twitter_btn">twitter</span>
+		<span id="email_btn">e-mail</span>
+	</div>	
 
-			<div class="event_block">
-				<div  class="event_pic">	
-					<img src="images/event/event_1.jpg">
-				</div>
-				<div class="event_info">	
-					<p>「看見太陽成長團體」心衛志工</p>
-				</div>
-			</div>	
-			<div class="event_block">
-				<div  class="event_pic">	
-					<img src="images/event/event_1.jpg">
-				</div>
-				<div class="event_info">	
-					<p>「看見太陽成長團體」心衛志工</p>
-				</div>
-			</div>
-			<div class="event_block">
-				<div  class="event_pic">	
-					<img src="images/event/event_1.jpg">
-				</div>
-				<div class="event_info">	
-					<p>「看見太陽成長團體」心衛志工</p>
-				</div>
-			</div>
-			<div class="event_block">
-				<div  class="event_pic">	
-					<img src="images/event/event_1.jpg">
-				</div>
-				<div class="event_info">	
-					<p>「看見太陽成長團體」心衛志工</p>
-				</div>
-			</div>	
-			<div class="event_block">
-				<div  class="event_pic">	
-					<img src="images/event/event_1.jpg">
-				</div>
-				<div class="event_info">	
-					<p>「看見太陽成長團體」心衛志工</p>
-				</div>
-			</div>
-			<div class="event_block">
-				<div  class="event_pic">	
-					<img src="images/event/event_1.jpg">
-				</div>
-				<div class="event_info">	
-					<p>「看見太陽成長團體」心衛志工</p>
-				</div>
-			</div>
-			<div class="event_block">
-				<div  class="event_pic">	
-					<img src="images/event/event_1.jpg">
-				</div>
-				<div class="event_info">	
-					<p>「看見太陽成長團體」心衛志工</p>
-				</div>
-			</div>	
-			<div class="event_block">
-				<div  class="event_pic">	
-					<img src="images/event/event_1.jpg">
-				</div>
-				<div class="event_info">	
-					<p>「看見太陽成長團體」心衛志工</p>
-				</div>
-			</div>
-			<div class="event_block">
-				<div  class="event_pic">	
-					<img src="images/event/event_1.jpg">
-				</div>
-				<div class="event_info">	
-					<p>「看見太陽成長團體」心衛志工</p>
-				</div>
-				
 
-			</div>
-<!-- 
-			<div class="follow_act">
-				<h3>收藏的志活</h3>
-				
 
-			</div>
+<!--關於活動Start-->
+  
+<div class="event">
 
-			<div class="my_article">
-				<h3>個人心得</h3>
-				
+		<ul class="nav nav-tabs" id="myTab">
+		  <li class="active"><a data-toggle="tab" href="#joined">參加過的志活</a></li>
+		  <li><a data-toggle="tab" href="#like">收藏的志活</a></li>
+		  <li><a data-toggle="tab" href="#my_article">個人心得</a></li>
 
-			</div> -->
+		</ul>
+		 
+		<div class="tab-content">
+		  <div class="tab-pane fade in active" id="joined">
+		  		  	<div class="event_block">
+						<div  class="event_pic"><img src="images/event/event_1.jpg"></div>
+						<div class="event_info"><p>參加過的志活</p></div>
+					</div>
+		  </div>
+		  <div class="tab-pane" id="like">
+		    	  	<div class="event_block">
+						<div  class="event_pic"><img src="images/event/event_1.jpg"></div>
+						<div class="event_info"><p>收藏的志活</p></div>
+					</div>
+		  </div>
+		  <div class="tab-pane" id="my_article">
+		   			 <div class="event_block">
+						<div  class="event_pic"><img src="images/event/event_1.jpg"></div>
+						<div class="event_info"><p>個人心得</p></div>
+					</div>
+		  </div>
+
 		</div>
-	</div>
+	</div><!--event-->
+		 
+		<script src="http://code.jquery.com/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+<!--關於活動End-->
+          
+          
+</section>
 	<!--end of content-->
 
 	<!--footer-->

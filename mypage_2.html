@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+ <link rel="stylesheet" type="text/css" href="mypage_2.css" />
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<meta charset=utf-8 />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="mypage.css" />
+	<!-- Add jQuery library -->
+	<script type="text/javascript" src="../fancyBox/lib/jquery-1.10.1.min.js"></script>
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="../fancyBox/source/jquery.fancybox.js"></script>
+	<link rel="stylesheet" type="text/css" href="../fancyBox/source/jquery.fancybox.css" media="screen" />
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+	    $("#pic").fancybox({
+    		openEffect	: 'elastic',
+    		closeEffect	: 'elastic',
+    	});
+	});
+	</script>
+	<title>小人物</title>
+
+</head>
+<body>
+
+	<!--nav bar-->
+	<div id="header-wrapper">
+		<div id="logo">
+			<a href="index.html"><img src="images/logo/logo3_red.png" alt="logo"></a>
+		</div>
+		<div id="Left-nav">
+			<ul id="menu">
+				<li class="event"><a href="event.html">尋找志活</a></li>
+				<li class="ShareTable"><a href="ShareTable.html">分享感動</a></li>
+				<li class="ngo"><a href="ngo.html">公益組織</a></li>
+			</ul>
+		</div>
+		<div id="Right-nav">
+			<ul id="menu">
+				<li class="login"><a href="#">登入</a></li>
+				<li class="signin"><a href="#">註冊</a></li>
+			</ul>
+		</div>
+	</div>
+	<!--end of nav bar-->
+	<!--content-->
+  <section>
+	<h1 class="title">姓名 / Nickname</h1>
+<div class="main_up">
+		<div class="photo">
+			<a id="pic" href="images/sister.jpg"><img  src="images/sister.jpg" alt="個人照片"></a>		
+		</div>
+
+		<div class="info">
+			
+			<ul>
+				<li>個人資料：______________</li>
+				<li>個人資料：______________</li>
+				<li>個人資料：______________</li>
+				<li>個人資料：______________</li>
+				<li>個人資料：______________</li>
+			</ul>
+		</div>
+</div><!--class: main_up-->
+
+	<div class="shareBtn">
+		<span id="fb_btn">facebook</span>
+		<span id="google_btn">google</span>
+		<span id="twitter_btn">twitter</span>
+		<span id="email_btn">e-mail</span>
+	</div>	
+
+
+
+<!--關於活動Start-->
+  
+<div class="event">
+
+		<ul class="nav nav-tabs" id="myTab">
+		  <li class="active"><a data-toggle="tab" href="#home">參加過的志活</a></li>
+		  <li><a data-toggle="tab" href="#profile">收藏的志活</a></li>
+		  <li><a data-toggle="tab" href="#messages">個人心得</a></li>
+
+		</ul>
+		 
+		<div class="tab-content">
+		  <div class="tab-pane fade in active" id="home">
+		    	<div class="event_block">
+						<div  class="event_pic"><img src="images/event/event_1.jpg"></div>
+						<div class="event_info"><p>「看見太陽成長團體」心衛志工</p></div>
+					</div>
+		  </div>
+		  <div class="tab-pane" id="profile">
+		    個人資料
+		  </div>
+		  <div class="tab-pane" id="messages">
+		    訊息們
+		  </div>
+		  <div class="tab-pane" id="settings">
+		    設定們
+		  </div>
+		</div>
+	</div><!--event-->
+		 
+		<script src="http://code.jquery.com/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+<!--關於活動End-->
+          
+          
+</section>
+	<!--end of content-->
+
+	<!--footer-->
+
+	<footer>
+		<img src="images/logo/logo8_red_footer.png" alt="footer_logo">
+		<ul>
+			<li><a href="footer.html" title="">關於我們</a></li>
+			<li><a href="footer.html#QA" title="">常見問答</a></li>
+			<li><a href="footer.html#contact" title="">聯絡我們</a></li>
+		</ul>
+		<h6>Copyright &copy; 2014 Somebody - All Rights Reserved.</h6>
+	</footer>
+	<!--end of footer-->
+</body>
+
+</html>

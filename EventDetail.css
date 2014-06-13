@@ -55,7 +55,11 @@ body
 {
 	width:100%;
 	margin: 0;
+	background-color: #F2F2F2;
+	font-family:"微軟正黑體";
 }
+
+
 #header-wrapper
 {
 	height:5em;
@@ -157,6 +161,7 @@ ul#menu
 	background-position:-125px -145px;
 }
 
+
 /* ngo Button */
 
 #Left-nav li.ngo
@@ -220,6 +225,11 @@ ul#menu
 /* content                                                                       */
 /*********************************************************************************/
 
+section{
+	width: 800px;
+	margin: 0 auto;
+}
+
 a{
 	text-decoration: none;
 	color: rgb(234 , 97 , 48);
@@ -242,58 +252,72 @@ a:hover
 }             /*//當滑鼠移到連結時連結顏色*/
 
 
-.eventDetail_title
+.title
 {
-	text-align:center;
+	text-align:left;
 	font:36px/0.3 '微軟正黑體',sans-serif;	
 	
 	/*版塊樣式*/
-	color: rgb(195 , 55 , 30);
-	background-color: #ffe187;
-	width:700px;
-	margin-left: 2em;
-	border-radius: 0.5em;
-	padding:1em;
+	color: #333333;
+	/*background-color: #FFFFFF;*/
+	width:800px;
+	/*height:150px;*/
+	margin:2em auto 0em auto;
+	padding:.8em 0;
 
 }
-.event_block
+
+
+.event_photo
 {
-	color: rgb(195 , 55 , 30);
-	border-radius: 0.5em;
 	height:25em;
 	width: 20em;
-	background-color: #ffe187;
 	display: block;
-	float: left;
-	margin-right: 2em;
-	margin-left: 3em;
-	margin-top: 2em;
-	margin-bottom: 2em;
+	float: right;
 }
- .event_block img
+ .event_photo img
 {
 	border-radius: 0.5em;
 	height:18em;
 	width: 18em;
-	padding-left: 1em;
-	padding-top: 1em;
+	padding-right: 1em;
+/*	padding-top: 1em;*/
 	margin:0 auto;
 }
+
+
+.main_up
+{
+	width:800px;
+	height: 330px;
+	color: #333333;
+	background-color: #FFF;
+
+	padding: 1em 0 1em 0;
+
+}
+
+/*.main_info
+{
+	width:800px;
+	height: 300px
+	background-color: #FFF;
+}*/
 
 .eventDetail_info
 {
 
-	color: rgb(195 , 55 , 30);
+	color: #333333;
 	font:1em/3em '微軟正黑體',sans-serif;
-	 width:400px;
-	height: 200px;
 	float:left;
-	margin-left: 2em;
-	margin-top: 2em;
-	margin-bottom: 2em;
-	background-color:rgb(255,220,95);
+	/*background-color: #FFF;*/
 	border-radius: 2em;
-	line-height:1.2em;
+	line-height:2.2em;
+	letter-spacing:0em;
+
+		margin-left: 1em;
+/*	margin-top: 2em;*/
+/*	margin-bottom: 2em;*/
 }
 
 .eventDetail_info li
@@ -302,34 +326,39 @@ a:hover
 }
 
 
-.eventDetail_shareBtn
+
+
+.shareBtn
 {
+	/*排版*/
 	clear:both; 
 	text-align:center;
-	background-color:rgb(255,220,95);
-	border-radius: 2em;
+	
 	
 	/*版塊樣式*/
-	color: rgb(195 , 55 , 30);
-	background-color: #ffe187;
+	color: #333;
 	width:700px;
-	margin-left: 2em;
-	margin-bottom: 2em;
-	border-radius: 0.5em;
+	margin:0 auto;
 	padding:1em;
+	/*background-color:rgb(255,220,95);*/
+	/*background-color:  #FFF;*/
+
+	/*邊框*/
+	border-style:dotted;
+	border-radius: 2em;	
+	border-radius: 0.5em;
+	
 }
 
 .eventDetail_detail
 {
 	/*版塊樣式*/
-	color: rgb(195 , 55 , 30);
-	background-color: #ffe187;
+	color: #333333;
+	background-color: #FFF;
 	width:700px;
-	margin-left: 2em;
-	margin-top: 2em;
-	margin-bottom: 2em;
-	border-radius: 0.5em;
-	padding:1em;
+	margin:4em auto;
+	/*border-radius: 0.5em;*/
+	padding:.6em 2em;
 	font:1em/3em '微軟正黑體',sans-serif;
 
 }

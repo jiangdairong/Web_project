@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" type="text/css" href="index.css" />
+	<link rel="stylesheet" type="text/css" href="index.css" />	
+	<link rel="stylesheet" type="text/css" href="css/960.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="fancybox.css">
 	<title>小人物</title>
 </head>
-	
 	<body>
 	<!--nav bar-->		
 	<div id="header-wrapper">
@@ -23,8 +24,7 @@
 		
 				<div id="Right-nav">
 					<ul>
-						<li class="login" onclick="fblogin()"><a href="#">登入</a></li>
-						<li class="signin"><a href="#">註冊</a></li>
+						<li class="login" onclick="FacebookLogin()"><img id="profile"></img><p id="name">登入</p></li>
 					</ul>
 				</div>
 		</div>
@@ -32,14 +32,13 @@
 	<!--end of nav bar-->
 
 	<!--content of index-->
-	<div class="container" id ="content"></div>
+	<div class="container container_12" id ="content"></div>
+
 	<!--indexView -->
 	 <script id="indexView" type="text/x-dot-template">
 		<!--end of nav bar-->
-		
 		<!--content-->
 		<div id="content-wrapper">
-		
 			<h2>最新志活</h2>
 			<div class="IndexContent-box">
 				<div class="LatestEvent-box">
@@ -51,7 +50,6 @@
 				<div class="LatestEvent-box">
 				</div>
 			</div>
-			
 			<h2>熱門志活</h2>
 			<div class="IndexContent-box">
 				<div class="HotEvent-box">
@@ -62,8 +60,7 @@
 				</div>
 				<div class="HotEvent-box">
 				</div>
-			</div>
-					
+			</div>	
 			<h2>熱門文章</h2>
 			<div class="IndexContent-box">
 				<div class="HotArcitle-box">
@@ -71,14 +68,43 @@
 				<div class="HotArcitle-box">
 				</div>
 			</div>
-			
 		</div>
 		</script>
 		<!--end of content-->
 
 	<!--end of indexView-->
+
 	<!--event-->
+
 	<script id="eventView" type="text/x-dot-template">
+	<div class="event_add" id="wrapper">
+ 		<p><a class="modalbox" id="addNewEventBox">click to open</a></p>
+  	</div>
+  
+ 	 <div id="inline">
+ 		 <h2>Send us a Message</h2>
+ 
+ 		 <form id="contact" name="contact" action="#" method="post">
+ 		 	<label for="title">文章標題</label>
+ 		 	<input type="title" id="title" name="title" class="txt">
+ 	 		<br>
+ 	 		<label for="ngo">舉辦活動的基金會</label>
+ 		 	<input type="ngo" id="ngo" name="ngo" class="txt">
+ 	 		<br>
+ 	 		<label for="location">活動地點</label>
+ 		 	<input type="location" id="location" name="location" class="txt">
+ 	 		<br>
+ 	 		<label for="email">Your E-mail</label>
+ 	 		<input type="email" id="email" name="email" class="txt">
+ 	 		<br>
+
+ 	 		<label for="msg">Enter a Message</label>
+ 	 		<texttarea id="msg" name="msg" class="txtarea"></textarea>
+
+ 	 		<button id="send">Send E-mail</button>
+ 		 </form>
+ 	 </div>
+	
 	<div id="mwt_mwt_slider_scroll">
 		 <div id="mwt_fb_tab">
 			<span>S</span>
@@ -127,84 +153,70 @@
 	</div>	
 
 	<section>
-		<div class="event_add">
-			<a href="#">辦志工活動</a>
-		</div>
-		
 		<div class="event_block">
-			<a href="EventDetail_1.html">
-			<div  class="event_pic">	
-				<img src="images/event/event_1.jpg">
-			</div>
-			<div class="event_info">	
-				<ul>
-					<li>敦安基金會看見太陽成長團體心衛志工</li>
-					<li>活動時間：2014/06/20</li>
-					<li>報名截止時間：2014/05/20</li>
-					<li>需要 /招募人數：缺3人/共5人</li>		
-				</ul>
-			</div>
-		</div>		
-		<div class="event_block">
-			<a href="EventDetail_2.html">
-			<div  class="event_pic">
-				<img src="images/event/event_2.jpg">
-			</div>
-			<div class="event_info">	
-				<ul>
-					<li>華山基金會綜合行政義工</li>
-					<li>活動時間：2014/04/03~2014/12/31</li>
-					<li>報名截止時間：2014/04/01</li>
-					<li>需要 /招募人數：缺5人/共10人</li>		
-				</ul>
-			</div>
-		</div>
-		
-		<div class="event_block">
-			<a href="#">
-			<div  class="event_pic">
-				<img src="images/event/event_3.jpg">
-			</div>
-			<div class="event_info">	
-				<ul>
-					<li>台灣青少年北京教育交流參訪團</li>
-					<li>活動時間：2014/07/15~2014/7/25</li>
-					<li>報名截止時間：2014/5/11</li>
-					<li>需要 /招募人數：缺10人/共10人</li>		
-				</ul>
-			</div>
-		</div>
-		
-		<div class="event_block">
-			<div  class="event_pic">
-				<img src="images/sister.jpg">
-			</div>
-			<div class="event_info">	
-				<ul>
-					<li>活動名稱</li>
-					<li>活動時間</li>
-					<li>報名截止時間</li>
-					<li>需要 /招募人數</li>		
-				</ul>
-			</div>
-		</div>
-		
-		<div class="event_block">
-			<div  class="event_pic">
-				<img src="images/sister.jpg">
-			</div>
-			<div class="event_info">	
-				<ul>
-					<li>活動名稱</li>
-					<li>活動時間</li>
-					<li>報名截止時間</li>
-					<li>需要 /招募人數</li>		
-				</ul>
-			</div>
-		</div>
+			<div class='grid_12'>
+        		{{~it :p:index}} 
+          			<a href='#eventdetail/{{=p.objectId}}/'>
+            		<div class='event_item'>
+              			<img src='{{=p.imageURL}}'>
+              			<div>活動名稱：{{=p.name}}
+              			</div>
+              			<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
+              			</div>
+              			<div>活動地點：{{=p.location}}
+              			</div>
+              			<div>招募人數：共需{{=p.amount}}人
+              			</div>
+
+            		</div>
+          			</a>
+        		{{~}}
+      		</div>
+		</div>	
 	</section>
 	</script>
+
 	<!--end of content of event-->
+
+	<!--EventDetail-->
+	<script id="EventDetailView" type="text/x-dot-template">
+	<section>
+
+		<div class="main_up">
+			<h1 class="title">{{=it.name}}</h1>
+			<div class="event_photo">
+				<img class="pic1" src='{{=it.imageURL}}' alt="志工活動照片"> 
+			</div>
+			<div class="eventDetail_info">
+				<ul>
+					<li><i class="fa fa-clock-o"></i>&nbsp活動時間：{{~it.time.iso :value:index}}{{?index<=9}}{{=value}}{{?}}{{~}} </li>
+
+					<li><i class="fa fa-location-arrow"></i>&nbsp活動地點：{{=it.location}}</li>
+					<li><i class="fa fa-child"></i>&nbsp招募人數：共需{{=it.amount}}人</li>
+					<li><i class="fa fa-home"></i>&nbsp主辦單位：<a href="{{=it.ngoURL}}">{{=it.ngo}}</a></li>
+					<li><i class="fa fa-user"></i>&nbsp聯絡人：{{=it.contact}}</li>
+					<li><i class="fa fa-phone"></i> &nbsp聯絡方式：{{=it.phone}}</li>
+					<a href="event_form.html"><span class="eventDetail_signUpBtn">我要報名</span>
+					</ul>
+				</div>
+			</div>
+
+			<div class="shareBtn">
+				<span id="fb_btn">facebook</span>
+				<span id="google_btn">google</span>
+				<span id="twitter_btn">twitter</span>
+				<span id="email_btn">e-mail</span>
+			</div>
+
+
+			<div class="eventDetail_detail">
+				{{=it.detail}}
+				
+			</div>
+
+		</section>
+	</script>
+	<!--End of EventDetail-->
 
 	<!--sharetable-->
 	<script id="shareTable" type="text/x-dot-template">
@@ -213,6 +225,20 @@
 		<h3><a href="ShareForm.html">我要徵文</a></h3>
 	</div>
 	<div class="thoughts_table">
+			<div class='grid_12'>
+        		{{~it :p:index}} 
+          			<a href='#ShareDetail/{{=p.objectId}}/'>
+          			<div class="photo1">
+						<a><img class="pic1" src='{{=it.imageURL}}' alt="志工活動照片"></a>	
+					</div>
+					<div class="article1">{{~p.content :value:index2}}{{?index2<=100}}{{=value}}{{?}}{{~}}...
+					</div>
+					<br><a href='#shareTabledetail/{{=p.objectId}}/'>more</a>
+          			</a>
+        		{{~}}
+      		</div>
+		</div>
+	/*<div class="thoughts_table">
 		<div class="feedback">
 			<div class="photo1">
 				<a href="ShareDetail.html"><img class="pic1" src="https://github.com/shihsan/web/blob/gh-pages/images/thoughts_pic/pic1.JPG?raw=true" alt="志工活動照片"></a>	
@@ -229,9 +255,34 @@
 				心得文字2
 			</div>	
 		</div>	
-	</div>
+	</div>*/
 	</script>
 	<!--end of content of sharetable-->
+
+	<!--sharedetail-->
+	<script id="shareTabledetail" type="text/x-dot-template">
+	<div class="thoughts">
+		<div class="pic">
+			<img  src='{{=it.imageURL}}' alt="志工活動照片">			
+		</div>
+		<div class="foundation">
+			<h3>關於</h3>
+			<ul>
+				<li><a href="#">{{=it.name}}</a></li>
+				<li>活動時間：{{~it.time.iso :value:index}}{{?index<=9}}{{=value}}{{?}}{{~}}</li>
+				<li>活動地點：{{=it.location}}</li>
+				<li>志工類型：{{=it.tag_type}}</li>
+				<li>撰寫人：{{=it.author}}</li>
+			</ul>
+		</div>
+		<div class="detail">
+			<h3>心得內容：</h3>
+			<p>{{=it.content}}</p>
+		</div>
+	</div>
+	</script>
+	<!--end of content of sharedetail-->
+
 	<!--NGO-->
 	<script id="ngoView" type="text/x-dot-template">
 	<section>
@@ -242,6 +293,7 @@
 				<input id="search-box" type="text" name="search">
 			</form>
 		</div>
+
 		<div class="ngo_block">
 			<a href="NGODetail.html">
 				<div  class="ngo_pic">	
@@ -253,94 +305,72 @@
 					</ul>
 				</div>
 			</a>
-		</div>		
-		
-		<div class="ngo_block">
-			<div  class="ngo_pic">
-				<img src="images/NGO/NGO_2.jpg">
-			</div>
-			<div class="ngo_info">	
-				<ul>
-					<li>華山基金會</li>
-				</ul>
-			</div>
-		</div>
-		
-		<div class="ngo_block">
-			<div  class="ngo_pic">
-				<img src="images/NGO/NGO_3.png">
-			</div>
-			<div class="ngo_info">	
-				<ul>
-					<li>中華基金會</li>		
-				</ul>
-			</div>
-		</div>
-		
-		<div class="ngo_block">
-			<div  class="ngo_pic">
-				<img src="images/sister.jpg">
-			</div>
-			<div class="ngo_info">	
-				<ul>
-					<li>NGO名稱</li>		
-				</ul>
-			</div>
-		</div>
-		
-		<div class="ngo_block">
-			<div  class="ngo_pic">
-				<img src="images/sister.jpg">
-			</div>
-			<div class="ngo_info">	
-				<ul>
-					<li>NGO名稱</li>		
-				</ul>
-			</div>
-		</div>
+		</div>	
 	</section>
 	</script>
-	<!---end of cintent of NGO-->
+	<!---end of content of NGO-->
+
+	<!--About-->
+	<script id="aboutView" type="text/x-dot-template">
+	<div class="content">
+		<div class="introduction">
+			<h2>內容簡介</h2>
+			<div class="detail">
+				<p id="title">「小人物」為一個志願服務活動人力的供需雙向平台。提供給想要參與志願服務的人多種選擇的機會，也提供給公益組織尋求志工人力資源的空間。</p>
+				<ul>
+					<li><span>尋找志活</span><p>提供志工活動訊息，包含活動時間、地點等詳細內容，讓小人物們選擇參與。</p></li>
+					<li><span>分享感動</span><p>蒐集志工參與活動後的心得分享。</p></li>
+					<li><span>公益組織</span><p>介紹所有張貼於「小人物」志工活動之NGO公益組織，包含組織名稱、組織介紹，以及張貼過的志工活動與志工們的回饋心得。</p></li>
+				</ul>
+			</div>
+		</div>
+		<hr>
+		<div class="QA" id="QA">
+			<h2>問與答</h2>
+			<div class="detail">
+				<ul>
+					<li>Q1：如何註冊與登入？</br>A1：選擇首頁右上角提供註冊及登入，進入頁面，可以Facebook帳號或以「小人物」網站會員註冊。</li>
+					<li>Q2：如何報名想參加的志活？</br>A2：必須先註冊/登入，點選活動參與，填妥志工報名表後寄出，您將會收到線上報名系統確認信。</li>
+					<li>Q3：如何得知報名的志活是否錄取？</br>A3：您報名的志工活動錄取與否，將由該公益組織主動透過您報名表上填寫的電話與電子郵件與您聯繫。</li>
+					<li>Q4：如何聯絡你們？</br>A4：請聯絡「小人物」團隊 nobody@gmail.com。</li>
+					<li>Q5：請問「小人物」是何時成立的？</br>A5：「小人物」成立於2014年6月，由五位來自不同科系且志同道合的政大女學生，王馨瑩、施亦宣、江岱蓉、蕭宇彤、楊佳瑜一同開創。</li>
+				</ul>
+			</div>
+		</div>
+		<hr>
+		<div class="contact" id="contact">
+			<h2>聯絡我們</h2>
+			<div class="detail">
+				<p>對於「小人物」仍有許多改進之處，如果您支持我們的理念，懇請不吝提供您寶貴的意見或建議，讓「小人物」能更加進步！</p>	
+				<h5>給編輯團隊的建議：nobody@gmail.com</h5>	
+			</div>
+		</div>
+	</div>
+	</script>
+	<!---end of About-->
+
+
 	<!--footer-->
 	<footer>
 		<img src="images/logo/logo8_red_footer.png" alt="footer_logo">
 		<ul>
-			<li><a href="footer.html" title="">關於我們</a></li>
-			<li><a href="footer.html#QA" title="">常見問答</a></li>
-			<li><a href="footer.html#contact" title="">聯絡我們</a></li>
+			<li><a href="#about" title="">關於我們</a></li>
+			<li><a href="#about" title="">常見問答</a></li>
+			<li><a href="#about" title="">聯絡我們</a></li>
 		</ul>
 		<h6>Copyright &copy; 2014 Somebody - All Rights Reserved.</h6>
 	</footer>
 	<!--end of footer-->
-	<script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript" src="jquery.nivo.slider.js"></script>
+
+	<script type='text/javascript' src="http://code.jquery.com/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="fancybox.js"></script>
 	<script src="https://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
 	<script src="vendors/doT.min.js"></script>
 	<script src="app.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		$(window).load(function() {
-			$('#slider').nivoSlider();
-		});
-	</script>
-	<!--script of event-->
-	<script type='text/javascript'>
-	$(function(){
-		var w = $("#mwt_slider_content").width();
-		$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
- 
-		$("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
-			if ($("#mwt_mwt_slider_scroll").css('right') == '-'+w+'px')
-			{
-				$("#mwt_mwt_slider_scroll").animate({ right:'0px' }, 600 ,'swing');
-			}
-		});
- 
- 
-		$("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
-			$("#mwt_mwt_slider_scroll").animate( { right:'-'+w+'px' }, 600 ,'swing');	
-		});	
-	}); 	
-	</script>
+	
+	<!--script type='text/javascript' src="scripts/jquery-1.9.1.min.js"></script-->
+
+
 	<!--enf of script of shareTable-->
 
 </body>

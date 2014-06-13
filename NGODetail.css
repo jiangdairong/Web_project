@@ -48,12 +48,14 @@ table {
 /*********************************************************************************/
 /* header-wrapper                                                                */
 /*********************************************************************************/
+
 body
 {
 	width:100%;
 	margin: 0;
+	background-color: #F2F2F2;
+	font-family:"微軟正黑體";
 }
-
 #header-wrapper
 {
 	height:5em;
@@ -217,17 +219,62 @@ ul#menu
 /*********************************************************************************/
 /* content                                                                       */
 /*********************************************************************************/
+
+section{
+	/*background: #DDDDDD;*/
+	width: 800px;
+	margin: 0 auto;
+}
+
+
+.title
+{
+	text-align:left;
+	font:36px/0.3 '微軟正黑體',sans-serif;	
+	
+	/*版塊樣式*/
+	color: #333333;
+	/*background-color: #FFFFFF;*/
+	width:800px;
+	/*height:150px;*/
+	margin:2em auto 0em auto;
+	padding:.8em 0;
+
+}
+
+.ngo_photo
+{
+	height:25em;
+	width: 20em;
+	display: block;
+	float: right;
+}
+ .ngo_photo img
+{
+	border-radius: 0.5em;
+	height:18em;
+	width: 18em;
+	padding-right: 1em;
+/*	padding-top: 1em;*/
+	margin:0 auto;
+}
+
 .detail 
 {
-	width:500px;
-	height: 500px;
+	color: #333333;
+	font:1em/3em '微軟正黑體',sans-serif;
 	float:left;
-	margin-left: 5em;
+
+	width: 50%;
+
+	margin-left: 1em;
+/*	margin-top: 2em;*/
 	margin-bottom: 2em;
-	background-color:rgb(255,220,95);
-	border-radius: 2em;
+/*	border-radius: 2em;*/
+	line-height:2.2em;
+	letter-spacing:0em;
 }
-.detail h3
+/*.detail h3
 {
 	background-color:rgb(255,175,60);
 	border-top-left-radius:2em;
@@ -236,37 +283,41 @@ ul#menu
 	height: 1em;
 	padding: 1em;
 	margin-top:0; 
+}*/
+
+/*.detail p,.detail h2
+{
+	padding: 1em;
+}*/
+
+.main_up
+{
+	width:800px;
+	height: 400px;
+	color: #333;
+	background-color: #FFF;
 }
 
-.detail p,.detail h2
+.shareBtn
 {
-	padding: 2em;
-}
+	/*排版*/
+	clear:both; 
+	text-align:center;
+	
+	
+	/*版塊樣式*/
+	color: #333;
+	width:700px;
+	margin:2em auto;
+	padding:1em;
+	/*background-color:rgb(255,220,95);*/
+	/*background-color:  #FFF;*/
 
-.ngo_block
-{
-	color: rgb(195 , 55 , 30);
+	/*邊框*/
+	border-style:dotted;
+	border-radius: 2em;	
 	border-radius: 0.5em;
-	height:25em;
-	width: 20em;
-	background-color: #ffe187;
-	display: block;
-	float: left;
-	margin-right: 2em;
-	margin-left: 3em;
-	margin-top: 2em;
-	margin-bottom: 2em;
 }
- .ngo_block img
-{
-	border-radius: 0.5em;
-	height:18em;
-	width: 18em;
-	padding-left: 1em;
-	padding-top: 1em;
-	margin:0 auto;
-}
-
 
 /*********************************************************************************/
 /* footer                                                                        */
