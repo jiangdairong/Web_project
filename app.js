@@ -2,7 +2,7 @@
 	Parse.initialize("RmleLSMnkCyiCdVpqfWJ562fmhf8vEl4h4NeQKuL","09pdjU4X0sosunvxliKBYV8JLGhEni7F8QLHWBMP");
 
 	var templates = {};
-	["indexView","eventView","EventDetailView","shareTable","ngoView"].forEach(function(t){
+	["indexView","eventView","EventDetailView","shareTable","shareTabledetail","ngoView"].forEach(function(t){
 		var dom = document.getElementById(t);
 		templates[t] = doT.template(dom.text);
 	});
@@ -144,7 +144,6 @@
 		},
 		EventDetailView:function(eventdetail_id){
 			console.log("detail");
-			//document.getElementById("content").innerHTML=templates.EventDetailView();//volunteer;
 			if(eventdetail_id){
 				var Event = Parse.Object.extend("event"); 
 				var query = new Parse.Query(Event); 
@@ -160,7 +159,25 @@
 			}
 		},
 		shareTable:function(){
-			document.getElementById("content").innerHTML=templates.shareTable();//volunteer;
+			//document.getElementById("content").innerHTML=templates.shareTable();//volunteer;
+			window.scrollTo(0,0); 
+			var limit = 12; 
+			var skip = 0; 
+
+			var Share = Parse.Object.extend("event"); 
+			var query = new Parse.Query(Share); 
+			// query.limit(limit); 
+			// query.skip(skip);
+			// query.descending("time"); 
+
+			query.find({success: function(results){
+
+				var objList = results.map(function(e){ return e.toJSON() });
+				console.log(objList); 
+				document.getElementById('content').innerHTML = templates.shareTable(objList);
+				query.limit(0);
+			}});
+
 			},
 		ngoView:function(){
 			document.getElementById("content").innerHTML=templates.ngoView();//volunteer;
