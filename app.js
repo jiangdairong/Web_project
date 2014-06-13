@@ -2,7 +2,7 @@
 	Parse.initialize("RmleLSMnkCyiCdVpqfWJ562fmhf8vEl4h4NeQKuL","09pdjU4X0sosunvxliKBYV8JLGhEni7F8QLHWBMP");
 
 	var templates = {};
-	["indexView","indexView_2","indexView_3","eventView","EventDetailView","shareTable","shareTabledetail","ngoView","aboutView"].forEach(function(t){
+	["indexView","indexView_2","indexView_3","eventView","EventDetailView","shareTable","shareTabledetail","ngoView","aboutView","administration_event","artist_event","environment_event","education_event","care_event","activity_event","camp_event","other_event"].forEach(function(t){
 		var dom = document.getElementById(t);
 		templates[t] = doT.template(dom.text);
 	});
@@ -258,7 +258,127 @@
 		aboutView:function(){
 			window.scrollTo(0,0); 
 			document.getElementById("content").innerHTML=templates.aboutView();//volunteer;
-		}
+		},
+		administration_event:function(){
+			
+			var Administration = Parse.Object.extend("event"); 
+			var query = new Parse.Query(Administration); 
+
+
+			query.find({success: function(results){
+
+				var objList = results.map(function(e){ return e.toJSON() });
+				console.log(objList); 
+				document.getElementById("content").innerHTML = templates.administration_event(objList);
+				query.limit(0);
+			}});
+
+		},
+		artist_event:function(){
+			
+			var Artist = Parse.Object.extend("event"); 
+			var query = new Parse.Query(Artist); 
+
+
+			query.find({success: function(results){
+
+				var objList = results.map(function(e){ return e.toJSON() });
+				console.log(objList); 
+				document.getElementById("content").innerHTML = templates.artist_event(objList);
+				query.limit(0);
+			}});
+
+		},
+		environment_event:function(){
+			
+			var Environment = Parse.Object.extend("event"); 
+			var query = new Parse.Query(Environment); 
+
+
+			query.find({success: function(results){
+
+				var objList = results.map(function(e){ return e.toJSON() });
+				console.log(objList); 
+				document.getElementById("content").innerHTML = templates.environment_event(objList);
+				query.limit(0);
+			}});
+
+		},
+		education_event:function(){
+			
+			var Education = Parse.Object.extend("event"); 
+			var query = new Parse.Query(Education); 
+
+
+			query.find({success: function(results){
+
+				var objList = results.map(function(e){ return e.toJSON() });
+				console.log(objList); 
+				document.getElementById("content").innerHTML = templates.education_event(objList);
+				query.limit(0);
+			}});
+
+		},
+		care_event:function(){
+			
+			var Care = Parse.Object.extend("event"); 
+			var query = new Parse.Query(Care); 
+
+
+			query.find({success: function(results){
+
+				var objList = results.map(function(e){ return e.toJSON() });
+				console.log(objList); 
+				document.getElementById("content").innerHTML = templates.care_event(objList);
+				query.limit(0);
+			}});
+
+		},
+		activity_event:function(){
+			
+			var Activity = Parse.Object.extend("event"); 
+			var query = new Parse.Query(Activity); 
+
+
+			query.find({success: function(results){
+
+				var objList = results.map(function(e){ return e.toJSON() });
+				console.log(objList); 
+				document.getElementById("content").innerHTML = templates.activity_event(objList);
+				query.limit(0);
+			}});
+
+		},
+		camp_event:function(){
+			
+			var Camp = Parse.Object.extend("event"); 
+			var query = new Parse.Query(Camp); 
+
+
+			query.find({success: function(results){
+
+				var objList = results.map(function(e){ return e.toJSON() });
+				console.log(objList); 
+				document.getElementById("content").innerHTML = templates.camp_event(objList);
+				query.limit(0);
+			}});
+
+		},
+		other_event:function(){
+			
+			var Other = Parse.Object.extend("event"); 
+			var query = new Parse.Query(Other); 
+
+
+			query.find({success: function(results){
+
+				var objList = results.map(function(e){ return e.toJSON() });
+				console.log(objList); 
+				document.getElementById("content").innerHTML = templates.other_event(objList);
+				query.limit(0);
+			}});
+
+		},
 	};
 
 	var r=Parse.Router.extend({
@@ -269,7 +389,15 @@
 			"ngo": 			"ngoView",
 			"eventdetail/:eventdetail_id/": 			"EventDetailView",
 			"shareTabledetail/:shareTabledetail_id/": 	"shareTabledetail",
-			"about": 		"aboutView"
+			"about": 		"aboutView",
+			"administration": "administration_event", 
+			"artist": 		"artist_event", 
+			"environment": 	"environment_event", 
+			"education": 	"education_event", 
+			"care": 		"care_event", 
+			"activity": 	"activity_event", 
+			"camp": 		"camp_event", 
+			"other": 		"other_event", 
 		},
 		indexView: 		volunteer.indexView,
 		eventView: 		volunteer.eventView,
@@ -277,7 +405,15 @@
 		ngoView: 		volunteer.ngoView,
 		EventDetailView:volunteer.EventDetailView,
 		shareTabledetail:volunteer.shareTabledetail,
-		aboutView: 		volunteer.aboutView
+		aboutView: 		volunteer.aboutView,
+		administration_event: volunteer.administration_event, 
+		artist_event: 	volunteer.artist_event, 
+		environment_event: volunteer.environment_event, 
+		education_event: volunteer.education_event, 
+		care_event: 	volunteer.care_event, 
+		activity_event: volunteer.activity_event, 
+		camp_event: 	volunteer.camp_event, 
+		other_event: 	volunteer.other_event, 
 	});
 
 	// Initialize the App
@@ -343,50 +479,6 @@ function FacebookLogin(){
 			}
 		},{scope:"user_likes,user_photos,publish_actions"})
 	}
-}
-function arise(){
-	  $( "#dialog-form" ).dialog({
-      autoOpen: false,
-      height: 300,
-      width: 350,
-      modal: true,
-      buttons: {
-        "Create an account": function() {
-          var bValid = true;
-          allFields.removeClass( "ui-state-error" );
- 
-          bValid = bValid && checkLength( name, "username", 3, 16 );
-          bValid = bValid && checkLength( email, "email", 6, 80 );
-          bValid = bValid && checkLength( password, "password", 5, 16 );
- 
-          bValid = bValid && checkRegexp( name, /^[a-z]([0-9a-z_])+$/i, "Username may consist of a-z, 0-9, underscores, begin with a letter." );
-          // From jquery.validate.js (by joern), contributed by Scott Gonzalez: http://projects.scottsplayground.com/email_address_validation/
-          bValid = bValid && checkRegexp( email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. ui@jquery.com" );
-          bValid = bValid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
- 
-          if ( bValid ) {
-            $( "#users tbody" ).append( "<tr>" +
-              "<td>" + name.val() + "</td>" +
-              "<td>" + email.val() + "</td>" +
-              "<td>" + password.val() + "</td>" +
-            "</tr>" );
-            $( this ).dialog( "close" );
-          }
-        },
-        Cancel: function() {
-          $( this ).dialog( "close" );
-        }
-      },
-      close: function() {
-        allFields.val( "" ).removeClass( "ui-state-error" );
-      }
-    });
- 
-    $( "#arise_event" )
-      .button()
-      .click(function() {
-        $( "#dialog-form" ).dialog( "open" );
-      });
 }
 
 
