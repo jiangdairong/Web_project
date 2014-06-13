@@ -526,23 +526,25 @@ a:hover
 /*********************************************************************************/
 /* content  of About                                                             */
 /*********************************************************************************/
-.content{
+#aboutView .content{
 	padding-bottom: 8em;
 }
-.content .introduction, .content .QA, .content .contact{
+#aboutView .content .introduction, 
+#aboutView .content .QA, 
+#aboutView .content .contact{
 	padding-left: 2em;
 }
-.content .detail{
+#aboutView .content .detail{
 	padding: 0 4em 1em 2em;
 }
-.content hr{
+#aboutView .content hr{
 	margin-top: 2em;
 	height: 3px;
 	border: none;
 	border-top: 2px solid rgb(250 , 80 , 5);
 	width: 98%;
 }
-.content h2
+#aboutView .content h2
 {
 	color: rgb(250 , 80 , 5);
 	line-height: 3em;
@@ -565,7 +567,7 @@ a:hover
 .QA .detail ul li{
 	margin-top: 2em;
 }
-.contact .detail h5{
+#aboutView .contact .detail h5{
 	font-size: 1.1em;
 	float: right;
 	margin-right: 10em;
