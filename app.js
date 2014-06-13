@@ -30,22 +30,23 @@
 				document.getElementById('content').innerHTML = templates.eventView(objList);
 				query.limit(0);
 
-				$(function (){
-					var w = $("#mwt_slider_content").width();
+				$(function(){
+					var w = $("#mwt_mwt_slider_scroll").width();
+					console.log(w);
 					$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
-
+ 
 					$("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
 						if ($("#mwt_mwt_slider_scroll").css('right') == '-'+w+'px')
 						{
-							$("#mwt_mwt_slider_scroll").animate({ right:'0px' }, 600 ,'swing');
+							console.log("jjjjjj");
+							$("#mwt_mwt_slider_scroll").animate({ right:'20px' }, 600 ,'swing');
 						}
 					});
-
-
+ 
+ 
 					$("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
-						$("#mwt_mwt_slider_scroll").animate( { right:'-'+w+'px' }, 600 ,'swing');	
+						$("#mwt_mwt_slider_scroll").animate( { right:'-'+w+'px' },600 ,'swing');	
 					});	
-					console.log(w);
 				});
 
 				$('#addNewEventBox').click(function(){

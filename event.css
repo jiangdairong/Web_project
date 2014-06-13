@@ -223,9 +223,10 @@ ul#menu
 
 #mwt_slider_content{
 	background:#ffb964;
-	text-align:left;
+	text-align:right;
 	padding-top:20px;
-	padding-left: 1.2em;
+	width:200px;
+	padding-right: 1.2em;
 }
 #mwt_slider_content h3
 {
