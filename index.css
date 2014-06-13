@@ -93,7 +93,7 @@ padding-left:4em;}
           box-sizing: border-box;
 }
 .LatestEvent-box, .HotEvent-box{
-	position:relative;
+	position: relative;
 	display: inline-block;
 	height: 280px;
 	background-color:#E5E5E5;
@@ -104,7 +104,7 @@ padding-left:4em;}
           box-sizing: border-box;
 }
 .HotArcitle-box{
-	position:relative;
+	position: relative;
 	display: inline-block;
 	height: 280px;
 	background-color:#E5E5E5;

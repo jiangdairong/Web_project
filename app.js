@@ -2,15 +2,52 @@
 	Parse.initialize("RmleLSMnkCyiCdVpqfWJ562fmhf8vEl4h4NeQKuL","09pdjU4X0sosunvxliKBYV8JLGhEni7F8QLHWBMP");
 
 	var templates = {};
-	["indexView","eventView","EventDetailView","shareTable","shareTabledetail","ngoView","aboutView"].forEach(function(t){
+	["indexView","indexView_2","indexView_3","eventView","EventDetailView","shareTable","shareTabledetail","ngoView","aboutView"].forEach(function(t){
 		var dom = document.getElementById(t);
 		templates[t] = doT.template(dom.text);
 	});
 	var volunteer={
 		indexView:function(){
 			window.scrollTo(0,0); 
-			document.getElementById("content").innerHTML=templates.indexView();//volunteer;
-			},
+			//document.getElementById("content").innerHTML=templates.indexView();//volunteer;
+			var limit = 12; 
+			var skip = 0; 
+
+			var Event = Parse.Object.extend("event"); 
+			var query = new Parse.Query(Event); 
+			// query.limit(limit); 
+			// query.skip(skip);
+			query.descending("updateAt"); 
+
+			query.find({success: function(results){
+
+				var objList = results.map(function(e){ return e.toJSON() });
+				console.log(objList); 
+				document.getElementById('content').innerHTML = templates.indexView(objList);
+				query.limit(0);
+			}});
+
+			query.descending("count"); 
+
+			query.find({success: function(results){
+
+				var objList = results.map(function(e){ return e.toJSON() });
+				console.log(objList); 
+				document.getElementById('content').innerHTML += templates.indexView_2(objList);
+				query.limit(0);
+			}});
+
+			query.descending("share_count"); 
+
+			query.find({success: function(results){
+
+				var objList = results.map(function(e){ return e.toJSON() });
+				console.log(objList); 
+				document.getElementById('content').innerHTML += templates.indexView_3(objList);
+				query.limit(0);
+			}});
+
+		},
 		eventView:function(){
 			//document.getElementById("content").innerHTML=templates.eventView();//volunteer;
 			window.scrollTo(0,0); 
@@ -201,12 +238,26 @@
 		},
 		ngoView:function(){
 			window.scrollTo(0,0); 
-			document.getElementById("content").innerHTML=templates.ngoView();//volunteer;
+			//document.getElementById("content").innerHTML=templates.ngoView();//volunteer;
+			var limit = 12; 
+			var skip = 0; 
+
+			var Share = Parse.Object.extend("event"); 
+			var query = new Parse.Query(Share); 
+			// query.limit(limit); 
+			// query.skip(skip);
+			// query.descending("time"); 
+
+			query.find({success: function(results){
+				var objList = results.map(function(e){ return e.toJSON() });
+				console.log(objList); 
+				document.getElementById('content').innerHTML = templates.ngoView(objList);
+				query.limit(0);
+			}});
 		},
 		aboutView:function(){
 			window.scrollTo(0,0); 
 			document.getElementById("content").innerHTML=templates.aboutView();//volunteer;
-
 		}
 	};
 

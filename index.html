@@ -41,38 +41,71 @@
 		<div id="content-wrapper">
 			<h2>最新志活</h2>
 			<div class="IndexContent-box">
-				<div class="LatestEvent-box">
-				</div>
-				<div class="LatestEvent-box">
-				</div>
-				<div class="LatestEvent-box">
-				</div>
-				<div class="LatestEvent-box">
-				</div>
+				{{~it :p:index}}
+				{{?index<4}}
+					<div class="LatestEvent-box">
+						<img src='{{=p.imageURL}}' style="width:150px;height:150px;">
+						<div>活動名稱：{{=p.name}}
+              			</div>
+              			<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
+              			</div>
+              			<div>活動地點：{{~p.location :value:index3}}{{?index3<=20}}{{=value}}{{?}}{{~}}...
+              			</div>
+              			<div>招募人數：共需{{=p.amount}}人
+              			</div>
+					</div>
+				{{?}}
+				{{~}}
 			</div>
-			<h2>熱門志活</h2>
-			<div class="IndexContent-box">
-				<div class="HotEvent-box">
-				</div>
-				<div class="HotEvent-box">
-				</div>
-				<div class="HotEvent-box">
-				</div>
-				<div class="HotEvent-box">
-				</div>
-			</div>	
-			<h2>熱門文章</h2>
-			<div class="IndexContent-box">
-				<div class="HotArcitle-box">
-				</div>
-				<div class="HotArcitle-box">
-				</div>
-			</div>
+
 		</div>
 		</script>
 		<!--end of content-->
 
+	
+
+	<script id="indexView_2" type="text/x-dot-template">
+		<div id="content-wrapper">
+			<h2>熱門志活</h2>
+			<div class="IndexContent-box">
+				{{~it :p:index}}
+				{{?index<4}}
+					<div class="HotEvent-box">
+						<img src='{{=p.imageURL}}' style="width:150px;height:150px;">
+						<div>活動名稱：{{=p.name}}
+              			</div>
+              			<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
+              			</div>
+              			<div>活動地點：{{~p.location :value:index3}}{{?index3<=20}}{{=value}}{{?}}{{~}}...
+              			</div>
+              			<div>招募人數：共需{{=p.amount}}人
+              			</div>
+					</div>
+				{{?}}
+				{{~}}
+			</div>	
+		</div>
+	</script>
+
+	<script id="indexView_3" type="text/x-dot-template">
+		<div id="content-wrapper">
+			<h2>熱門文章</h2>
+			<div class="IndexContent-box">
+				{{~it :p:index}}
+				{{?index<2}}
+					<div class="HotArcitle-box">
+						<img src='{{=p.imageURL}}' style="width:150px;height:150px;">
+						<div>{{~p.content :value:index2}}{{?index2<=100}}{{=value}}{{?}}{{~}}...
+						</div>
+					</div>
+				{{?}}
+				{{~}}
+			</div>
+		</div>
+	</script>
+
 	<!--end of indexView-->
+
 
 	<!--event-->
 
@@ -288,24 +321,22 @@
 	<section>
 		<div class="thoughts_title">
 			<h2>NGO列表</h2>
-			<form class="search" action="" method="post">
-				<label for="search-box">Search:</label>
-				<input id="search-box" type="text" name="search">
-			</form>
 		</div>
 
+		{{~it :p:index}}
 		<div class="ngo_block">
-			<a href="NGODetail.html">
+			<a href="#">
 				<div  class="ngo_pic">	
-					<img src="images/NGO/NGO_1.jpg">
+					<img src='{{=p.ngoimgURL}}'>
 				</div>
 				<div class="ngo_info">	
 					<ul>
-						<li>敦安基金會</li>	
+						<li>{{=p.ngo}}</li>	
 					</ul>
 				</div>
 			</a>
-		</div>	
+		</div>
+		{{~}}	
 	</section>
 	</script>
 	<!---end of content of NGO-->
