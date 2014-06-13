@@ -24,10 +24,103 @@
 
 			query.find({success: function(results){
 
-				var objList = results.map(function(e){ return e.toJSON() }); 
+				var objList = results.map(function(e){ return e.toJSON() });
+				console.log(objList); 
 				document.getElementById('content').innerHTML = templates.eventView(objList);
-				console.log(objList);
 				query.limit(0);
+
+				$(function (){
+					var w = $("#mwt_slider_content").width();
+					$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
+
+					$("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
+						if ($("#mwt_mwt_slider_scroll").css('right') == '-'+w+'px')
+						{
+							$("#mwt_mwt_slider_scroll").animate({ right:'0px' }, 600 ,'swing');
+						}
+					});
+
+
+					$("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
+						$("#mwt_mwt_slider_scroll").animate( { right:'-'+w+'px' }, 600 ,'swing');	
+					});	
+					console.log(w);
+				});
+
+				$('#addNewEventBox').click(function(){
+					$(this).fancybox({
+						'autoScale': true,
+						'transitionIn': 'elastic',
+						'transitionOut': 'elastic',
+						'speedIn': 500,
+						'speedOut': 300,
+						'autoDimensions': true,
+						'centerOnScroll': true,
+						'content': $('#inline').html(),
+					});
+				});
+
+
+
+
+
+				/*function validateEmail(email) { 
+					var reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+					return reg.test(email);
+				}
+
+				$(document).ready(function() {
+					$(".modalbox").fancybox();
+					$("#contact").submit(function() { return false; });
+
+
+					$("#send").on("click", function(){
+						var emailval  = $("#email").val();
+						var msgval    = $("#msg").val();
+						var msglen    = msgval.length;
+						var mailvalid = validateEmail(emailval);
+
+						if(mailvalid == false) {
+							$("#email").addClass("error");
+						}
+						else if(mailvalid == true){
+							$("#email").removeClass("error");
+						}
+
+						if(msglen < 4) {
+							$("#msg").addClass("error");
+						}
+						else if(msglen >= 4){
+							$("#msg").removeClass("error");
+						}
+
+						if(mailvalid == true && msglen >= 4) {
+						// if both validate we attempt to send the e-mail
+ 	 					// first we hide the submit btn so the user doesnt click twice
+							$("#send").replaceWith("<em>sending...</em>");
+
+							$.ajax({
+								type: 'POST',
+								url: 'sendmessage.php',
+								data: $("#contact").serialize(),
+								success: function(data) {
+									if(data == "true") {
+										$("#contact").fadeOut("fast", function(){
+											$(this).before("<p><strong>Success! Your feedback has been sent, thanks :)</strong></p>");
+											setTimeout("$.fancybox.close()", 1000);
+										});
+									}
+								}
+							});
+						}
+					});
+				});
+			*/
+
+
+
+
+
 				//query.skip(0); 
 				//var option = {};
 				/*
