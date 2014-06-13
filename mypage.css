@@ -315,17 +315,9 @@ a:hover
 
 }
 
-.thoughts .detail 
+.event
 {
-	clear:both;
-	margin-left:5em; 
-	margin-bottom: 2em;
-	width:1000px;
-	height: 1200px;
-	background-color:rgb(255,220,95);
-	border-radius: 2em;
-	display: block;
-	padding: 2em;
+	margin: 5em;
 }
 
 /*.thoughts .detail .tag::before{
