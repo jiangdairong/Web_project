@@ -2,12 +2,13 @@
 	Parse.initialize("RmleLSMnkCyiCdVpqfWJ562fmhf8vEl4h4NeQKuL","09pdjU4X0sosunvxliKBYV8JLGhEni7F8QLHWBMP");
 
 	var templates = {};
-	["indexView","eventView","EventDetailView","shareTable","shareTabledetail","ngoView"].forEach(function(t){
+	["indexView","eventView","EventDetailView","shareTable","shareTabledetail","ngoView","aboutView"].forEach(function(t){
 		var dom = document.getElementById(t);
 		templates[t] = doT.template(dom.text);
 	});
 	var volunteer={
 		indexView:function(){
+			window.scrollTo(0,0); 
 			document.getElementById("content").innerHTML=templates.indexView();//volunteer;
 			},
 		eventView:function(){
@@ -144,6 +145,7 @@
 		},
 		EventDetailView:function(eventdetail_id){
 			console.log("detail");
+			window.scrollTo(0,0); 
 			if(eventdetail_id){
 				var Event = Parse.Object.extend("event"); 
 				var query = new Parse.Query(Event); 
@@ -180,6 +182,7 @@
 
 		},
 		shareTabledetail:function(shareTabledetail_id){
+			window.scrollTo(0,0); 
 			if(shareTabledetail_id){
 				var Event = Parse.Object.extend("event"); 
 				var query = new Parse.Query(Event); 
@@ -196,8 +199,14 @@
 
 		},
 		ngoView:function(){
+			window.scrollTo(0,0); 
 			document.getElementById("content").innerHTML=templates.ngoView();//volunteer;
-			}
+		},
+		aboutView:function(){
+			window.scrollTo(0,0); 
+			document.getElementById("content").innerHTML=templates.aboutView();//volunteer;
+
+		}
 	};
 
 	var r=Parse.Router.extend({
@@ -207,14 +216,16 @@
 			"sharetable": 	"shareTable",
 			"ngo": 			"ngoView",
 			"eventdetail/:eventdetail_id/": 			"EventDetailView",
-			"shareTabledetail/:shareTabledetail_id/": 	"shareTabledetail"
+			"shareTabledetail/:shareTabledetail_id/": 	"shareTabledetail",
+			"about": 		"aboutView"
 		},
 		indexView: 		volunteer.indexView,
 		eventView: 		volunteer.eventView,
 		shareTable: 	volunteer.shareTable,
 		ngoView: 		volunteer.ngoView,
 		EventDetailView:volunteer.EventDetailView,
-		shareTabledetail:volunteer.shareTabledetail
+		shareTabledetail:volunteer.shareTabledetail,
+		aboutView: 		volunteer.aboutView
 	});
 
 	// Initialize the App
