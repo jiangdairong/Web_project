@@ -43,6 +43,7 @@
 			<div class="IndexContent-box">
 				{{~it :p:index}}
 				{{?index<4}}
+					<a href='#eventdetail/{{=p.objectId}}/'>
 					<div class="LatestEvent-box">
 						<img src='{{=p.imageURL}}' style="width:150px;height:150px;">
 						<div>活動名稱：{{=p.name}}
@@ -54,6 +55,7 @@
               			<div>招募人數：共需{{=p.amount}}人
               			</div>
 					</div>
+              		</a>
 				{{?}}
 				{{~}}
 			</div>
@@ -70,6 +72,7 @@
 			<div class="IndexContent-box">
 				{{~it :p:index}}
 				{{?index<4}}
+					<a href='#eventdetail/{{=p.objectId}}/'>
 					<div class="HotEvent-box">
 						<img src='{{=p.imageURL}}' style="width:150px;height:150px;">
 						<div>活動名稱：{{=p.name}}
@@ -81,6 +84,7 @@
               			<div>招募人數：共需{{=p.amount}}人
               			</div>
 					</div>
+              		</a>
 				{{?}}
 				{{~}}
 			</div>	
@@ -93,11 +97,13 @@
 			<div class="IndexContent-box">
 				{{~it :p:index}}
 				{{?index<2}}
+					<a href='#ShareDetail/{{=p.objectId}}/'>
 					<div class="HotArcitle-box">
 						<img src='{{=p.imageURL}}' style="width:150px;height:150px;">
 						<div>{{~p.content :value:index2}}{{?index2<=100}}{{=value}}{{?}}{{~}}...
 						</div>
 					</div>
+					</a>
 				{{?}}
 				{{~}}
 			</div>
@@ -251,8 +257,6 @@
 	</script>
 	<!--End of EventDetail-->
 
-
-
 	<!--event of administration-->
 	<script id="administration_event" type="text/x-dot-template">
 		<div id="hihi">administration</div>		
@@ -301,31 +305,29 @@
 	</script>
 	<!--end of other-->
 
-
-
-
-
-
 	<!--sharetable-->
 	<script id="shareTable" type="text/x-dot-template">
 	<div class="thoughts_title">
 		<h2>心得列表</h2>
 		<h3><a href="ShareForm.html">我要徵文</a></h3>
 	</div>
-	<div class="thoughts_table">
+
+	{{~it :p:index}}
+    {{?p.content !== "undefined"}}
+		<div class="thoughts_table">
 			<div class='grid_12'>
-        		{{~it :p:index}} 
           			<a href='#ShareDetail/{{=p.objectId}}/'>
           			<div class="photo1">
-						<a><img class="pic1" src='{{=it.imageURL}}' alt="志工活動照片"></a>	
+						<a><img class="pic1" src='{{=p.imageURL}}' alt="志工活動照片"></a>	
 					</div>
 					<div class="article1">{{~p.content :value:index2}}{{?index2<=100}}{{=value}}{{?}}{{~}}...
 					</div>
 					<br><a href='#shareTabledetail/{{=p.objectId}}/'>more</a>
           			</a>
-        		{{~}}
       		</div>
 		</div>
+    {{?}}
+    {{~}}
 	/*<div class="thoughts_table">
 		<div class="feedback">
 			<div class="photo1">

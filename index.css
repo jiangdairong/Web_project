@@ -140,8 +140,8 @@ padding-left:4em;}
           box-sizing: border-box;
 }
 .LatestEvent-box, .HotEvent-box{
-	position: relative;
-	display: inline-block;
+	/*position: relative;
+	display: inline-block;*/
 	height: 280px;
 	background-color:#E5E5E5;
 	width:236px;
@@ -149,10 +149,11 @@ padding-left:4em;}
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
+    float: left;
 }
 .HotArcitle-box{
-	position: relative;
-	display: inline-block;
+	/*position: relative;
+	display: inline-block;*/
 	height: 280px;
 	background-color:#E5E5E5;
 	width:483px;
@@ -160,6 +161,7 @@ padding-left:4em;}
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
+    float: left;
 
 }
 
