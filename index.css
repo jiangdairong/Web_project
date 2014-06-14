@@ -63,18 +63,18 @@ body {
 	background-color: #FF8110;
 	margin-bottom: 2em;
 }
-/*header透明block_避免header按鈕浮動*/
+/*header透明block_避免header按鈕浮動
 #block_FixNavBar{
 	width:1200px;
 	margin:0 auto;
-}
+}*/
 
 #logo img {
 	position:relative;
 	display:inline-block;
 	float:left;
 	width: 8em;
-	padding-left:2em;
+	padding-left:4em;
 	padding-top: 1.5em;
 }
 #logo::after{
@@ -84,7 +84,7 @@ body {
 #Left-nav{
 	position:relative;
 	float:left;
-	margin-top:1.2em;
+	margin-top:2.5em;
 	font-weight: bold;
 	font-size: 1.1em;
 }
@@ -105,8 +105,8 @@ body {
 #Right-nav{	
 	position:relative;
 	float:right;
-	margin-top:0.8em;
-	margin-right: 2em;
+	margin-top:1em;
+	margin-right: 4em;
 	font-size: 0.9em;
 }
 #Right-nav li{
@@ -126,45 +126,73 @@ body {
 /*********************************************************************************/
 /* content                                                                       */
 /*********************************************************************************/
+
+#content {
+	margin-top: 4em;
+	margin-bottom: 5em;
+}
+
 h2{
-padding-left:4em;}
+	font-weight: bold;
+	font-size: 1.1em;
+	margin-bottom: 0.5em;
+}
 .IndexContent-box{
-	width: 1000px;
-	height:300px;
+	width: 960px;
+	height:340px;
 	background-color: #DDDDDD;
 	margin: 0 auto;
-	padding:6px;
+	margin-bottom:2em;
+	padding:5px; 
 	/*padding-left:10px;*/
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
+
 .LatestEvent-box, .HotEvent-box{
 	/*position: relative;
 	display: inline-block;*/
-	height: 280px;
+	height: 320px;
 	background-color:#E5E5E5;
-	width:236px;
-	margin: 4px;
+	width:227px;
+	margin: 5px;
+	padding:6px;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
     float: left;
 }
+
+.LatestEvent-box img{
+	margin:0 auto;
+	width:214px;
+	height:214px;	
+}
+ .HotEvent-box img{
+	margin:0 auto;
+	width:214px;
+	height:214px;	
+}
+
 .HotArcitle-box{
 	/*position: relative;
 	display: inline-block;*/
 	height: 280px;
 	background-color:#E5E5E5;
-	width:483px;
-	margin: 4px;
+	width:464px;
+	margin: 5px;
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
     float: left;
-
 }
 
+.HotArcitle-box img{
+	margin:0 auto;
+	width:214px;
+	height:214px;	
+}
 
 
 /*
@@ -626,34 +654,34 @@ a:hover
 /* footer                                                                        */
 /*********************************************************************************/
 footer{
-	padding-top: 1.5em;
-	padding-bottom: 1.5em;
+	padding-top: 6em;
+	padding-bottom: 1em;
 	font-size: 1em;
-	color: rgb(234 , 97 , 48);
+	color: #FFFFFF;
 	clear:both;
-	background-color: rgb(255 , 222 , 94);
-	height: 18em;
+	background-color: #FF8110;
+	height:12em;
 	text-align: center;
 }
 footer a{
 	text-decoration: none;
-	color: rgb(234 , 97 , 48);
+	color: #FFFFFF;
 }
 footer a:link 
 {
-	color: rgb(234 , 97 , 48);
+	color: #FFFFFF;
 }　　　　/*//宣告連結顏色*/
 footer a:visited 
 {
-	color: rgb(234 , 97 , 48);
+	color: #FFFFFF;
 }　   　 /*//訪問過連結顏色*/
 footer a:active
 {
-	color: rgb(234 , 97 , 48);
+	color: #FFFFFF;
 }　　     /*//執行中連結顏色*/
 footer a:hover
 {
-	color: rgb(234 , 97 , 48);
+	color: #FFFFFF;
 }             /*//當滑鼠移到連結時連結顏色*/
 
 footer ul{
