@@ -45,7 +45,7 @@
 				{{?index<4}}
 					<a href='#eventdetail/{{=p.objectId}}/'>
 					<div class="LatestEvent-box">
-						<img src='{{=p.imageURL}}' style="width:150px;height:150px;">
+						<img src='{{=p.imageURL}}'>
 						<div>活動名稱：{{=p.name}}
               			</div>
               			<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
@@ -74,7 +74,7 @@
 				{{?index<4}}
 					<a href='#eventdetail/{{=p.objectId}}/'>
 					<div class="HotEvent-box">
-						<img src='{{=p.imageURL}}' style="width:150px;height:150px;">
+						<img src='{{=p.imageURL}}'>
 						<div>活動名稱：{{=p.name}}
               			</div>
               			<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
@@ -99,7 +99,7 @@
 				{{?index<2}}
 					<a href='#shareTabledetail/{{=p.objectId}}/'>
 					<div class="HotArcitle-box">
-						<img src='{{=p.imageURL}}' style="width:150px;height:150px;">
+						<img src='{{=p.imageURL}}'>
 						<div>{{~p.content :value:index2}}{{?index2<=100}}{{=value}}{{?}}{{~}}...
 						</div>
 					</div>
