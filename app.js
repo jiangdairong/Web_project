@@ -2,7 +2,7 @@
 	Parse.initialize("RmleLSMnkCyiCdVpqfWJ562fmhf8vEl4h4NeQKuL","09pdjU4X0sosunvxliKBYV8JLGhEni7F8QLHWBMP");
 
 	var templates = {};
-	["indexView","indexView_2","indexView_3","eventView","EventDetailView","shareTable","shareTabledetail","ngoView","aboutView","administration_event","artist_event","environment_event","education_event","care_event","activity_event","camp_event","other_event"].forEach(function(t){
+	["indexView","indexView_2","indexView_3","eventView","EventDetailView","shareTable","shareTabledetail","ngoView","aboutView","event_catagory"/*,"administration_event","artist_event","environment_event","education_event","care_event","activity_event","camp_event","other_event"*/].forEach(function(t){
 		var dom = document.getElementById(t);
 		templates[t] = doT.template(dom.text);
 	});
@@ -214,6 +214,70 @@
 			window.scrollTo(0,0); 
 			document.getElementById("content").innerHTML=templates.aboutView();//volunteer;
 		},
+		event_catagory:function(catagory_id){
+			window.scrollTo(0,0);
+			if(catagory_id){
+				var Catagory = Parse.Object.extend("event"); 
+				var query = new Parse.Query(Catagory); 
+				query.get(catagory_id, { 
+					success: function(catagory){
+						document.getElementById('content').innerHTML = templates.event_catagory(catagory.toJSON());
+					}, error: function(object, error){
+					}
+				});
+			} else {
+				window.location.hash = '';
+			}
+			$(function(){
+				var w = $("#mwt_mwt_slider_scroll").width();
+				console.log(w);
+				$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
+ 
+				$("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
+					if ($("#mwt_mwt_slider_scroll").css('right') == '-'+w+'px')
+					{
+						console.log("jjjjjj");
+						$("#mwt_mwt_slider_scroll").animate({ right:'20px' }, 600 ,'swing');
+					}
+				}); 
+				$("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
+					$("#mwt_mwt_slider_scroll").animate( { right:'-'+w+'px' },600 ,'swing');	
+				});	
+			});
+
+			$('#addNewEventBox').click(function(){
+				$(this).fancybox({
+					'autoScale': true,
+					'transitionIn': 'elastic',
+					'transitionOut': 'elastic',
+					'speedIn': 500,
+					'speedOut': 300,
+					'autoDimensions': true,
+					'centerOnScroll': true,
+					'content': $('#inline').html(),
+				});
+			});
+			$('#send').click(function(){
+				console.log("new_event");
+				/*	new_event = new Event();
+		        new_event.set('name', name);
+           		new_event.set('time', time);
+       			new_event.set('location', location);
+       			new_event.set('amount', amount);
+            	new_event.set('ngo', ngo);
+            	new_event.set('contact', contact);
+            	new_event.set('phone', phone);
+		        new_event.save(null, {
+      		 		success: function(new_event){
+        				console.log("new_event");
+   					}
+            	});*/
+			});
+			
+
+
+		},
+		/*
 		administration_event:function(){
 			
 			var Administration = Parse.Object.extend("event"); 
@@ -333,7 +397,7 @@
 				query.limit(0);
 			}});
 
-		}
+		}*/
 	};
 
 	var r=Parse.Router.extend({
@@ -345,14 +409,15 @@
 			"eventdetail/:eventdetail_id/": 			"EventDetailView",
 			"shareTabledetail/:shareTabledetail_id/": 	"shareTabledetail",
 			"about": 		"aboutView",
-			"administration": "administration_event", 
+			"catagory/:catagory_id": 	"event_catagory", 
+			/*"administration": "administration_event", 
 			"artist": 		"artist_event", 
 			"environment": 	"environment_event", 
 			"education": 	"education_event", 
 			"care": 		"care_event", 
 			"activity": 	"activity_event", 
 			"camp": 		"camp_event", 
-			"other": 		"other_event" 
+			"other": 		"other_event" */
 		},
 		indexView: 		volunteer.indexView,
 		eventView: 		volunteer.eventView,
@@ -361,14 +426,15 @@
 		EventDetailView:volunteer.EventDetailView,
 		shareTabledetail:volunteer.shareTabledetail,
 		aboutView: 		volunteer.aboutView,
-		administration_event: volunteer.administration_event, 
+		event_catagory: volunteer.event_catagory,
+		/*administration_event: volunteer.administration_event, 
 		artist_event: 	volunteer.artist_event, 
 		environment_event: volunteer.environment_event, 
 		education_event: volunteer.education_event, 
 		care_event: 	volunteer.care_event, 
 		activity_event: volunteer.activity_event, 
 		camp_event: 	volunteer.camp_event, 
-		other_event: 	volunteer.other_event
+		other_event: 	volunteer.other_event*/
 	});
 
 	// Initialize the App
@@ -435,52 +501,3 @@ function FacebookLogin(){
 		},{scope:"user_likes,user_photos,publish_actions"})
 	}
 }
-function arise(){
-	  $( "#dialog-form" ).dialog({
-      autoOpen: false,
-      height: 300,
-      width: 350,
-      modal: true,
-      buttons: {
-        "Create an account": function() {
-          var bValid = true;
-          allFields.removeClass( "ui-state-error" );
- 
-          bValid = bValid && checkLength( name, "username", 3, 16 );
-          bValid = bValid && checkLength( email, "email", 6, 80 );
-          bValid = bValid && checkLength( password, "password", 5, 16 );
- 
-          bValid = bValid && checkRegexp( name, /^[a-z]([0-9a-z_])+$/i, "Username may consist of a-z, 0-9, underscores, begin with a letter." );
-          // From jquery.validate.js (by joern), contributed by Scott Gonzalez: http://projects.scottsplayground.com/email_address_validation/
-          bValid = bValid && checkRegexp( email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. ui@jquery.com" );
-          bValid = bValid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
- 
-          if ( bValid ) {
-            $( "#users tbody" ).append( "<tr>" +
-              "<td>" + name.val() + "</td>" +
-              "<td>" + email.val() + "</td>" +
-              "<td>" + password.val() + "</td>" +
-            "</tr>" );
-            $( this ).dialog( "close" );
-          }
-        },
-        Cancel: function() {
-          $( this ).dialog( "close" );
-        }
-      },
-      close: function() {
-        allFields.val( "" ).removeClass( "ui-state-error" );
-      }
-    });
- 
-    $( "#arise_event" )
-      .button()
-      .click(function() {
-        $( "#dialog-form" ).dialog( "open" );
-      });
-}
-
-
-
-
-

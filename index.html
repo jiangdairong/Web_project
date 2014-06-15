@@ -112,7 +112,7 @@
 
 	<script id="eventView" type="text/x-dot-template">
 	<div class="event_add" id="wrapper">
- 		<p><a class="modalbox" id="addNewEventBox">click to open</a></p>
+ 		<p><a class="modalbox" id="addNewEventBox">辦志工活動</a></p>
   	</div>
   
  	 <div id="inline">
@@ -177,8 +177,8 @@
 			<div "event_category">
 				<h3>活動類別</h3></br>
 				<ul>
-					<li><a href="#administration">行政</a></li>
-					<li><a href="#artist">藝文</a></li>
+					<li><a href="#event_category">行政</a></li>
+					<li><a href="#event_category">藝文</a></li>
 					<li><a href="#environment">環保</a></li>
 					<li><a href="#education">教育</a></li>
 					<li><a href="#care">照護</a></li>
@@ -209,7 +209,7 @@
 					</div>
               	</a>
       		
-      	{{??index%4===1 || index%4===2}}
+      	{{??(index%4===1 || index%4===2) && index!==it.length}}
       			<a href='#eventdetail/{{=p.objectId}}/'>
 					<div class="Event-box">
 						<img src='{{=p.imageURL}}'>
@@ -284,53 +284,185 @@
 		</section>
 	</script>
 	<!--End of EventDetail-->
+	<script id="event_cataglory" type="text/x-dot-template">
+	 	<div id="hihi">cataglory</div>
+	 	<div class="event_add" id="wrapper">
+ 			<p><a class="modalbox" id="addNewEventBox">辦志工活動</a></p>
+  		</div>
+  
+ 		<div id="inline">
+ 			<h2>Send us a Message</h2>
+ 
+ 			<form id="contact" name="contact" action="#" method="post">
+ 		 		<label for="name">活動名稱</label>
+ 		 		<input type="name" id="name" name="name" class="txt">
+ 	 			<br>
+ 	 			<label for="time">活動時間</label>
+ 		 		<input type="time" id="time" name="time" class="txt">
+ 	 			<br>
+ 	 			<label for="location">活動地點</label>
+ 		 		<input type="location" id="location" name="location" class="txt">
+ 	 			<br>
+ 	 			<label for="amount">招募人數</label>
+ 	 			<input type="amount" id="amount" name="amount" class="txt">
+ 	 			<br>
+ 	 			<label for="ngo">主辦單位</label>
+ 		 		<input type="ngo" id="ngo" name="ngo" class="txt">
+ 	 			<br>
+ 	 			<label for="contact">聯絡人</label>
+ 		 		<input type="contact" id="contact" name="contact" class="txt">
+ 	 			<br>
+ 	 			<label for="phone">聯絡方式</label>
+ 		 		<input type="phone" id="phone" name="phone" class="txt">
+ 	 			<br>
+ 	 			<button id="send">Send</button>
+ 			</form>
+ 		</div>
+	
+		<div id="mwt_mwt_slider_scroll">
+			<div id="mwt_fb_tab">
+				<span>S</span>
+				<span>e</span>
+				<span>a</span>
+				<span>r</span>
+				<span>c</span>
+				<span>h</span>
+			</div>
+			<div id="mwt_slider_content">
+				<h3>最新志工活動</h3></br>
+				<div class="event_time button">
+					<h3>志工活動舉辦時間</h3></br>
+					<ul>
+						<li>過去活動</li>
+						<li>未來2個月以上</li>
+						<li>未來1個月</li>
+						<li>未來2星期</li>
+						<li>未來1星期</li>		
+					</ul>
+				</div>
+				</br>	
+				<div "event_region">
+					<h3>地區</h3></br>
+					<ul>
+						<li><a href="map.html">地圖</a></li>
+					</ul>
+				</div>
+				</br>
+				<div "event_category">
+					<h3>活動類別</h3></br>
+					<ul>
+						<li><a href="#event_category/administration">行政</a></li>
+						<li><a href="#event_category/artist">藝文</a></li>
+						<li><a href="#event_category/environment">環保</a></li>
+						<li><a href="#event_category/education">教育</a></li>
+						<li><a href="#event_category/care">照護</a></li>
+						<li><a href="#event_category/activity">活動</a></li>
+						<li><a href="#event_category/camp">營隊</a></li>
+						<li><a href="#event_category/other">其他</a></li>			
+					</ul>
+				</div>
+				</br>
+			</div>
+		</div>	
+
+		<div class="container container_12" id ="event_content"></div>
+			{{~it :p:index}}
+			{{?(index)%4===0 }}
+				<div class="IndexContent-box">
+					<a href='#eventdetail/{{=p.objectId}}/'>
+						<div class="Event-box">
+							<img src='{{=p.imageURL}}'>
+							<div class="block_eventName">{{=p.name}}
+              				</div>
+              				<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
+              				</div>
+              				<div>活動地點：{{~p.location :value:index3}}{{?index3<=20}}{{=value}}{{?}}{{~}}...
+              				</div>
+              				<div>招募人數：共需{{=p.amount}}人
+              				</div>
+						</div>
+              		</a>
+      		
+      		{{??(index%4===1 || index%4===2) && index!==it.length}}
+      				<a href='#eventdetail/{{=p.objectId}}/'>
+						<div class="Event-box">
+							<img src='{{=p.imageURL}}'>
+							<div class="block_eventName">{{=p.name}}
+              				</div>
+              				<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
+              				</div>
+              				<div>活動地點：{{~p.location :value:index3}}{{?index3<=20}}{{=value}}{{?}}{{~}}...
+              				</div>
+              				<div>招募人數：共需{{=p.amount}}人
+              				</div>
+						</div>
+              		</a>
+      		{{??}}
+      				<a href='#eventdetail/{{=p.objectId}}/'>
+						<div class="Event-box">
+							<img src='{{=p.imageURL}}'>
+							<div class="block_eventName">{{=p.name}}
+              				</div>
+              				<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
+              				</div>
+              				<div>活動地點：{{~p.location :value:index3}}{{?index3<=20}}{{=value}}{{?}}{{~}}...
+              				</div>
+              				<div>招募人數：共需{{=p.amount}}人
+              				</div>
+						</div>
+              		</a>
+           		</div>
+      		{{?}}
+      		{{~}}
+		</div>		
+	</script>
 
 	<!--event of administration-->
-	<script id="administration_event" type="text/x-dot-template">
-		<div id="hihi">administration</div>		
-	</script>
+	 <!--script id="administration_event" type="text/x-dot-template">
+	 	<div id="hihi">administration</div>		
+	 </script-->
 	<!--end of administration-->
 
 	<!--event of artist-->
-	<script id="artist_event" type="text/x-dot-template">
+	<!--script id="artist_event" type="text/x-dot-template">
 		<div id="hihi">artist</div>		
-	</script>
+	</script-->
 	<!--end of artist-->
 
 	<!--event of environment-->
-	<script id="environment_event" type="text/x-dot-template">
+	<!--script id="environment_event" type="text/x-dot-template">
 		<div id="hihi">environment</div>		
-	</script>
+	</script-->
 	<!--end of environment-->
 
 	<!--event of education-->
-	<script id="education_event" type="text/x-dot-template">
+	<!--script id="education_event" type="text/x-dot-template">
 		<div id="hihi">education</div>		
-	</script>
+	</script-->
 	<!--end of education-->
 
 	<!--event of care-->
-	<script id="care_event" type="text/x-dot-template">
+	<!--script id="care_event" type="text/x-dot-template">
 		<div id="hihi">care</div>		
-	</script>
+	</script-->
 	<!--end of care-->
 
 	<!--event of activity-->
-	<script id="activity_event" type="text/x-dot-template">
+	<!--script id="activity_event" type="text/x-dot-template">
 		<div id="hihi">activity</div>		
-	</script>
+	</script-->
 	<!--end of activity-->
 
 	<!--event of camp-->
-	<script id="camp_event" type="text/x-dot-template">
+	<!--script id="camp_event" type="text/x-dot-template">
 		<div id="hihi">camp</div>		
-	</script>
+	</script-->
 	<!--end of camp-->
 
 	<!--event of other-->
-	<script id="other_event" type="text/x-dot-template">
+	<!--script id="other_event" type="text/x-dot-template">
 		<div id="hihi">other</div>		
-	</script>
+	</script-->
 	<!--end of other-->
 
 	<!--sharetable-->
