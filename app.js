@@ -2,7 +2,7 @@
 	Parse.initialize("RmleLSMnkCyiCdVpqfWJ562fmhf8vEl4h4NeQKuL","09pdjU4X0sosunvxliKBYV8JLGhEni7F8QLHWBMP");
 
 	var templates = {};
-	["indexView","indexView_2","indexView_3","eventView","EventDetailView","shareTable","shareTabledetail","ngoView","aboutView","event_catagory"/*,"administration_event","artist_event","environment_event","education_event","care_event","activity_event","camp_event","other_event"*/].forEach(function(t){
+	["indexView","indexView_2","indexView_3","eventView","EventDetailView","shareTable","shareTabledetail","ngoView","aboutView","event_category"/*,"administration_event","artist_event","environment_event","education_event","care_event","activity_event","camp_event","other_event"*/].forEach(function(t){
 		var dom = document.getElementById(t);
 		templates[t] = doT.template(dom.text);
 	});
@@ -214,14 +214,14 @@
 			window.scrollTo(0,0); 
 			document.getElementById("content").innerHTML=templates.aboutView();//volunteer;
 		},
-		event_catagory:function(catagory_id){
+		event_category:function(category_id){
 			window.scrollTo(0,0);
-			if(catagory_id){
-				var Catagory = Parse.Object.extend("event"); 
-				var query = new Parse.Query(Catagory); 
-				query.get(catagory_id, { 
-					success: function(catagory){
-						document.getElementById('content').innerHTML = templates.event_catagory(catagory.toJSON());
+			if(category_id){
+				var Category = Parse.Object.extend("event"); 
+				var query = new Parse.Query(Category); 
+				query.get(category_id, { 
+					success: function(category){
+						document.getElementById('content').innerHTML = templates.event_category(category.toJSON());
 					}, error: function(object, error){
 					}
 				});
@@ -409,7 +409,7 @@
 			"eventdetail/:eventdetail_id/": 			"EventDetailView",
 			"shareTabledetail/:shareTabledetail_id/": 	"shareTabledetail",
 			"about": 		"aboutView",
-			"catagory/:catagory_id": 	"event_catagory", 
+			"category/:category_id": 	"event_category", 
 			/*"administration": "administration_event", 
 			"artist": 		"artist_event", 
 			"environment": 	"environment_event", 
@@ -426,7 +426,7 @@
 		EventDetailView:volunteer.EventDetailView,
 		shareTabledetail:volunteer.shareTabledetail,
 		aboutView: 		volunteer.aboutView,
-		event_catagory: volunteer.event_catagory,
+		event_category: volunteer.event_category,
 		/*administration_event: volunteer.administration_event, 
 		artist_event: 	volunteer.artist_event, 
 		environment_event: volunteer.environment_event, 
