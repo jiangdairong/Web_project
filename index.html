@@ -66,10 +66,10 @@
 			<h2>熱門志活</h2>
 			<div class="IndexContent-box">
 				{{~it :p:index}}
-				{{?p.content==="undefined"}}
+				{{?index<4}}
 					<a href='#eventdetail/{{=p.objectId}}/'>
 					<div class="Event-box">
-						<img src='{{=p.imageURL}}'>
+						<img src='{{=p.imageURL}}' >
 						<div class="block_eventName">{{=p.name}}
               			</div>
               			<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
