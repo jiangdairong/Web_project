@@ -36,17 +36,15 @@
 
 	<!--indexView -->
 	 <script id="indexView" type="text/x-dot-template">
-		<!--end of nav bar-->
-		<!--content-->
 		<div id="content-wrapper">
 			<h2>最新志活</h2>
 			<div class="IndexContent-box">
 				{{~it :p:index}}
 				{{?index<4}}
 					<a href='#eventdetail/{{=p.objectId}}/'>
-					<div class="LatestEvent-box">
-						<img src='{{=p.imageURL}}'>
-						<div>活動名稱：{{=p.name}}
+					<div class="Event-box">
+						<img src='{{=p.imageURL}}' >
+						<div class="block_eventName">{{=p.name}}
               			</div>
               			<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
               			</div>
@@ -62,20 +60,17 @@
 
 		</div>
 		</script>
-		<!--end of content-->
-
-	
 
 	<script id="indexView_2" type="text/x-dot-template">
 		<div id="content-wrapper">
 			<h2>熱門志活</h2>
 			<div class="IndexContent-box">
 				{{~it :p:index}}
-				{{?index<4}}
+				{{?p.content==="undefined"}}
 					<a href='#eventdetail/{{=p.objectId}}/'>
-					<div class="HotEvent-box">
+					<div class="Event-box">
 						<img src='{{=p.imageURL}}'>
-						<div>活動名稱：{{=p.name}}
+						<div class="block_eventName">{{=p.name}}
               			</div>
               			<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
               			</div>
@@ -160,10 +155,6 @@
 			<span>h</span>
 		</div>
 		<div id="mwt_slider_content">
-			<form class="search" action="" method="post">
- 				<label for="search-box">Search:</label>
-  				<input id="search-box" type="text" name="search">
-			</form>
 			<h3>最新志工活動</h3>
 			<div class="event_time button">
 				<h3>志工活動舉辦時間</h3>
@@ -197,28 +188,56 @@
 		</div>
 	</div>	
 
-	<section>
-		<div class="event_block">
-			<div class='grid_12'>
-        		{{~it :p:index}} 
-          			<a href='#eventdetail/{{=p.objectId}}/'>
-            		<div class='event_item'>
-              			<img src='{{=p.imageURL}}'>
-              			<div>活動名稱：{{=p.name}}
+	<div class="container container_12" id ="event_content"></div>
+		{{~it :p:index}}
+		{{?(index)%4===0 }}
+			<div class="IndexContent-box">
+				<a href='#eventdetail/{{=p.objectId}}/'>
+					<div class="Event-box">
+						<img src='{{=p.imageURL}}'>
+						<div class="block_eventName">{{=p.name}}
               			</div>
               			<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
               			</div>
-              			<div>活動地點：{{=p.location}}
+              			<div>活動地點：{{~p.location :value:index3}}{{?index3<=20}}{{=value}}{{?}}{{~}}...
               			</div>
               			<div>招募人數：共需{{=p.amount}}人
               			</div>
-
-            		</div>
-          			</a>
-        		{{~}}
-      		</div>
-		</div>	
-	</section>
+					</div>
+              	</a>
+      		
+      	{{??index%4===1 || index%4===2}}
+      			<a href='#eventdetail/{{=p.objectId}}/'>
+					<div class="Event-box">
+						<img src='{{=p.imageURL}}'>
+						<div class="block_eventName">{{=p.name}}
+              			</div>
+              			<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
+              			</div>
+              			<div>活動地點：{{~p.location :value:index3}}{{?index3<=20}}{{=value}}{{?}}{{~}}...
+              			</div>
+              			<div>招募人數：共需{{=p.amount}}人
+              			</div>
+					</div>
+              	</a>
+      	{{??}}
+      			<a href='#eventdetail/{{=p.objectId}}/'>
+					<div class="Event-box">
+						<img src='{{=p.imageURL}}'>
+						<div class="block_eventName">{{=p.name}}
+              			</div>
+              			<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
+              			</div>
+              			<div>活動地點：{{~p.location :value:index3}}{{?index3<=20}}{{=value}}{{?}}{{~}}...
+              			</div>
+              			<div>招募人數：共需{{=p.amount}}人
+              			</div>
+					</div>
+              	</a>
+            </div>
+      	{{?}}
+      	{{~}}
+	</div>
 	</script>
 
 	<!--end of content of event-->

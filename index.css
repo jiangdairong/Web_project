@@ -146,11 +146,11 @@ h2{
 	padding:5px; 
 	/*padding-left:10px;*/
 	-webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-.LatestEvent-box, .HotEvent-box{
+.Event-box{
 	/*position: relative;
 	display: inline-block;*/
 	height: 320px;
@@ -159,20 +159,18 @@ h2{
 	margin: 5px;
 	padding:6px;
 	-webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     float: left;
+    color:#545454;
+	font-size:0.9em;
 }
 
-.LatestEvent-box img{
+.Event-box img{
 	margin:0 auto;
 	width:214px;
-	height:214px;	
-}
- .HotEvent-box img{
-	margin:0 auto;
-	width:214px;
-	height:214px;	
+	height:214px;
+	margin-bottom:0.5em;	
 }
 
 .HotArcitle-box{
@@ -186,12 +184,21 @@ h2{
      -moz-box-sizing: border-box;
           box-sizing: border-box;
     float: left;
+    color:#545454;
+	font-size:0.9em;
 }
 
 .HotArcitle-box img{
 	margin:0 auto;
 	width:214px;
-	height:214px;	
+	height:214px;
+	margin-bottom:0.5em;	
+}
+/*block活動標題設定*/
+.block_eventName{
+	font-weight: bold;
+	font-size: 1.1em;
+	margin-bottom:0.5em;
 }
 
 
@@ -209,40 +216,15 @@ h2{
 /*********************************************************************************/
 #inline { display: none; width: 600px; }
 
-
+#event_content{
+	margin-top: 0em;
+}
 
 
 .event_add
 {
 	height:2em;
 	padding-left: 70em;
-}
-.event_block
-{
-	border-radius: 0.5em;
-	height:30em;
-	width: 20em;
-	background-color: #ffe187;
-	display: block;
-	float: left;
-	margin-right: 2em;
-	margin-left: 3em;
-	margin-top: 2em;
-	margin-bottom: 2em;
-}
- .event_block img
-{
-	border-radius: 0.5em;
-	height:18em;
-	width: 18em;
-	padding-left: 1em;
-	padding-top: 1em;
-	margin:0 auto;
-}
-.event_info ul
-{
-	list-style-type: none;
-	line-height: 1.5em;
 }
 
 /*********************************************************************************/
