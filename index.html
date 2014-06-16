@@ -177,14 +177,14 @@
 			<div "event_category">
 				<h3>活動類別</h3></br>
 				<ul>
-					<li><a href="#event_category/administration">行政</a></li>
-					<li><a href="#event_category/artist">藝文</a></li>
-					<li><a href="#event_category/environment">環保</a></li>
-					<li><a href="#event_category/education">教育</a></li>
-					<li><a href="#event_category/care">照護</a></li>
-					<li><a href="#event_category/activity">活動</a></li>
-					<li><a href="#event_category/camp">營隊</a></li>
-					<li><a href="#event_category/other">其他</a></li>			
+					<li><a href="#category/administration">行政</a></li>
+					<li><a href="#category/artist">藝文</a></li>
+					<li><a href="#category/environment">環保</a></li>
+					<li><a href="#category/education">教育</a></li>
+					<li><a href="#category/care">照護</a></li>
+					<li><a href="#category/activity">活動</a></li>
+					<li><a href="#category/camp">營隊</a></li>
+					<li><a href="#category/other">其他</a></li>			
 				</ul>
 			</div>
 			</br>
@@ -351,70 +351,70 @@
 				<div id="event_category">
 					<h3>活動類別</h3></br>
 					<ul>
-						<li><a href="#event_category/administration">行政</a></li>
-						<li><a href="#event_category/artist">藝文</a></li>
-						<li><a href="#event_category/environment">環保</a></li>
-						<li><a href="#event_category/education">教育</a></li>
-						<li><a href="#event_category/care">照護</a></li>
-						<li><a href="#event_category/activity">活動</a></li>
-						<li><a href="#event_category/camp">營隊</a></li>
-						<li><a href="#event_category/other">其他</a></li>			
+						<li><a href="#category/administration">行政</a></li>
+						<li><a href="#category/artist">藝文</a></li>
+						<li><a href="#category/environment">環保</a></li>
+						<li><a href="#category/education">教育</a></li>
+						<li><a href="#category/care">照護</a></li>
+						<li><a href="#category/activity">活動</a></li>
+						<li><a href="#category/camp">營隊</a></li>
+						<li><a href="#category/other">其他</a></li>			
 					</ul>
 				</div>
 				</br>
 			</div>
 		</div>	
 
-		<div class="container container_12" id ="event_content"></div>
-			{{~it :p:index}}
-			{{?(index)%4===0 }}
-				<div class="IndexContent-box">
-					<a href='#eventdetail/{{=p.objectId}}/'>
-						<div class="Event-box">
-							<img src='{{=p.imageURL}}'>
-							<div class="block_eventName">{{=p.name}}
-              				</div>
-              				<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
-              				</div>
-              				<div>活動地點：{{~p.location :value:index3}}{{?index3<=20}}{{=value}}{{?}}{{~}}...
-              				</div>
-              				<div>招募人數：共需{{=p.amount}}人
-              				</div>
-						</div>
-              		</a>
+		// <div class="container container_12" id ="event_content"></div>
+		// 	{{~it :p:index}}
+		// 	{{?(index)%4===0 }}
+		// 		<div class="IndexContent-box">
+		// 			<a href='#eventdetail/{{=p.objectId}}/'>
+		// 				<div class="Event-box">
+		// 					<img src='{{=p.imageURL}}'>
+		// 					<div class="block_eventName">{{=p.name}}
+  //             				</div>
+  //             				<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
+  //             				</div>
+  //             				<div>活動地點：{{~p.location :value:index3}}{{?index3<=20}}{{=value}}{{?}}{{~}}...
+  //             				</div>
+  //             				<div>招募人數：共需{{=p.amount}}人
+  //             				</div>
+		// 				</div>
+  //             		</a>
       		
-      		{{??(index%4===1 || index%4===2) && index!==it.length}}
-      				<a href='#eventdetail/{{=p.objectId}}/'>
-						<div class="Event-box">
-							<img src='{{=p.imageURL}}'>
-							<div class="block_eventName">{{=p.name}}
-              				</div>
-              				<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
-              				</div>
-              				<div>活動地點：{{~p.location :value:index3}}{{?index3<=20}}{{=value}}{{?}}{{~}}...
-              				</div>
-              				<div>招募人數：共需{{=p.amount}}人
-              				</div>
-						</div>
-              		</a>
-      		{{??}}
-      				<a href='#eventdetail/{{=p.objectId}}/'>
-						<div class="Event-box">
-							<img src='{{=p.imageURL}}'>
-							<div class="block_eventName">{{=p.name}}
-              				</div>
-              				<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
-              				</div>
-              				<div>活動地點：{{~p.location :value:index3}}{{?index3<=20}}{{=value}}{{?}}{{~}}...
-              				</div>
-              				<div>招募人數：共需{{=p.amount}}人
-              				</div>
-						</div>
-              		</a>
-           		</div>
-      		{{?}}
-      		{{~}}
-		</div>		
+  //     		{{??(index%4===1 || index%4===2) && index!==it.length}}
+  //     				<a href='#eventdetail/{{=p.objectId}}/'>
+		// 				<div class="Event-box">
+		// 					<img src='{{=p.imageURL}}'>
+		// 					<div class="block_eventName">{{=p.name}}
+  //             				</div>
+  //             				<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
+  //             				</div>
+  //             				<div>活動地點：{{~p.location :value:index3}}{{?index3<=20}}{{=value}}{{?}}{{~}}...
+  //             				</div>
+  //             				<div>招募人數：共需{{=p.amount}}人
+  //             				</div>
+		// 				</div>
+  //             		</a>
+  //     		{{??}}
+  //     				<a href='#eventdetail/{{=p.objectId}}/'>
+		// 				<div class="Event-box">
+		// 					<img src='{{=p.imageURL}}'>
+		// 					<div class="block_eventName">{{=p.name}}
+  //             				</div>
+  //             				<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
+  //             				</div>
+  //             				<div>活動地點：{{~p.location :value:index3}}{{?index3<=20}}{{=value}}{{?}}{{~}}...
+  //             				</div>
+  //             				<div>招募人數：共需{{=p.amount}}人
+  //             				</div>
+		// 				</div>
+  //             		</a>
+  //          		</div>
+  //     		{{?}}
+  //     		{{~}}
+		// </div>		
 	</script>
 
 	<!--event of administration-->
