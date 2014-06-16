@@ -216,15 +216,28 @@
 		},
 		event_category:function(category_id){
 			window.scrollTo(0,0);
+			console.log("GG");
 			if(category_id){
 				var Category = Parse.Object.extend("event"); 
 				var query = new Parse.Query(Category); 
-				query.get(category_id, { 
-					success: function(category){
-						document.getElementById('content').innerHTML = templates.event_category(category.toJSON());
-					}, error: function(object, error){
-					}
-				});
+							console.log("GG");
+				if(category_id===administration){
+
+							console.log("GG");
+				
+					query.get(category_id, { 
+						success: function(category){
+							document.getElementById('content').innerHTML = templates.event_category(category.toJSON());
+							console.log("GG");
+						}, error: function(object, error){
+							console.log("QAQ");
+						}
+					});
+
+
+				}
+
+
 			} else {
 				window.location.hash = '';
 			}
@@ -236,7 +249,6 @@
 				$("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
 					if ($("#mwt_mwt_slider_scroll").css('right') == '-'+w+'px')
 					{
-						console.log("jjjjjj");
 						$("#mwt_mwt_slider_scroll").animate({ right:'20px' }, 600 ,'swing');
 					}
 				}); 

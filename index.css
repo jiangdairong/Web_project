@@ -229,6 +229,43 @@ h2{
 }
 
 /*********************************************************************************/
+/* css of form                                                                   */
+/*********************************************************************************/
+
+
+form
+{	
+	background-color: #DDD;
+	box-shadow:6px 6px 10px #666;
+	border: 1px solid #BBBBBB;
+	line-height:2em;
+	margin: 1em;
+	padding: 2em;
+	border-radius: 1em;
+}
+#name,#time,#location,#amount,#ngo,#contact,#phone
+{
+	padding-left: 1em;
+	padding-right: 1em;
+	border: 1px solid #BBBBBB; 
+    background: rgba(255,255,255,0.5); 
+    -moz-border-radius:10px; 
+    -webkit-border-radius: 10px; 
+    border-radius: 10px;
+}
+
+#arise input:hover
+{
+
+	border: 1px solid #BBBBBB; 
+    background: rgba(255,255,255,1); 
+    -moz-border-radius:10px; 
+    -webkit-border-radius: 10px; 
+    border-radius: 10px;
+}
+
+
+/*********************************************************************************/
 /* content of eventdetail                                                        */
 /*********************************************************************************/
 
@@ -441,44 +478,6 @@ a:hover
     cursor:text;
 }
 
-/*********************************************************************************/
-/* css of form                                                                   */
-/*********************************************************************************/
-#inline
-{
-	border-radius: 1em;
-}
-
-form
-{	
-	background-color: #DDD;
-	box-shadow:6px 6px 10px #666;
-	border: 1px solid #BBBBBB;
-	line-height:2em;
-	margin: 1em;
-	padding: 2em;
-	border-radius: 1em;
-}
-#name,#time,#location,#amount,#ngo,#contact,#phone
-{
-	padding-left: 1em;
-	padding-right: 1em;
-	border: 1px solid #BBBBBB; 
-    background: rgba(255,255,255,0.5); 
-    -moz-border-radius:10px; 
-    -webkit-border-radius: 10px; 
-    border-radius: 10px;
-}
-
-#arise input:hover
-{
-
-	border: 1px solid #BBBBBB; 
-    background: rgba(255,255,255,1); 
-    -moz-border-radius:10px; 
-    -webkit-border-radius: 10px; 
-    border-radius: 10px;
-}
 
 
 /*********************************************************************************/
