@@ -137,6 +137,26 @@
 				query.get(eventdetail_id, { 
 					success: function(eventdetail){
 						document.getElementById('content').innerHTML = templates.EventDetailView(eventdetail.toJSON());
+						// document.getElementById('fb_likes').innerHTML =
+						// '<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fpageaffairs&send=false&layout=button_count&width=450&show_faces=false&action=like&colorscheme=light&font&height=21" scrolling="no" frameborder="0" style="border:none;overflow:hidden;width:450px;height:21px;" allowTransparency="true"></iframe>';
+
+
+						// var url = 'http://www.google.com.tw/';
+						// var encode_url = encodeURIComponent(url);
+
+						// document.getElementById('fb_btn').innerHTML = 
+						// '<iframe src="//www.facebook.com/plugins/like.php?href='.encode_url.'width&amp;
+						// layout=standard&amp;
+						// action=like&amp;
+						// show_faces=true&amp;
+						// share=true&amp;
+						// height=80&amp;
+						// appId=299735220203958" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" 
+						// allowTransparency="true"></iframe>';
+// 						var url = 'http://www.google.com.tw/';
+// var encode_url = encodeURIComponent(url);
+ 
+// document.getElementById('fb_likes').innerHTML = '<iframe src="//www.facebook.com/plugins/like.php?href='+encode_url+'width&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=80&amp;" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" allowTransparency="true"></iframe>';
 
 					}, error: function(object, error){
 					}
@@ -393,3 +413,11 @@ function FacebookLogin(){
 		},{scope:"user_likes,user_photos,publish_actions"})
 	}
 }
+
+ 
+
+
+
+
+
+
