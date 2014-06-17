@@ -137,10 +137,10 @@
 				query.get(eventdetail_id, { 
 					success: function(eventdetail){
 						document.getElementById('content').innerHTML = templates.EventDetailView(eventdetail.toJSON());
-						var url="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=299735220203958";
-						//var url = 'http://www.google.com.tw/';
-						//var encode_url = encodeURIComponent(url);
-						$('#fb_likes').attr("src",url);
+						//var url="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=299735220203958";
+						var url = 'http://www.google.com.tw/';
+						var encode_url = encodeURIComponent(url);
+						$('#fb_likes').attr("src",encode_url);
 						//www.facebook.com/plugins/like.php?href=''width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=299735220203958
 						// document.getElementById('fb_likes').innerHTML =
 						// '<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=299735220203958" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>';
