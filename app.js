@@ -9,14 +9,12 @@
 	var volunteer={
 		indexView:function(){
 			window.scrollTo(0,0); 
-			//document.getElementById("content").innerHTML=templates.indexView();//volunteer;
 			var limit = 12; 
 			var skip = 0; 
 
 			var Event = Parse.Object.extend("event"); 
 			var query = new Parse.Query(Event); 
-			// query.limit(limit); 
-			// query.skip(skip);
+		
 			query.descending("updateAt"); 
 			query.find({success: function(results){
 				var objList = results.map(function(e){ return e.toJSON() });
@@ -50,7 +48,6 @@
 
 		},
 		eventView:function(page){
-			//document.getElementById("content").innerHTML=templates.eventView();//volunteer;
 			window.scrollTo(0,0); 
 			var limit = 12; 
 			var skip = (page-1) * limit; 
@@ -128,24 +125,6 @@
             			}
             		});*/
 				});
-				//query.skip(0); 
-				//var option = {};
-				/*
-				query.count({success: function(count){
-					var totalPage = Math.ceil(count / limit);  
-					var currentPage = parseInt(page); 
-					option = {
-
-						'previous': (currentPage === 1) ? 1 : currentPage-1,
-						'next': (currentPage === totalPage) ? currentPage : currentPage+1, 
-						'current': currentPage,
-						'last': totalPage,
-					};
-					document.getElementById('pagination').innerHTML = templates.catalogPaginationTemplate(option);  
-				}, error: function(err){}  
-			});*/
-
-
 			}});
 
 		},
@@ -167,17 +146,12 @@
 			}
 		},
 		shareTable:function(){
-			//document.getElementById("content").innerHTML=templates.shareTable();//volunteer;
 			window.scrollTo(0,0); 
 			var limit = 12; 
 			var skip = 0; 
 
 			var Share = Parse.Object.extend("event"); 
 			var query = new Parse.Query(Share); 
-			// query.limit(limit); 
-			// query.skip(skip);
-			// query.descending("time"); 
-
 			query.find({success: function(results){
 
 				var objList = results.map(function(e){ return e.toJSON() });
@@ -206,7 +180,6 @@
 		},
 		ngoView:function(page){
 			window.scrollTo(0,0); 
-			//document.getElementById("content").innerHTML=templates.ngoView();//volunteer;
 			var limit = 12; 
 			var skip = (page-1) * limit;
 
@@ -323,127 +296,6 @@
 
 
 		},
-		/*
-		administration_event:function(){
-			
-			var Administration = Parse.Object.extend("event"); 
-			var query = new Parse.Query(Administration); 
-
-
-			query.find({success: function(results){
-
-				var objList = results.map(function(e){ return e.toJSON() });
-				console.log(objList); 
-				document.getElementById("content").innerHTML = templates.administration_event(objList);
-				query.limit(0);
-			}});
-
-		},
-		artist_event:function(){
-			
-			var Artist = Parse.Object.extend("event"); 
-			var query = new Parse.Query(Artist); 
-
-
-			query.find({success: function(results){
-
-				var objList = results.map(function(e){ return e.toJSON() });
-				console.log(objList); 
-				document.getElementById("content").innerHTML = templates.artist_event(objList);
-				query.limit(0);
-			}});
-
-		},
-		environment_event:function(){
-			
-			var Environment = Parse.Object.extend("event"); 
-			var query = new Parse.Query(Environment); 
-
-
-			query.find({success: function(results){
-
-				var objList = results.map(function(e){ return e.toJSON() });
-				console.log(objList); 
-				document.getElementById("content").innerHTML = templates.environment_event(objList);
-				query.limit(0);
-			}});
-
-		},
-		education_event:function(){
-			
-			var Education = Parse.Object.extend("event"); 
-			var query = new Parse.Query(Education); 
-
-
-			query.find({success: function(results){
-
-				var objList = results.map(function(e){ return e.toJSON() });
-				console.log(objList); 
-				document.getElementById("content").innerHTML = templates.education_event(objList);
-				query.limit(0);
-			}});
-
-		},
-		care_event:function(){
-			
-			var Care = Parse.Object.extend("event"); 
-			var query = new Parse.Query(Care); 
-
-
-			query.find({success: function(results){
-
-				var objList = results.map(function(e){ return e.toJSON() });
-				console.log(objList); 
-				document.getElementById("content").innerHTML = templates.care_event(objList);
-				query.limit(0);
-			}});
-
-		},
-		activity_event:function(){
-			
-			var Activity = Parse.Object.extend("event"); 
-			var query = new Parse.Query(Activity); 
-
-
-			query.find({success: function(results){
-
-				var objList = results.map(function(e){ return e.toJSON() });
-				console.log(objList); 
-				document.getElementById("content").innerHTML = templates.activity_event(objList);
-				query.limit(0);
-			}});
-
-		},
-		camp_event:function(){
-			
-			var Camp = Parse.Object.extend("event"); 
-			var query = new Parse.Query(Camp); 
-
-
-			query.find({success: function(results){
-
-				var objList = results.map(function(e){ return e.toJSON() });
-				console.log(objList); 
-				document.getElementById("content").innerHTML = templates.camp_event(objList);
-				query.limit(0);
-			}});
-
-		},
-		other_event:function(){
-			
-			var Other = Parse.Object.extend("event"); 
-			var query = new Parse.Query(Other); 
-
-
-			query.find({success: function(results){
-
-				var objList = results.map(function(e){ return e.toJSON() });
-				console.log(objList); 
-				document.getElementById("content").innerHTML = templates.other_event(objList);
-				query.limit(0);
-			}});
-
-		}*/
 	};
 
 	var r=Parse.Router.extend({
@@ -459,14 +311,6 @@
 			"ngodetail/:ngodetail_id/": 				"ngoDetail",
 			"about": 		"aboutView",
 			"category/:category_id": 	"event_category", 
-			/*"administration": "administration_event", 
-			"artist": 		"artist_event", 
-			"environment": 	"environment_event", 
-			"education": 	"education_event", 
-			"care": 		"care_event", 
-			"activity": 	"activity_event", 
-			"camp": 		"camp_event", 
-			"other": 		"other_event" */
 		},
 		indexView: 		volunteer.indexView,
 		tmp_eventView: function(){
@@ -483,14 +327,6 @@
 		ngoDetail: 		volunteer.ngoDetail,
 		aboutView: 		volunteer.aboutView,
 		event_category: volunteer.event_category,
-		/*administration_event: volunteer.administration_event, 
-		artist_event: 	volunteer.artist_event, 
-		environment_event: volunteer.environment_event, 
-		education_event: volunteer.education_event, 
-		care_event: 	volunteer.care_event, 
-		activity_event: volunteer.activity_event, 
-		camp_event: 	volunteer.camp_event, 
-		other_event: 	volunteer.other_event*/
 	});
 
 	// Initialize the App
