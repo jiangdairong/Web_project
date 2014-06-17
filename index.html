@@ -240,10 +240,21 @@
             </div>
       	{{?}}
       	{{~}}
-	// </div>
+	<div id="Event_pagination" style="text-align: center;"></div>
 	</script>
 
 	<!--end of content of event-->
+
+	<!--Event Page-->
+
+	<script id="EventPage" type="text/x-dot-template">
+		<a href='#event/1/'>&lt;&lt</a> | <a href='#event/{{=it.previous}}/'>&lt;</a> | {{=it.current}} / {{=it.last}} | 
+    	<a href='#event/{{=it.next}}/'>&gt;</a> | <a href='#event/{{=it.last}}/'>&gt;&gt;</a>
+  	</script>
+
+  	<!--end of Event Page-->
+
+
 
 	<!--EventDetail-->
 	<script id="EventDetailView" type="text/x-dot-template">
@@ -473,7 +484,7 @@
 		<h2 class="post_article"><a href="ShareForm.html">我要徵文</a></h2>
 	
 	{{~it :p:index}}
-	{{?p.content !== "undefined"}}
+	{{?p.content}}
 		<div class="IndexContent-box_article">			
 			<div class="Arcitle-box">
 				<a href='#shareTabledetail/{{=p.objectId}}/'>
@@ -481,9 +492,12 @@
 						<a><img class="articleList_img" src='{{=p.imageURL}}' alt="志工活動照片"></a>	
 					</div>
 					<div class="articleList_content">
-						<div class="articleList_content-title">{{=p.name}}</div>
-						<div>{{~p.content :value:index2}}{{?index2<=200}}{{=value}}{{?}}{{~}} ... more</div>
-						<a href='#shareTabledetail/{{=p.objectId}}/'></a> 
+						<div class="articleList_content-title">{{=p.name}}<br>
+						活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}<br></div>
+						<br>
+						心得內容：<br>{{~p.content :value:index2}}{{?index2<=125}}{{=value}}{{?}}{{~}}
+						{{?p.content.length>125}}......{{?}}
+						<br><a href='#shareTabledetail/{{=p.objectId}}/'>more</a>
 					</div>
 				</a>	
 			</div>
@@ -570,9 +584,19 @@
 		</div>
 		{{?}}
 		{{~}}	
-	</section>
+    <div id="NGO_pagination" style="text-align: center;"></div>
+	
 	</script>
 	<!---end of content of NGO-->
+
+	<!--NGO Page-->
+
+	<script id="NGOPage" type="text/x-dot-template">
+		<a href='#ngo/1/'>&lt;&lt</a> | <a href='#ngo/{{=it.previous}}/'>&lt;</a> | {{=it.current}} / {{=it.last}} | 
+    	<a href='#ngo/{{=it.next}}/'>&gt;</a> | <a href='#ngo/{{=it.last}}/'>&gt;&gt;</a>
+  	</script>
+
+  	<!--end of NGO Page-->
 
 	<!--About-->
 	<script id="aboutView" type="text/x-dot-template">

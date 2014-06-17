@@ -2,7 +2,7 @@
 	Parse.initialize("RmleLSMnkCyiCdVpqfWJ562fmhf8vEl4h4NeQKuL","09pdjU4X0sosunvxliKBYV8JLGhEni7F8QLHWBMP");
 
 	var templates = {};
-	["indexView","indexView_2","indexView_3","eventView","EventDetailView","shareTable","shareTabledetail","ngoView","aboutView","event_category"/*,"administration_event","artist_event","environment_event","education_event","care_event","activity_event","camp_event","other_event"*/].forEach(function(t){
+	["indexView","indexView_2","indexView_3","eventView","EventPage","EventDetailView","shareTable",/*"SharePage",*/"shareTabledetail","ngoView","NGOPage","aboutView","event_category"/*,"administration_event","artist_event","environment_event","education_event","care_event","activity_event","camp_event","other_event"*/].forEach(function(t){
 		var dom = document.getElementById(t);
 		templates[t] = doT.template(dom.text);
 	});
@@ -49,17 +49,16 @@
 			
 
 		},
-		eventView:function(){
+		eventView:function(page){
 			//document.getElementById("content").innerHTML=templates.eventView();//volunteer;
 			window.scrollTo(0,0); 
 			var limit = 12; 
-			var skip = 0; 
+			var skip = (page-1) * limit; 
 
 			var Event = Parse.Object.extend("event"); 
 			var query = new Parse.Query(Event); 
-			// query.limit(limit); 
-			// query.skip(skip);
-			// query.descending("time"); 
+			query.limit(limit); 
+			query.skip(skip);
 
 			query.find({success: function(results){
 
@@ -67,6 +66,20 @@
 				console.log(objList); 
 				document.getElementById('content').innerHTML = templates.eventView(objList);
 				query.limit(0);
+				query.skip(0);
+				var option = {};
+				query.count({success: function(count){
+					var totalPage = Math.ceil(count / limit);
+					var currentPage = parseInt(page); 
+					option = {
+						'previous': (currentPage === 1) ? 1 : currentPage-1,
+						'next': (currentPage === totalPage) ? currentPage : currentPage+1, 
+						'current': currentPage,
+						'last': totalPage,
+					};
+					document.getElementById('Event_pagination').innerHTML = templates.EventPage(option);  
+				}, error: function(err){}
+				});
 
 				$(function(){
 					var w = $("#mwt_mwt_slider_scroll").width();
@@ -191,23 +204,36 @@
 			}
 
 		},
-		ngoView:function(){
+		ngoView:function(page){
 			window.scrollTo(0,0); 
 			//document.getElementById("content").innerHTML=templates.ngoView();//volunteer;
 			var limit = 12; 
-			var skip = 0; 
+			var skip = (page-1) * limit;
 
 			var Share = Parse.Object.extend("event"); 
 			var query = new Parse.Query(Share); 
-			// query.limit(limit); 
-			// query.skip(skip);
-			// query.descending("time"); 
+			query.limit(limit); 
+			query.skip(skip);
 
 			query.find({success: function(results){
 				var objList = results.map(function(e){ return e.toJSON() });
 				console.log(objList); 
 				document.getElementById('content').innerHTML = templates.ngoView(objList);
 				query.limit(0);
+				query.skip(0);
+				var option = {};
+				query.count({success: function(count){
+					var totalPage = Math.ceil(count / limit);
+					var currentPage = parseInt(page); 
+					option = {
+						'previous': (currentPage === 1) ? 1 : currentPage-1,
+						'next': (currentPage === totalPage) ? currentPage : currentPage+1, 
+						'current': currentPage,
+						'last': totalPage,
+					};
+					document.getElementById('NGO_pagination').innerHTML = templates.NGOPage(option);  
+				}, error: function(err){}
+				});
 			}});
 		},
 		aboutView:function(){
@@ -405,9 +431,11 @@
 	var r=Parse.Router.extend({
 		routes:{
 			"": 			"indexView",
-			"event": 		"eventView",
+			"event": 		"tmp_eventView",
+			"event/:page/": "eventView",
 			"sharetable": 	"shareTable",
-			"ngo": 			"ngoView",
+			"ngo": 			"tmp_ngoView",
+			"ngo/:page/":	"ngoView",
 			"eventdetail/:eventdetail_id/": 			"EventDetailView",
 			"shareTabledetail/:shareTabledetail_id/": 	"shareTabledetail",
 			"about": 		"aboutView",
@@ -422,8 +450,14 @@
 			"other": 		"other_event" */
 		},
 		indexView: 		volunteer.indexView,
+		tmp_eventView: function(){
+    		return volunteer.eventView(1);
+    	},
 		eventView: 		volunteer.eventView,
 		shareTable: 	volunteer.shareTable,
+		tmp_ngoView: function(){
+    		return volunteer.ngoView(1);
+    	},
 		ngoView: 		volunteer.ngoView,
 		EventDetailView:volunteer.EventDetailView,
 		shareTabledetail:volunteer.shareTabledetail,
