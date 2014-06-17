@@ -240,7 +240,7 @@
             </div>
       	{{?}}
       	{{~}}
-	</div>
+	// </div>
 	</script>
 
 	<!--end of content of event-->
@@ -535,24 +535,55 @@
 
 	<!--NGO-->
 	<script id="ngoView" type="text/x-dot-template">
-	<section>
+
+	<div class="container container_12" id ="event_content"></div>
 		<div class="thoughts_title">
 			<h2>NGO列表</h2>
 		</div>
 
 		{{~it :p:index}}
-		<div class="ngo_block">
-			<a href="#">
-				<div  class="ngo_pic">	
-					<img src='{{=p.ngoimgURL}}'>
-				</div>
-				<div class="ngo_info">	
-					<ul>
-						<li>{{=p.ngo}}</li>	
-					</ul>
-				</div>
-			</a>
+		{{?(index)%4===0}}
+		<div class="Content-box_NGO">
+			<div class="ngo_block">
+				<a href="#">
+					<div  class="ngo_pic">	
+						<img src='{{=p.ngoimgURL}}'>
+					</div>
+					<div class="ngo_info">	
+						<ul>
+							<li>{{=p.ngo}}</li>	
+						</ul>
+					</div>
+				</a>
+			</div>
+		{{??(index%4===1 || index%4===2) && index!==it.length}}
+			<div class="ngo_block">
+				<a href="#">
+					<div  class="ngo_pic">	
+						<img src='{{=p.ngoimgURL}}'>
+					</div>
+					<div class="ngo_info">	
+						<ul>
+							<li>{{=p.ngo}}</li>	
+						</ul>
+					</div>
+				</a>
+			</div>
+		{{??}}
+			<div class="ngo_block">
+				<a href="#">
+					<div  class="ngo_pic">	
+						<img src='{{=p.ngoimgURL}}'>
+					</div>
+					<div class="ngo_info">	
+						<ul>
+							<li>{{=p.ngo}}</li>	
+						</ul>
+					</div>
+				</a>
+			</div>
 		</div>
+		{{?}}
 		{{~}}	
 	</section>
 	</script>

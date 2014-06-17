@@ -549,75 +549,46 @@ a:hover
 /*********************************************************************************/
 /* content of ngo                                                                */
 /*********************************************************************************/
-.thoughts_title
+.Content-box_NGO
 {
-	height:5em;
-}
-
-.thoughts_title h2
-{
-	color: rgb(250 , 80 , 5);
-	display:inline;
-	float:left;
-	padding-left: 2em;
-}
-.thoughts_title form
-{
-	display:inline;
-	float:right;
-	padding-right: 2em;
-}
-.thoughts_table
-{
-	margin-left: 3em;
-}
-.thoughts_table .feedback
-{
-	height:10em;
-	width:100em;
-	margin-bottom: 2em;
-
-}
-.thoughts_table .photo1, .thoughts_table .photo1 img
-{
-	height:10em;
-	width:10em;
-	float: left;
-	margin-right: 2em;
-}
-.thoughts_table .article1
-{
-	padding-left: 1em;
+	width: 960px;
+	height:300px;
+	background-color: #DDDDDD;
+	margin: 0 auto;
+	margin-bottom:2em;
+	padding:5px; 
+	/*padding-left:10px;*/
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .ngo_block
 {
-	color: rgb(195 , 55 , 30);
-	border-radius: 0.5em;
-	height:25em;
-	width: 20em;
-	background-color: #ffe187;
-	display: block;
-	float: left;
-	margin-right: 2em;
-	margin-left: 3em;
-	margin-top: 2em;
-	margin-bottom: 2em;
+	height: 280px;
+	background-color:#E5E5E5;
+	width:227px;
+	margin: 5px;
+	padding:6px;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    color:#545454;
+	font-size:0.9em;
 }
  .ngo_block img
 {
-	border-radius: 0.5em;
-	height:18em;
-	width: 18em;
-	padding-left: 1em;
-	padding-top: 1em;
 	margin:0 auto;
+	width:214px;
+	height:214px;
+	margin-bottom:0.5em;	
 }
 .ngo_info ul
 {
-	font-size: 1.5em;
-	list-style-type: none;
-	line-height: 1.5em;
+	font-weight: bold;
+	font-size: 1.1em;
+
 }
 .ngo_block a{
 	text-decoration: none;

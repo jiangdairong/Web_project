@@ -216,25 +216,15 @@
 		},
 		event_category:function(category_id){
 			window.scrollTo(0,0);
-			console.log("GG");
+			console.log(category_id);
 			if(category_id){
 				var Category = Parse.Object.extend("event"); 
 				var query = new Parse.Query(Category); 
 							console.log("GG");
-				if(category_id===administration){
+				if(query.equalTo('tag_type',category_id)){
 
-							console.log("GG");
+							console.log("GGQQ");
 				
-					query.get(category_id, { 
-						success: function(category){
-							document.getElementById('content').innerHTML = templates.event_category(category.toJSON());
-							console.log("GG");
-						}, error: function(object, error){
-							console.log("QAQ");
-						}
-					});
-
-
 				}
 
 
