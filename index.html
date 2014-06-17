@@ -467,45 +467,30 @@
 
 	<!--sharetable-->
 	<script id="shareTable" type="text/x-dot-template">
+	<div class="container container_12" id ="content"></div>
 	<div class="thoughts_title">
 		<h2>心得列表</h2>
-		<h3><a href="ShareForm.html">我要徵文</a></h3>
-	</div>
-
+		<h2 class="post_article"><a href="ShareForm.html">我要徵文</a></h2>
+	
 	{{~it :p:index}}
-    {{?p.content !== "undefined"}}
-		<div class="thoughts_table">
-			<div class='grid_12'>
-          			<a href='#shareTabledetail/{{=p.objectId}}/'>
-          			<div class="photo1">
-						<a><img class="pic1" src='{{=p.imageURL}}' alt="志工活動照片"></a>	
+	{{?p.content !== "undefined"}}
+		<div class="IndexContent-box_article">			
+			<div class="Arcitle-box">
+				<a href='#shareTabledetail/{{=p.objectId}}/'>
+					<div class="photo1">
+						<a><img class="articleList_img" src='{{=p.imageURL}}' alt="志工活動照片"></a>	
 					</div>
-					<div class="article1">{{~p.content :value:index2}}{{?index2<=100}}{{=value}}{{?}}{{~}}...
+					<div class="articleList_content">
+						<div class="articleList_content-title">{{=p.name}}</div>
+						<div>{{~p.content :value:index2}}{{?index2<=200}}{{=value}}{{?}}{{~}} ... more</div>
+						<a href='#shareTabledetail/{{=p.objectId}}/'></a> 
 					</div>
-					<br><a href='#shareTabledetail/{{=p.objectId}}/'>more</a>
-          			</a>
-      		</div>
+				</a>	
+			</div>
 		</div>
+	</div>
     {{?}}
     {{~}}
-	/*<div class="thoughts_table">
-		<div class="feedback">
-			<div class="photo1">
-				<a href="ShareDetail.html"><img class="pic1" src="https://github.com/shihsan/web/blob/gh-pages/images/thoughts_pic/pic1.JPG?raw=true" alt="志工活動照片"></a>	
-			</div>
-			<div class="article1">
-				心得文字1
-			</div>
-		</div>
-		<div class="feedback">
-			<div class="photo1">
-				
-			</div>
-			<div class="article1">
-				心得文字2
-			</div>	
-		</div>	
-	</div>*/
 	</script>
 	<!--end of content of sharetable-->
 
