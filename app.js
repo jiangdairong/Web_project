@@ -2,7 +2,7 @@
 	Parse.initialize("RmleLSMnkCyiCdVpqfWJ562fmhf8vEl4h4NeQKuL","09pdjU4X0sosunvxliKBYV8JLGhEni7F8QLHWBMP");
 
 	var templates = {};
-	["indexView","indexView_2","indexView_3","eventView","EventPage","EventDetailView","shareTable",/*"SharePage",*/"shareTabledetail","ngoView","NGOPage","aboutView","event_category"/*,"administration_event","artist_event","environment_event","education_event","care_event","activity_event","camp_event","other_event"*/].forEach(function(t){
+	["indexView","indexView_2","indexView_3","eventView","EventPage","EventDetailView","shareTable","shareTabledetail","ngoView","ngoDetail","NGOPage","aboutView","event_category"/*,"administration_event","artist_event","environment_event","education_event","care_event","activity_event","camp_event","other_event"*/].forEach(function(t){
 		var dom = document.getElementById(t);
 		templates[t] = doT.template(dom.text);
 	});
@@ -236,6 +236,24 @@
 				});
 			}});
 		},
+		ngoDetail:function(ngodetail_id){
+			console.log("ngo detail");
+			window.scrollTo(0,0); 
+			if(ngodetail_id){
+				var NGO = Parse.Object.extend("event"); 
+				var query = new Parse.Query(NGO); 
+				query.get(ngodetail_id, { 
+					success: function(ngoDetail){
+						document.getElementById('content').innerHTML = templates.ngoDetail(ngoDetail.toJSON());
+
+					}, error: function(object, error){
+					}
+				});
+			} else {
+				window.location.hash = '';
+			}
+
+		},
 		aboutView:function(){
 			window.scrollTo(0,0); 
 			document.getElementById("content").innerHTML=templates.aboutView();//volunteer;
@@ -438,6 +456,7 @@
 			"ngo/:page/":	"ngoView",
 			"eventdetail/:eventdetail_id/": 			"EventDetailView",
 			"shareTabledetail/:shareTabledetail_id/": 	"shareTabledetail",
+			"ngodetail/:ngodetail_id/": 				"ngoDetail",
 			"about": 		"aboutView",
 			"category/:category_id": 	"event_category", 
 			/*"administration": "administration_event", 
@@ -461,6 +480,7 @@
 		ngoView: 		volunteer.ngoView,
 		EventDetailView:volunteer.EventDetailView,
 		shareTabledetail:volunteer.shareTabledetail,
+		ngoDetail: 		volunteer.ngoDetail,
 		aboutView: 		volunteer.aboutView,
 		event_category: volunteer.event_category,
 		/*administration_event: volunteer.administration_event, 

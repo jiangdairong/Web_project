@@ -4,6 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="index.css" />	
 	<link rel="stylesheet" type="text/css" href="css/960.css" />
 	<link rel="stylesheet" type="text/css" media="all" href="fancybox.css">
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">	
 	<title>小人物</title>
 </head>
 	<body>
@@ -544,7 +545,9 @@
 		{{?(index)%4===0}}
 		<div class="Content-box_NGO">
 			<div class="ngo_block">
-				<a href="#">
+				{{?p.ngodetail}}
+				<a href='#ngodetail/{{=p.objectId}}/'>
+				{{?}}
 					<div  class="ngo_pic">	
 						<img src='{{=p.ngoimgURL}}'>
 					</div>
@@ -553,11 +556,15 @@
 							<li>{{=p.ngo}}</li>	
 						</ul>
 					</div>
+				{{?p.ngodetail}}
 				</a>
+				{{?}}
 			</div>
 		{{??(index%4===1 || index%4===2) && index!==it.length}}
 			<div class="ngo_block">
-				<a href="#">
+				{{?p.ngodetail}}
+				<a href='#ngodetail/{{=p.objectId}}/'>
+				{{?}}
 					<div  class="ngo_pic">	
 						<img src='{{=p.ngoimgURL}}'>
 					</div>
@@ -566,11 +573,15 @@
 							<li>{{=p.ngo}}</li>	
 						</ul>
 					</div>
+				{{?p.ngodetail}}
 				</a>
+				{{?}}
 			</div>
 		{{??}}
 			<div class="ngo_block">
-				<a href="#">
+				{{?p.ngodetail}}
+				<a href='#ngodetail/{{=p.objectId}}/'>
+				{{?}}
 					<div  class="ngo_pic">	
 						<img src='{{=p.ngoimgURL}}'>
 					</div>
@@ -579,7 +590,9 @@
 							<li>{{=p.ngo}}</li>	
 						</ul>
 					</div>
+				{{?p.ngodetail}}
 				</a>
+				{{?}}
 			</div>
 		</div>
 		{{?}}
@@ -597,6 +610,36 @@
   	</script>
 
   	<!--end of NGO Page-->
+
+  	<!--NGO Detail-->
+	<script id="ngoDetail" type="text/x-dot-template">
+
+  	<section>
+
+  		<h1 class="title"><i class="fa fa-fighter-jet"></i>{{=it.ngo}}</h1>
+
+  		<div class="main_up">
+  			<div class="detail">
+
+  				<h2>關於</h2>
+  				<p>{{=it.ngodetail}}</p>
+  			</div>
+
+  			<div class="ngo_photo">
+  				<img class="pic1" src='{{=it.ngoimgURL}}' alt="志工活動照片">			
+  			</div>
+  		</div>
+  		/*
+  		<div class="shareBtn">
+  			<span id="fb_btn">facebook</span>
+  			<span id="google_btn">google</span>
+  			<span id="twitter_btn">twitter</span>
+  			<span id="email_btn">e-mail</span>
+  		</div>*/
+  	</section>
+  	</script>
+
+  	<!--end of NGO Detail-->
 
 	<!--About-->
 	<script id="aboutView" type="text/x-dot-template">
