@@ -568,6 +568,32 @@ a:hover
 	text-decoration: none;
 	color: rgb(195 , 55 , 30);
 }
+
+
+/*********************************************************************************/
+/* content of ngo Detail                                                         */
+/*********************************************************************************/
+.ngotitle{
+ 	text-align:center;
+  	font:36px/0.3 '微軟正黑體',sans-serif;	
+  	
+  	/*版塊樣式*/
+	color: #FFFFFF;
+	background-color: #333333;
+  	width:800px;
+  	/*height:150px;*/
+	margin:1em auto;
+ 	padding:.8em 0;
+}
+  
+.ngomain_up{
+  	width:800px;
+ 	height: 400px;
+ 	color: #333;
+ 	background-color: #FFF;
+ 	padding: .8em 0;
+ }
+
 /*********************************************************************************/
 /* content  of About                                                             */
 /*********************************************************************************/
