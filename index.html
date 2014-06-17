@@ -87,7 +87,7 @@
 		</div>
 	</script>
 
-	<script id="indexView_3" type="text/x-dot-template">
+	<!--script id="indexView_3" type="text/x-dot-template">
 		<div id="content-wrapper">
 			<h2>熱門文章</h2>
 			<div class="IndexContent-box">
@@ -97,6 +97,27 @@
 					<div class="HotArcitle-box">
 						<img src='{{=p.imageURL}}'>
 						<div>{{~p.content :value:index2}}{{?index2<=100}}{{=value}}{{?}}{{~}}...
+						</div>
+					</div>
+					</a>
+				{{?}}
+				{{~}}
+			</div>
+		</div>
+	</script-->
+
+	<script id="indexView_3" type="text/x-dot-template">
+		<div id="content-wrapper">
+			<h2>熱門文章</h2>
+			<div class="IndexContent-box_article">
+				{{~it :p:index}}
+				{{?index<2}}
+					<a href='#shareTabledetail/{{=p.objectId}}/'>
+					<div class="HotArcitle-box">
+						<img src='{{=p.imageURL}}'>
+						<div class="HotArcitle-box_Content">
+							<div  class="HotArcitle-box_ContentTitle">{{=p.name}}</div>						
+							<div>{{~p.content :value:index2}}{{?index2<=172}}{{=value}}{{?}}{{~}} ... </div>
 						</div>
 					</div>
 					</a>
@@ -488,11 +509,15 @@
 
 	<!--sharetable-->
 	<script id="shareTable" type="text/x-dot-template">
-	<div class="container container_12" id ="content"></div>
+	/*<div class="container container_12" id ="content"></div>
 	<div class="thoughts_title">
 		<h2>心得列表</h2>
-		<h2 class="post_article"><a href="ShareForm.html">我要徵文</a></h2>
-	
+		<h2 class="post_article"><a href="ShareForm.html">我要徵文</a></h2>*/
+	<h2 class="shareTable_title">心得列表</h2>
+	<h2 class="post_article"><a href="ShareForm.html">我要徵文</a></h2>
+	<div class="container container_12" ></div>
+
+	<div class="thoughts_title">
 	{{~it :p:index}}
 	{{?p.content}}
 		<div class="IndexContent-box_article">			
@@ -502,8 +527,12 @@
 						<a><img class="articleList_img" src='{{=p.imageURL}}' alt="志工活動照片"></a>	
 					</div>
 					<div class="articleList_content">
-						<div class="articleList_content-title">{{=p.name}}<br>
-						活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}<br></div>
+						<div class="articleList_content-title">
+							<div>{{=p.name}}</div><br>
+							<div class="articleList_content-time">活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}<br></div>
+						</div>
+						/*{{=p.name}}<br>
+						活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}<br></div>*/
 						<br>
 						心得內容：<br>{{~p.content :value:index2}}{{?index2<=125}}{{=value}}{{?}}{{~}}
 						{{?p.content.length>125}}......{{?}}
