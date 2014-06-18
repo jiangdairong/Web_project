@@ -157,7 +157,10 @@
 				query.get(shareTabledetail_id, { 
 					success: function(shareTabledetail){
 						document.getElementById('content').innerHTML = templates.shareTabledetail(shareTabledetail.toJSON());
-
+						var url = window.location.href;//'http://www.google.com.tw/';
+						var encode_url = encodeURIComponent(url);
+						$('#fb_likes').attr("src","//www.facebook.com/plugins/like.php?href="+encode_url+"width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=299735220203958");
+					
 					}, error: function(object, error){
 					}
 				});
@@ -322,7 +325,7 @@
 			} else {
 				window.location.hash = '';
 			}
-		},
+		}
 	};
 
 	var r=Parse.Router.extend({
@@ -338,7 +341,7 @@
 			"ngodetail/:ngodetail_id/": 				"ngoDetail",
 			"about": 		"aboutView",
 			"category/:category_id": 	"event_category", 
-			"location/:category_id":    "location_category", 
+			"location/:category_id":    "location_category",
 		},
 		indexView: 		volunteer.indexView,
 		tmp_eventView: function(){

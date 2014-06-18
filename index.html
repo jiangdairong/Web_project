@@ -229,8 +229,8 @@
 			</br>
 			*/	
 			<div "event_region">
-					<h3>地區</h3></br>
-					<ul>
+				<h3>地區</h3></br>
+				<ul>
 						<li><a href="‪#‎location/north">北部</a></li>
 						<li><a href="#location/middle">中部</a></li>
 						<li><a href="#location/south">南部</a></li>
@@ -238,7 +238,7 @@
 						<li><a href="#location/all">全台</a></li>
 						<li><a href="#location/foreign">海外</a></li>
 					</ul>
-				</div>
+			</div>
 			</br>
 			<div "event_category">
 				<h3>活動類別</h3></br>
@@ -324,7 +324,7 @@
 
 	<!--EventDetail-->
 	<script id="EventDetailView" type="text/x-dot-template">
-	<section>
+	<section class="eventdetail">
 
 		<div class="main_up">
 			<h1 class="title">{{=it.name}}</h1>
@@ -366,7 +366,7 @@
 	</script>
 	<!--End of EventDetail-->
 	<script id="event_category" type="text/x-dot-template">
-	 	<div id="hihi">category~~~~~~~~~~</div>
+	 	<div id="hihi"></div>
 	 	<div class="event_add" id="wrapper">
  			<p><a class="modalbox" id="addNewEventBox">辦志工活動</a></p>
   		</div>
@@ -448,16 +448,16 @@
 			<div id="mwt_slider_content">
 				</br>	
 				<div "event_region">
-					<h3>地區</h3></br>
-					<ul>
-						<li><a href="‪#‎location/north">北部</a></li>
-						<li><a href="#location/middle">中部</a></li>
-						<li><a href="#location/south">南部</a></li>
-						<li><a href="#location/east">東部</a></li>
-						<li><a href="#location/all">全台</a></li>
-						<li><a href="#location/foreign">海外</a></li>
-					</ul>
-				</div>
+				<h3>地區</h3></br>
+				<ul>
+					<li><a href="#category/north">北部</a></li>
+					<li><a href="#category/middle">中部</a></li>
+					<li><a href="#category/south">南部</a></li>
+					<li><a href="#category/east">東部</a></li>
+					<li><a href="#category/all">全台</a></li>
+					<li><a href="#category/foreign">海外</a></li>
+				</ul>
+			</div>
 				</br>
 				<div id="event_category">
 					<h3>活動類別</h3></br>
@@ -527,8 +527,9 @@
       		{{~}}
 		</div>		
 	</script>
+
 	<script id="location_category" type="text/x-dot-template">
-	 	<div id="hihi">category~~~~~~~~~~</div>
+	 	<div id="hihi"></div>
 	 	<div class="event_add" id="wrapper">
  			<p><a class="modalbox" id="addNewEventBox">辦志工活動</a></p>
   		</div>
@@ -732,16 +733,44 @@
 
 	<!--sharedetail-->
 	<script id="shareTabledetail" type="text/x-dot-template">
-	
+	<section class="sharedetail">
+		<h1 class="title"><i class="fa fa-fighter-jet"></i>{{=it.name}}</h1>
+		<div class="main_up">
+			<div class="photo">
+				<img  src='{{=it.imageURL}}' alt="志工活動照片">			
+			</div>
+			<div class="info">
+				<h3>關於</h3>
+				<ul>
+					<li><i class="fa fa-home"></i><a href='{{=it.ngoURL}}'>{{=it.ngo}}</a></li>
+					<li><i class="fa fa-clock-o"></i>服務時間：{{~it.time.iso :value:index}}{{?index<=9}}{{=value}}{{?}}{{~}}</li>
+					<li><i class="fa fa-location-arrow"></i>服務地點：{{=it.location}}</li>
+					<li><i class="fa fa-folder"></i>志工類型：{{=it.tag_type}}</li>
+					<li><i class="fa fa-user"></i>撰寫人：{{=it.author}}</li>
+				</ul>
+				<br>
+				<iframe id="fb_likes" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+			</div>
+		</div>
+
+		/*
+		<div class="shareBtn">
+		<span id="fb_btn">facebook</span>
+		<span id="google_btn">google</span>
+		<span id="twitter_btn">twitter</span>
+		<span id="email_btn">e-mail</span>
+		</div>*/
+
+
+		<div class="detail">
+			<h3>心得內容：</h3>
+			<p>{{=it.content}}</p>
+		</div>
+	</section>
 
 
 
-
-
-
-
-
-
+/*
 	<div class="thoughts">
 		<div class="pic">
 			<img  src='{{=it.imageURL}}' alt="志工活動照片">			
@@ -760,7 +789,7 @@
 			<h3>心得內容：</h3>
 			<p>{{=it.content}}</p>
 		</div>
-	</div>
+	</div>*/
 	</script>
 	<!--end of content of sharedetail-->
 
@@ -844,8 +873,37 @@
 
   	<!--NGO Detail-->
 	<script id="ngoDetail" type="text/x-dot-template">
+	<section class="ngodetail">
 
-  	<section>
+		<h1 class="title"><i class="fa fa-fighter-jet"></i>{{=it.ngo}}</h1>
+
+		<div class="main_up">
+			<div class="detail">
+			
+				<h2>關於</h2>
+				<p>{{=it.ngodetail}}</p>
+			</div>
+
+			<div class="ngo_photo">
+				<img class="pic1" src='{{=it.ngoimgURL}}' alt="志工活動照片">			
+			</div>
+		</div>
+/*
+		<div class="shareBtn">
+			<span id="fb_btn">facebook</span>
+			<span id="google_btn">google</span>
+			<span id="twitter_btn">twitter</span>
+			<span id="email_btn">e-mail</span>
+		</div>*/
+	</section>
+
+
+
+
+
+
+/*
+  	<section class="ngodetail">
 
   		<h1 class="ngotitle"><i class="fa fa-fighter-jet"></i>{{=it.ngo}}</h1>
 
@@ -859,7 +917,7 @@
   			<div class="ngo_photo">
   				<img class="pic1" src='{{=it.ngoimgURL}}' alt="志工活動照片">			
   			</div>
-  		</div>
+  		</div>*/
   		/*
   		<div class="shareBtn">
   			<span id="fb_btn">facebook</span>
