@@ -298,26 +298,26 @@ section{
 	margin: 0 auto;
 }
 
-.eventDetail_info a{
+a{
 	text-decoration: none;
 	color: rgb(234 , 97 , 48);
 }
-.eventDetail_info a:link 
+a:link 
 {
 	color: rgb(234 , 97 , 48);
 }　　　　/*//宣告連結顏色*/
-.eventDetail_info a:visited 
+a:visited 
 {
 	color: rgb(234 , 97 , 48);
 }　   　 /*//訪問過連結顏色*/
-.eventDetail_info a:hover
-{
-	color: rgb(234 , 97 , 48);
-}             /*//當滑鼠移到連結時連結顏色*/
-.eventDetail_info a:active
+a:active
 {
 	color: rgb(234 , 97 , 48);
 }　　     /*//執行中連結顏色*/
+a:hover
+{
+	color: rgb(234 , 97 , 48);
+}             /*//當滑鼠移到連結時連結顏色*/
 
 
 .title
