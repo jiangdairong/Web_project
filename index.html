@@ -229,16 +229,16 @@
 			</br>
 			*/	
 			<div "event_region">
-				<h3>地區</h3></br>
-				<ul>
-					<li><a href="#category/north">北部</a></li>
-					<li><a href="#category/middle">中部</a></li>
-					<li><a href="#category/south">南部</a></li>
-					<li><a href="#category/east">東部</a></li>
-					<li><a href="#category/all">全台</a></li>
-					<li><a href="#category/foreign">海外</a></li>
-				</ul>
-			</div>
+					<h3>地區</h3></br>
+					<ul>
+						<li><a href="‪#‎location/north">北部</a></li>
+						<li><a href="#location/middle">中部</a></li>
+						<li><a href="#location/south">南部</a></li>
+						<li><a href="#location/east">東部</a></li>
+						<li><a href="#location/all">全台</a></li>
+						<li><a href="#location/foreign">海外</a></li>
+					</ul>
+				</div>
 			</br>
 			<div "event_category">
 				<h3>活動類別</h3></br>
@@ -448,16 +448,178 @@
 			<div id="mwt_slider_content">
 				</br>	
 				<div "event_region">
-				<h3>地區</h3></br>
-				<ul>
-					<li><a href="#category/north">北部</a></li>
-					<li><a href="#category/middle">中部</a></li>
-					<li><a href="#category/south">南部</a></li>
-					<li><a href="#category/east">東部</a></li>
-					<li><a href="#category/all">全台</a></li>
-					<li><a href="#category/foreign">海外</a></li>
-				</ul>
+					<h3>地區</h3></br>
+					<ul>
+						<li><a href="‪#‎location/north">北部</a></li>
+						<li><a href="#location/middle">中部</a></li>
+						<li><a href="#location/south">南部</a></li>
+						<li><a href="#location/east">東部</a></li>
+						<li><a href="#location/all">全台</a></li>
+						<li><a href="#location/foreign">海外</a></li>
+					</ul>
+				</div>
+				</br>
+				<div id="event_category">
+					<h3>活動類別</h3></br>
+					<ul>
+						<li><a href="#category/administration">行政</a></li>
+						<li><a href="#category/artist">藝文</a></li>
+						<li><a href="#category/environment">環保</a></li>
+						<li><a href="#category/education">教育</a></li>
+						<li><a href="#category/care">照護</a></li>
+						<li><a href="#category/activity">活動</a></li>
+						<li><a href="#category/camp">營隊</a></li>
+						<li><a href="#category/other">其他</a></li>			
+					</ul>
+				</div>
+				</br>
 			</div>
+		</div>	
+
+		<div class="container container_12" id ="event_content"></div>
+			{{~it :p:index}}
+			{{?(index)%4===0 }}
+				<div class="IndexContent-box">
+					<a href='#eventdetail/{{=p.objectId}}/'>
+						<div class="Event-box">
+							<img src='{{=p.imageURL}}'>
+							<div class="block_eventName">{{=p.name}}
+              				</div>
+              				<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
+              				</div>
+              				<div>活動地點：{{~p.location :value:index3}}{{?index3<=20}}{{=value}}{{?}}{{~}}...
+              				</div>
+              				<div>招募人數：共需{{=p.amount}}人
+              				</div>
+						</div>
+              		</a>
+      		
+      		{{??(index%4===1 || index%4===2) && index!==it.length}}
+      				<a href='#eventdetail/{{=p.objectId}}/'>
+						<div class="Event-box">
+							<img src='{{=p.imageURL}}'>
+							<div class="block_eventName">{{=p.name}}
+              				</div>
+              				<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
+              				</div>
+              				<div>活動地點：{{~p.location :value:index3}}{{?index3<=20}}{{=value}}{{?}}{{~}}...
+              				</div>
+              				<div>招募人數：共需{{=p.amount}}人
+              				</div>
+						</div>
+              		</a>
+      		{{??}}
+      				<a href='#eventdetail/{{=p.objectId}}/'>
+						<div class="Event-box">
+							<img src='{{=p.imageURL}}'>
+							<div class="block_eventName">{{=p.name}}
+              				</div>
+              				<div>活動時間：{{~p.time.iso :value:index2}}{{?index2<=9}}{{=value}}{{?}}{{~}}
+              				</div>
+              				<div>活動地點：{{~p.location :value:index3}}{{?index3<=20}}{{=value}}{{?}}{{~}}...
+              				</div>
+              				<div>招募人數：共需{{=p.amount}}人
+              				</div>
+						</div>
+              		</a>
+           		</div>
+      		{{?}}
+      		{{~}}
+		</div>		
+	</script>
+	<script id="location_category" type="text/x-dot-template">
+	 	<div id="hihi">category~~~~~~~~~~</div>
+	 	<div class="event_add" id="wrapper">
+ 			<p><a class="modalbox" id="addNewEventBox">辦志工活動</a></p>
+  		</div>
+  
+ 		<div id="inline">
+ 			<h2>辦志工活動</h2>
+ 
+ 		 		<label for="name">活動名稱</label>
+ 		 	<input type="name" id="activity_name" name="activity_name" class="txt">
+ 	 		<br>
+ 	 		<label for="time">活動時間</label>
+ 		 	<input type="datetime-local" id="activity_time" name="actactivity_time" class="txt">
+ 	 		<br>
+ 	 		<label for="location">活動地點</label>
+ 		 	<input type="location" id="activity_location" name="activity_location" class="txt">
+ 	 		<br>
+ 	 		<label for="amount">招募人數</label>
+ 	 		<input type="amount" id="activity_amount" name="activity_amount" class="txt">
+ 	 		<br>
+ 	 		<label for="ngo">主辦單位</label>
+ 		 	<input type="ngo" id="activity_ngo" name="activity_ngo" class="txt">
+ 	 		<br>
+ 	 		<label for="contact">聯絡人</label>
+ 		 	<input type="contact" id="activity_contact" name="activity_contact" class="txt">
+ 	 		<br>
+ 	 		<label for="phone">聯絡方式</label>
+ 		 	<input type="phone" id="activity_phone" name="activity_phone" class="txt">
+ 	 		<br>
+ 	 		<label for="imageurl">圖片連結</label>
+ 		 	<input type="imageurl" id="activity_imageurl" name="activity_imageurl" class="txt">
+ 	 		<br>
+ 	 		<label for="ngourl">NGO連結</label>
+ 		 	<input type="ngourl" id="activity_ngourl" name="activity_ngourl" class="txt">
+ 	 		<br>
+ 	 		<label for="ngodetail">NGO介紹</label>
+ 		 	<input type="ngodetail" id="activity_ngodetail" name="activity_ngodetail" class="txt">
+ 	 		<br>
+ 	 		<label for="ngoimgurl">NGO圖片連結</label>
+ 		 	<input type="ngoimgurl" id="activity_ngoimgurl" name="activity_ngoimgurl" class="txt">
+ 	 		<br>
+ 	 		<label for="tag_type">活動類別</label>
+ 	 		<select id="activity_tag_type" name="activity_tag_type" class="txt">
+				<option value="administration">行政</option>
+				<option value="artist">藝文</option>
+				<option value="environment">環保</option>
+				<option value="education">教育</option>
+				<option value="care">照護</option>
+				<option value="activity">活動</option>
+				<option value="camp">營隊</option>
+				<option value="other">其他</option>
+			</select>
+ 		 	/*<input type="imageurl" id="activity_imageurl" name="activity_imageurl" class="txt">*/
+ 	 		<br>
+ 	 		<label for="tag_area">地區分類</label>
+ 	 		<select id="activity_tag_area" name="activity_tag_area" class="txt">
+ 		 		<option value="north">北區</option>
+				<option value="middle">中區</option>
+				<option value="south">南區</option>
+				<option value="east">東區</option>
+				<option value="all">全國</option>
+				<option value="foreign">外國</option>
+			</select>
+ 	 		<br>
+ 	 		<label for="detail">詳細內容</label>
+ 		 	<input type="detail" id="activity_detail" name="activity_detail" class="txt">
+ 	 		<br>
+ 	 		<button id="send">Send</button>
+ 		</div>
+	
+		<div id="mwt_mwt_slider_scroll">
+			<div id="mwt_fb_tab">
+				<span>S</span>
+				<span>e</span>
+				<span>a</span>
+				<span>r</span>
+				<span>c</span>
+				<span>h</span>
+			</div>
+			<div id="mwt_slider_content">
+				</br>	
+				<div "event_region">
+					<h3>地區</h3></br>
+					<ul>
+						<li><a href="‪#‎location/north">北部</a></li>
+						<li><a href="#location/middle">中部</a></li>
+						<li><a href="#location/south">南部</a></li>
+						<li><a href="#location/east">東部</a></li>
+						<li><a href="#location/all">全台</a></li>
+						<li><a href="#location/foreign">海外</a></li>
+					</ul>
+				</div>
 				</br>
 				<div id="event_category">
 					<h3>活動類別</h3></br>
