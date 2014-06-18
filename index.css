@@ -555,6 +555,116 @@ a:hover
 .articleList_content-time{
 	font-size: 0.9em;
 }
+
+
+/*********************************************************************************/
+/* content of share Detail                                                       */
+/*********************************************************************************/
+
+section{
+	/*block:;*/
+	width: 800px;
+	margin: 0 auto;
+}
+
+.title
+{
+	text-align:left;
+	font:36px/0.3 '微軟正黑體',sans-serif;	
+	
+	/*版塊樣式*/
+	color: #333333;
+	/*background-color: #FFFFFF;*/
+	width:800px;
+	/*height:150px;*/
+	margin:2em auto 0em auto;
+	padding:.8em 0;
+
+}
+
+.photo
+{
+	height:25em;
+	width: 20em;
+	display: block;
+	float: right;
+}
+ .photo img
+{
+	border-radius: 0.5em;
+	height:18em;
+	width: 18em;
+	padding-right: 1em;
+/*	padding-top: 1em;*/
+	margin:0 auto;
+}
+.info
+{
+	color: #333333;
+	font:1em/3em '微軟正黑體',sans-serif;
+	float:left;
+	margin-left: 1em;
+/*	margin-top: 2em;*/
+	margin-bottom: 2em;
+	border-radius: 2em;
+	line-height:2.2em;
+	letter-spacing:0em;
+}
+.info ul
+{
+	list-style-type: none;
+	/*line-height: 5em;*/
+}
+
+
+.main_up
+{
+	width:700px;
+	height: 330px;
+	color: #333333;
+	background-color: #FFF;
+
+	padding: 1em 2em;
+}
+
+.shareBtn
+{
+	/*排版*/
+	clear:both; 
+	text-align:center;
+	
+	
+	/*版塊樣式*/
+	color: #333;
+	width:700px;
+	margin:0 auto;
+	padding:1em;
+	/*background-color:rgb(255,220,95);*/
+	/*background-color:  #FFF;*/
+
+	/*邊框*/
+	border-style:dotted;
+	border-radius: 2em;	
+	border-radius: 0.5em;
+}
+
+.detail 
+{
+	/*版塊樣式*/
+	color: #333333;
+	background-color: #FFF;
+	width:700px;
+	
+	/*border-radius: 0.5em;*/
+	
+	font:1em/2.2em '微軟正黑體',sans-serif;
+
+	padding:.6em 2em;
+	margin:4em auto;
+}
+
+
+
 /*********************************************************************************/
 /* content of ngo                                                                */
 /*********************************************************************************/

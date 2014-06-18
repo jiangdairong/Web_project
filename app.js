@@ -2,7 +2,7 @@
 	Parse.initialize("RmleLSMnkCyiCdVpqfWJ562fmhf8vEl4h4NeQKuL","09pdjU4X0sosunvxliKBYV8JLGhEni7F8QLHWBMP");
 
 	var templates = {};
-	["indexView","indexView_2","indexView_3","eventView","EventPage","EventDetailView","shareTable","shareTabledetail","ngoView","ngoDetail","NGOPage","aboutView","event_category"/*,"administration_event","artist_event","environment_event","education_event","care_event","activity_event","camp_event","other_event"*/].forEach(function(t){
+	["indexView","indexView_2","indexView_3","eventView","EventPage","EventDetailView","shareTable","shareTabledetail","ngoView","ngoDetail","NGOPage","aboutView","event_category"].forEach(function(t){
 		var dom = document.getElementById(t);
 		templates[t] = doT.template(dom.text);
 	});
@@ -108,22 +108,6 @@
 						'centerOnScroll': true,
 						'content': $('#inline').html(),
 					});
-				});
-				$('#send').click(function(){
-					console.log("new_event");
-				/*	new_event = new Event();
-            		new_event.set('name', name);
-            		new_event.set('time', time);
-           		 	new_event.set('location', location);
-            		new_event.set('amount', amount);
-            		new_event.set('ngo', ngo);
-            		new_event.set('contact', contact);
-            		new_event.set('phone', phone);
-            		new_event.save(null, {
-            	 		success: function(new_event){
-            	   			console.log("new_event");
-            			}
-            		});*/
 				});
 			}});
 
@@ -240,66 +224,55 @@
 			console.log(category_id);
 			if(category_id){
 				var Category = Parse.Object.extend("event"); 
-				var query = new Parse.Query(Category); 
-							console.log("GG");
-				if(query.equalTo('tag_type',category_id)){
+				var query = new Parse.Query(Category);
+				query.equalTo('tag_type',category_id);
+				query.find({
+					success:function(res){
+							//console.log(res);
+							var query2 = res.map(function(e){return e.toJSON()});
+							console.log(query2);
+							document.getElementById("content").innerHTML=templates.event_category(query2);
+							$(function(){
+								var w = $("#mwt_mwt_slider_scroll").width();
+								console.log(w);
+								$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
+ 
+								$("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
+									if ($("#mwt_mwt_slider_scroll").css('right') == '-'+w+'px')
+									{
+										$("#mwt_mwt_slider_scroll").animate({ right:'20px' }, 600 ,'swing');
+									}
+								}); 
+								$("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
+									$("#mwt_mwt_slider_scroll").animate( { right:'-'+w+'px' },600 ,'swing');	
+								});	
+							});
 
-							console.log("GGQQ");
-				
-				}
-
-
+							$('#addNewEventBox').click(function(){
+								$(this).fancybox({
+								'autoScale': true,
+								'transitionIn': 'elastic',
+								'transitionOut': 'elastic',
+								'speedIn': 500,
+								'speedOut': 300,
+								'autoDimensions': true,
+								'centerOnScroll': true,
+								'content': $('#inline').html(),
+								});
+							});
+	
+					},
+					error:function(err){
+							console.log(err);
+					}
+				})
 			} else {
 				window.location.hash = '';
 			}
-			$(function(){
-				var w = $("#mwt_mwt_slider_scroll").width();
-				console.log(w);
-				$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
- 
-				$("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
-					if ($("#mwt_mwt_slider_scroll").css('right') == '-'+w+'px')
-					{
-						$("#mwt_mwt_slider_scroll").animate({ right:'20px' }, 600 ,'swing');
-					}
-				}); 
-				$("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
-					$("#mwt_mwt_slider_scroll").animate( { right:'-'+w+'px' },600 ,'swing');	
-				});	
-			});
-
-			$('#addNewEventBox').click(function(){
-				$(this).fancybox({
-					'autoScale': true,
-					'transitionIn': 'elastic',
-					'transitionOut': 'elastic',
-					'speedIn': 500,
-					'speedOut': 300,
-					'autoDimensions': true,
-					'centerOnScroll': true,
-					'content': $('#inline').html(),
-				});
-			});
-			$('#send').click(function(){
-				console.log("new_event");
-				/*	new_event = new Event();
-		        new_event.set('name', name);
-           		new_event.set('time', time);
-       			new_event.set('location', location);
-       			new_event.set('amount', amount);
-            	new_event.set('ngo', ngo);
-            	new_event.set('contact', contact);
-            	new_event.set('phone', phone);
-		        new_event.save(null, {
-      		 		success: function(new_event){
-        				console.log("new_event");
-   					}
-            	});*/
-			});
-			
+	
 
 
-		},
+		}
 	};
 
 	var r=Parse.Router.extend({
@@ -399,6 +372,37 @@ function FacebookLogin(){
 }
 
  
+
+$(document).on('click', '#send', function(){
+	console.log("fancybox");
+	var Event = Parse.Object.extend("event"); 
+	new_event = new Event();
+	var date = new Date($('div#fancybox-content input#activity_time').val());
+	new_event.set('name', $('div#fancybox-content input#activity_name').val());
+	new_event.set('time', date);
+	new_event.set('location',$('div#fancybox-content input#activity_location').val());
+	new_event.set('amount', $('div#fancybox-content input#activity_amount').val());
+	new_event.set('ngo',$('div#fancybox-content input#activity_ngo').val());
+	new_event.set('contact',$('div#fancybox-content input#activity_contact').val());
+	new_event.set('phone',$('div#fancybox-content input#activity_phone').val());
+	new_event.set('imageURL',$('div#fancybox-content input#activity_imageurl').val());
+	new_event.set('ngoURL',$('div#fancybox-content input#activity_ngourl').val());
+	new_event.set('ngoimgURL',$('div#fancybox-content input#activity_ngoimgurl').val());
+	new_event.set('ngodetail',$('div#fancybox-content input#activity_ngodetail').val());
+	new_event.set('tag_type',$('div#fancybox-content select#activity_tag_type').val());
+	new_event.set('tag_area',$('div#fancybox-content select#activity_tag_area').val());
+	new_event.set('detail',$('div#fancybox-content input#activity_detail').val());
+	new_event.save(null, {
+		success: function(new_event){
+			console.log(new_event);
+			$.fancybox.close();
+		},
+		error : function(new_event,error){
+			console.log(error.description,name,location,"QQ");
+
+		} 
+	});
+});	
 
 
 
