@@ -626,6 +626,7 @@ a:hover
  	height: 400px;
  	color: #333;
  	background-color: #FFF;
+	margin:1em auto;
  	padding: .8em 0;
  }
 
