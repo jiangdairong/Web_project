@@ -2,19 +2,21 @@
 	Parse.initialize("RmleLSMnkCyiCdVpqfWJ562fmhf8vEl4h4NeQKuL","09pdjU4X0sosunvxliKBYV8JLGhEni7F8QLHWBMP");
 
 	var templates = {};
-	["indexView","indexView_2","indexView_3","eventView","EventPage","EventDetailView","shareTable","shareTabledetail","ngoView","ngoDetail","NGOPage","aboutView","event_category","location_category"].forEach(function(t){
+	["indexView","indexView_2","indexView_3","eventView","EventDetailView","shareTable","shareTabledetail","ngoView","aboutView","event_category","location_category"].forEach(function(t){
 		var dom = document.getElementById(t);
 		templates[t] = doT.template(dom.text);
 	});
 	var volunteer={
 		indexView:function(){
 			window.scrollTo(0,0); 
+			//document.getElementById("content").innerHTML=templates.indexView();//volunteer;
 			var limit = 12; 
 			var skip = 0; 
 
 			var Event = Parse.Object.extend("event"); 
 			var query = new Parse.Query(Event); 
-		
+			// query.limit(limit); 
+			// query.skip(skip);
 			query.descending("updateAt"); 
 			query.find({success: function(results){
 				var objList = results.map(function(e){ return e.toJSON() });
@@ -47,15 +49,15 @@
 			
 
 		},
-		eventView:function(page){
+		eventView:function(){
+			//document.getElementById("content").innerHTML=templates.eventView();//volunteer;
 			window.scrollTo(0,0); 
 			var limit = 12; 
-			var skip = (page-1) * limit; 
+			var skip = 0; 
 
 			var Event = Parse.Object.extend("event"); 
 			var query = new Parse.Query(Event); 
-			query.limit(limit); 
-			query.skip(skip);
+
 
 			query.find({success: function(results){
 
@@ -63,20 +65,9 @@
 				console.log(objList); 
 				document.getElementById('content').innerHTML = templates.eventView(objList);
 				query.limit(0);
-				query.skip(0);
-				var option = {};
-				query.count({success: function(count){
-					var totalPage = Math.ceil(count / limit);
-					var currentPage = parseInt(page); 
-					option = {
-						'previous': (currentPage === 1) ? 1 : currentPage-1,
-						'next': (currentPage === totalPage) ? currentPage : currentPage+1, 
-						'current': currentPage,
-						'last': totalPage,
-					};
-					document.getElementById('Event_pagination').innerHTML = templates.EventPage(option);  
-				}, error: function(err){}
-				});
+
+
+
 
 				$(function(){
 					var w = $("#mwt_mwt_slider_scroll").width();
@@ -98,6 +89,7 @@
 				});
 
 				$('#addNewEventBox').click(function(){
+					console.log("new_event");
 					$(this).fancybox({
 						'autoScale': true,
 						'transitionIn': 'elastic',
@@ -121,11 +113,7 @@
 				query.get(eventdetail_id, { 
 					success: function(eventdetail){
 						document.getElementById('content').innerHTML = templates.EventDetailView(eventdetail.toJSON());
-						//var url="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=299735220203958";
-						var url = window.location.href;//'http://www.google.com.tw/';
-						var encode_url = encodeURIComponent(url);
-						$('#fb_likes').attr("src","//www.facebook.com/plugins/like.php?href="+encode_url+"width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=299735220203958");
-					
+
 					}, error: function(object, error){
 					}
 				});
@@ -134,12 +122,17 @@
 			}
 		},
 		shareTable:function(){
+			//document.getElementById("content").innerHTML=templates.shareTable();//volunteer;
 			window.scrollTo(0,0); 
 			var limit = 12; 
 			var skip = 0; 
 
 			var Share = Parse.Object.extend("event"); 
 			var query = new Parse.Query(Share); 
+			// query.limit(limit); 
+			// query.skip(skip);
+			// query.descending("time"); 
+
 			query.find({success: function(results){
 
 				var objList = results.map(function(e){ return e.toJSON() });
@@ -166,54 +159,22 @@
 			}
 
 		},
-		ngoView:function(page){
+		ngoView:function(){
 			window.scrollTo(0,0); 
+			//document.getElementById("content").innerHTML=templates.ngoView();//volunteer;
 			var limit = 12; 
-			var skip = (page-1) * limit;
+			var skip = 0; 
 
 			var Share = Parse.Object.extend("event"); 
 			var query = new Parse.Query(Share); 
-			query.limit(limit); 
-			query.skip(skip);
+
 
 			query.find({success: function(results){
 				var objList = results.map(function(e){ return e.toJSON() });
 				console.log(objList); 
 				document.getElementById('content').innerHTML = templates.ngoView(objList);
 				query.limit(0);
-				query.skip(0);
-				var option = {};
-				query.count({success: function(count){
-					var totalPage = Math.ceil(count / limit);
-					var currentPage = parseInt(page); 
-					option = {
-						'previous': (currentPage === 1) ? 1 : currentPage-1,
-						'next': (currentPage === totalPage) ? currentPage : currentPage+1, 
-						'current': currentPage,
-						'last': totalPage,
-					};
-					document.getElementById('NGO_pagination').innerHTML = templates.NGOPage(option);  
-				}, error: function(err){}
-				});
 			}});
-		},
-		ngoDetail:function(ngodetail_id){
-			console.log("ngo detail");
-			window.scrollTo(0,0); 
-			if(ngodetail_id){
-				var NGO = Parse.Object.extend("event"); 
-				var query = new Parse.Query(NGO); 
-				query.get(ngodetail_id, { 
-					success: function(ngoDetail){
-						document.getElementById('content').innerHTML = templates.ngoDetail(ngoDetail.toJSON());
-
-					}, error: function(object, error){
-					}
-				});
-			} else {
-				window.location.hash = '';
-			}
-
 		},
 		aboutView:function(){
 			window.scrollTo(0,0); 
@@ -263,12 +224,16 @@
 	
 					},
 					error:function(err){
+
 							console.log(err);
 					}
 				})
 			} else {
 				window.location.hash = '';
 			}
+	
+
+
 		},
 		location_category:function(category_id){
 			window.scrollTo(0,0);
@@ -328,34 +293,26 @@
 	var r=Parse.Router.extend({
 		routes:{
 			"": 			"indexView",
-			"event": 		"tmp_eventView",
-			"event/:page/": "eventView",
+			"event": 		"eventView",
 			"sharetable": 	"shareTable",
-			"ngo": 			"tmp_ngoView",
-			"ngo/:page/":	"ngoView",
+			"ngo": 			"ngoView",
 			"eventdetail/:eventdetail_id/": 			"EventDetailView",
 			"shareTabledetail/:shareTabledetail_id/": 	"shareTabledetail",
-			"ngodetail/:ngodetail_id/": 				"ngoDetail",
 			"about": 		"aboutView",
-			"category/:category_id": 	"event_category", 
+			"category/:category_id": 	"event_category",
 			"location/:category_id":    "location_category", 
+
 		},
 		indexView: 		volunteer.indexView,
-		tmp_eventView: function(){
-    		return volunteer.eventView(1);
-    	},
 		eventView: 		volunteer.eventView,
 		shareTable: 	volunteer.shareTable,
-		tmp_ngoView: function(){
-    		return volunteer.ngoView(1);
-    	},
 		ngoView: 		volunteer.ngoView,
 		EventDetailView:volunteer.EventDetailView,
 		shareTabledetail:volunteer.shareTabledetail,
-		ngoDetail: 		volunteer.ngoDetail,
 		aboutView: 		volunteer.aboutView,
 		event_category: volunteer.event_category,
 		location_category: volunteer.location_category,
+
 	});
 
 	// Initialize the App
@@ -364,6 +321,8 @@
 })();
 
 //For FB login
+
+
 
 
 window.fbAsyncInit = function () {
@@ -423,7 +382,6 @@ function FacebookLogin(){
 	}
 }
 
- 
 
 $(document).on('click', '#send', function(){
 	console.log("fancybox");
@@ -454,10 +412,5 @@ $(document).on('click', '#send', function(){
 
 		} 
 	});
-});	
-
-
-
-
-
+});		
 
